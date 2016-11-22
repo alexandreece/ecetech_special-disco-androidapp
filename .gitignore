@@ -75,6 +75,8 @@ captures/
 # Général #
 ###########
 
+.idea/
+
 # Compiled source #
 ###################
 *.com
