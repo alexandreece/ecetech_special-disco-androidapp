@@ -4,7 +4,7 @@ package SQLite;
  * Created by alex on 06/12/2016.
  */
 
-public class Scores {
+public class Score {
 
     private int idScore;
     private int score;
@@ -12,7 +12,8 @@ public class Scores {
     private int niveauJeu;
     private int Equipes_idEquipe;
 
-    public Scores(int score, String dateJeu, int niveauJeu, int equipes_idEquipe) {
+    public Score(int idScore, int score, String dateJeu, int niveauJeu, int equipes_idEquipe) {
+        this.idScore = idScore;
         this.score = score;
         this.dateJeu = dateJeu;
         this.niveauJeu = niveauJeu;
@@ -61,7 +62,7 @@ public class Scores {
 
     @Override
     public String toString() {
-        return "Scores{" +
+        return "Score{" +
                 "idScore=" + idScore +
                 ", score=" + score +
                 ", dateJeu='" + dateJeu + '\'' +

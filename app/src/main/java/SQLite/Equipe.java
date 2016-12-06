@@ -10,7 +10,8 @@ public class Equipe {
     private String nomEquipe;
     private int nbJoueurs;
 
-    public Equipe(String nomEquipe, int nbJoueurs) {
+    public Equipe(int idEquipe, String nomEquipe, int nbJoueurs) {
+        this.idEquipe = idEquipe;
         this.nomEquipe = nomEquipe;
         this.nbJoueurs = nbJoueurs;
     }
