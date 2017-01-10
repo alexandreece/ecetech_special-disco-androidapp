@@ -31,6 +31,7 @@
                 android:text="Lucas"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
+                android:onClick="lucas"
                 />
 
             <Button
@@ -40,15 +41,26 @@
                 android:text="Alex"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
+                android:onClick="alex"
                 />
 
+            <Button
+                android:id="@+id/maeva1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Maeva game"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:onClick="maevaGame"
+                />
             <Button
                 android:id="@+id/maeva"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="Maeva"
-                android:layout_marginTop="50dp"
+                android:text="Maeva players"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:onClick="maevaPlayers"
                 />
         </LinearLayout>
 
