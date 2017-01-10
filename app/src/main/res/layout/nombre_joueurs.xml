@@ -4,8 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#017E80"
     android:weightSum="1">
-    
 
     <TextView
         android:text="Choisissez votre configuration :"
@@ -17,7 +17,8 @@
         android:layout_weight="0.08"
         android:textSize="36sp"
         android:textAlignment="center"
-        android:lineSpacingExtra="8sp" />
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_light" />
 
     <Button
         android:text="2 x 2 joueurs"
