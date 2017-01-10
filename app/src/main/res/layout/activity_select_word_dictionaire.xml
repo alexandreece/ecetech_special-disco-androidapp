@@ -19,7 +19,7 @@
         android:layout_alignParentBottom="true">
 
         <TextView
-            android:text="Choisis une catégorie"
+            android:text="Choisis !"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CatChooser" />
