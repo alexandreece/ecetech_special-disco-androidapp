@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".GameConfiguration" />
         <activity android:name=".SelectRandomWord" />
-        <activity android:name=".PlayersName"></activity>
+        <activity android:name=".PlayersName" />
+        <activity android:name=".SelectWord"></activity>
     </application>
 
 </manifest>
