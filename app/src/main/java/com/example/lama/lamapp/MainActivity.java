@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void adrien(View view) {
-     Intent activityDico = new Intent(MainActivity.this, SelectRandomWord.class);
-        startActivity(activityDico);
+     Intent activityRandomWord = new Intent(MainActivity.this, SelectRandomWord.class);
+        startActivity(activityRandomWord);
 
     }
 }
