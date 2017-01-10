@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameConfiguration" />
-        <activity android:name=".SelectRandomWord"></activity>
+        <activity android:name=".SelectRandomWord" />
     </application>
 
 </manifest>
