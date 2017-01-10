@@ -19,6 +19,14 @@ public class Main extends AppCompatActivity {
         startActivity(activityRandomWord);
 
     }
+
+    public void alex(View view) {
+        Intent activityRandomWord = new Intent(Main.this, SelectWord.class);
+        startActivity(activityRandomWord);
+
+    }
+
+
     public void maevaGame(View view) {
         Intent activityRandomWord = new Intent(Main.this, GameConfiguration.class);
         startActivity(activityRandomWord);
