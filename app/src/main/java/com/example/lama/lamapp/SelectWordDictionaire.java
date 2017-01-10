@@ -28,9 +28,9 @@ public class SelectWordDictionaire extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word_dictionaire);
 
-        CatList = (ListView) findViewById(R.id.CatList);
+        /*CatList = (ListView) findViewById(R.id.CatList);
         dbAction();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SelectWordDictionaire.this,android.R.layout.simple_list_item_1,mots);
-        CatList.setAdapter(adapter);
+        CatList.setAdapter(adapter);*/
     }
 }

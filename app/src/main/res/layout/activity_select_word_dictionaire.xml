@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Faune"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        />
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Flore"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        />
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Faune"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        />
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Faune"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        />
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_select_word_dictionaire"
     android:layout_width="match_parent"
@@ -10,6 +45,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lama.lamapp.SelectWordDictionaire">
 
+<<<<<<<
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -29,4 +65,70 @@
             android:layout_height="match_parent"
             android:id="@+id/CatList"/>
     </LinearLayout>
+=======
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:id="@+id/button2" />
+
+    <TextView
+        android:text="Dictionnaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:id="@+id/button" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginTop="31dp"
+        android:id="@+id/button3" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/button3" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:id="@+id/button5"
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/button4" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:layout_below="@+id/button5"
+        android:layout_alignStart="@+id/button5"
+        android:layout_marginTop="21dp" />
+>>>>>>>
 </RelativeLayout>
+-->
+    </LinearLayout>
