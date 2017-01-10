@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void adrien(View view) {
-     //   Intent activityDico = new Intent(MainActivity.this, SelectWordDictionaire.class);
-       // startActivity(activityDico);
+     Intent activityDico = new Intent(MainActivity.this, SelectWordDictionaire.class);
+        startActivity(activityDico);
 
     }
 }
