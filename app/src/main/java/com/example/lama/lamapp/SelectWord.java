@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class SelectWord extends AppCompatActivity {
 
     ListView listeMots;
-    SQLiteDatabase db = SQLiteDatabase.openDatabase("bdd/LAMapp.db",null,SQLiteDatabase.CONFLICT_NONE);
-    ArrayList<String> mots = new ArrayList<String>();
+    SQLiteDatabase db = SQLiteDatabase.openDatabase("/bdd/LAMapp.db",null,SQLiteDatabase.CONFLICT_NONE);
+    ArrayList<String> mots = new ArrayList<>();
 
     void dbAction(){
         Cursor resultSet = db.rawQuery("select * from WordsList order by category",null);
         resultSet.moveToFirst();
-        if (resultSet.moveToNext()){
+        while (resultSet.moveToNext()){
             mots.add(resultSet.getString(3));
         }
     }
@@ -30,10 +30,8 @@ public class SelectWord extends AppCompatActivity {
 
         listeMots = (ListView) findViewById(R.id.listViewSelectWord);
         dbAction();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SelectWord.this,android.R.layout.simple_list_item_1,mots);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(SelectWord.this,android.R.layout.simple_list_item_1,mots);
         listeMots.setAdapter(adapter);
 
-
     }
-
 }
