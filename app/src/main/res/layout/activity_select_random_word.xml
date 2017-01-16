@@ -11,6 +11,8 @@
         android:text="Faune"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="#EEEEEE"
         />
     <Button
         android:layout_width="250dp"
@@ -18,6 +20,8 @@
         android:text="Flore"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="#EEEEEE"
         />
     <Button
         android:layout_width="250dp"
@@ -25,6 +29,8 @@
         android:text="Faune"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="#EEEEEE"
         />
     <Button
         android:layout_width="250dp"
@@ -32,6 +38,8 @@
         android:text="Faune"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="#EEEEEE"
         />
 
 </LinearLayout>

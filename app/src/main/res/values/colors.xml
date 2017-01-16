@@ -3,4 +3,6 @@
     <color name="colorPrimary">#09b2b4</color>
     <color name="colorPrimaryDark">#017e80</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="Grey_LAMApp">#818181</color>
+    <color name="Green_LAMApp">#35a54f</color>
 </resources>

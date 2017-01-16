@@ -19,8 +19,10 @@
         <activity android:name=".SelectRandomWord" />
         <activity android:name=".PlayersName" />
         <activity android:name=".SelectWord" />
-        <activity android:name=".SelectActivity" />
-        <activity android:name=".PlayScreen"></activity>
+        <activity android:name=".SelectLevel" />
+        <activity android:name=".PlayScreen"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.NoTitleBar"></activity>
     </application>
 
 </manifest>

@@ -9,63 +9,67 @@
 
     <TextView
         android:text="Choisissez votre configuration :"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
         android:layout_weight="0.08"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"
         android:textSize="36sp"
-        android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:textAlignment="center"
+        android:id="@+id/textView" />
 
     <Button
         android:text="2 x 2 joueurs"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:id="@+id/button3"
         android:layout_weight="0.06"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:background="@android:color/background_light" />
+        android:id="@+id/button3" />
 
     <Button
         android:text="2 x 3 joueurs"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:id="@+id/button4"
         android:layout_weight="0.06"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:background="@android:color/background_light" />
+        android:id="@+id/button4" />
 
     <Button
         android:text="2 x 4 joueurs"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:id="@+id/button5"
         android:layout_weight="0.06"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:background="@android:color/background_light" />
+        android:id="@+id/button5" />
 
     <Button
         android:text="2 x 5 joueurs"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:id="@+id/button6"
         android:layout_weight="0.06"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:background="@android:color/background_light" />
+        android:id="@+id/button6" />
 
 </LinearLayout>
