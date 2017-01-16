@@ -87,9 +87,9 @@
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="15dp"
         android:textAlignment="textEnd"
-        android:id="@+id/text_team_one"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_team_one"/>
 
     <Button
         android:layout_width="80dp"
@@ -97,27 +97,27 @@
         android:layout_marginBottom="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/text_round"
-        android:textSize="24sp"
-        android:textAlignment="center"
         android:background="@drawable/gradient_box"
-        android:id="@+id/button_quit_word"
         android:backgroundTint="#818181"
         android:elevation="0dp"
+        android:text="X"
+        android:textSize="24sp"
+        android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:text="X" />
+        android:id="@+id/button_quit_word" />
 
     <Button
-        android:text="V"
         android:layout_width="80dp"
         android:layout_height="250dp"
         android:layout_marginBottom="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/text_team_one"
-        android:textSize="24sp"
-        android:textAlignment="center"
         android:background="@drawable/gradient_box"
         android:backgroundTint="#35a54f"
-        android:id="@+id/button_valid_word"
-        android:textColor="@android:color/background_light" />
+        android:text="V"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:id="@+id/button_valid_word"/>
 
 </RelativeLayout>
