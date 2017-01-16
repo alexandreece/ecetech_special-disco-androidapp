@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation= "horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#017E80"
@@ -16,12 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:textAlignment="textStart"
         android:id="@+id/text_round" />
 
     <TextView
-        android:text="Joueur 1 "
+        android:text="Joueur 1"
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/background_light"
@@ -29,10 +29,52 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="30dp"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="textStart"
-        android:id="@+id/text_team_one_player_one"
-        android:layout_weight="0.48" />
+        android:textAlignment="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_team_one_player_one" />
+
+    <TextView
+        android:text="1 : 00"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_light"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/chronometer" />
+
+    <TextView
+        android:text="Vélociraptor"
+        android:textSize="50sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_light"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/word_play" />
+
+    <TextView
+        android:text="9/60"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_light"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/word_find" />
 
     <TextView
         android:text="LAMAtraque"
@@ -43,9 +85,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
         android:textAlignment="textEnd"
-        android:id="@+id/text_team_one" />
+        android:id="@+id/text_team_one"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
-</LinearLayout>
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_round"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:background="@drawable/gradient_box"
+        android:id="@+id/button_quit_word"
+        android:backgroundTint="#818181"
+        android:elevation="0dp"
+        android:textColor="@android:color/background_light"
+        android:text="X" />
+
+    <Button
+        android:text="V"
+        android:layout_width="80dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/text_team_one"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:background="@drawable/gradient_box"
+        android:backgroundTint="#35a54f"
+        android:id="@+id/button_valid_word"
+        android:textColor="@android:color/background_light" />
+
+</RelativeLayout>
