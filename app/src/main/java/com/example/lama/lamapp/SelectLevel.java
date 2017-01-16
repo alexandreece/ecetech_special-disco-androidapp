@@ -3,7 +3,7 @@ package com.example.lama.lamapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SelectActivity extends AppCompatActivity {
+public class SelectLevel extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
