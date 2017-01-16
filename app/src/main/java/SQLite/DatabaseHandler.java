@@ -2,6 +2,7 @@ package SQLite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -158,5 +159,61 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_WORDSLIST, null, values);
         db.close();
+    }
+
+    //READ SINGLE
+    Equipe getEquipe(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_EQUIPES, new String[] { KEY_ID_EQUIPE, KEY_NOM_EQUIPE, KEY_NBJOUEURS_EQUIPE }, KEY_ID_EQUIPE + "=?", new String[]{ String.valueOf(id)},null,null,null,null);
+        if (cursor!=null)
+            cursor.moveToFirst();
+
+        Equipe equipe = new Equipe(Integer.parseInt(cursor.getString(0)),cursor.getString(1), Integer.parseInt(cursor.getString(2)));
+        return equipe;
+    }
+
+    Joueur getJoueur(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_JOUEURS, new String[] { KEY_ID_JOUEUR, KEY_NOM_JOUEUR }, KEY_ID_JOUEUR + "=?", new String[]{ String.valueOf(id)},null,null,null,null);
+        if (cursor!=null)
+            cursor.moveToFirst();
+
+        Joueur joueur = new Joueur(Integer.parseInt(cursor.getString(0)),cursor.getString(1));
+        return joueur;
+    }
+
+    PreviousWord getPreviousWord(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_PREVIOUSWORDS, new String[] { KEY_ID_PREVIOUSWORDS, KEY_PREVIOUSWORD }, KEY_ID_PREVIOUSWORDS + "=?", new String[]{String.valueOf(id)},null,null,null,null);
+        if (cursor!=null)
+            cursor.moveToFirst();
+
+        PreviousWord previousWord = new PreviousWord(Integer.parseInt(cursor.getString(0)),cursor.getString(1));
+        return previousWord;
+    }
+
+    Score getScore(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_SCORES, new String[] { KEY_ID_SCORE, KEY_SCORE, KEY_DATEJEU_SCORE, KEY_NIVEAUJEU_SCORE, KEY_ID_EQUIPE }, KEY_ID_SCORE + "=?", new String[]{ String.valueOf(id)},null,null,null,null);
+        if (cursor!=null)
+            cursor.moveToFirst();
+
+        Score score = new Score(Integer.parseInt(cursor.getString(0)),Integer.parseInt(cursor.getString(1)),cursor.getString(2),Integer.parseInt(cursor.getString(3)),Integer.parseInt(cursor.getString(4)));
+        return score;
+    }
+
+    Word getWord(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_WORDSLIST, new String[] {  KEY_ID_WORD, KEY_CATEGORY, KEY_WORD }, KEY_ID_WORD + "=?", new String[]{ String.valueOf(id)},null,null,null,null);
+        if (cursor!=null)
+            cursor.moveToFirst();
+
+        Word word = new Word(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+        return word;
     }
 }
