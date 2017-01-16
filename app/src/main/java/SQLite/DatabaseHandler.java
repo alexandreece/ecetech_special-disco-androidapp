@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by alex on 16/01/2017.
  *
@@ -215,5 +218,106 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         Word word = new Word(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
         return word;
+    }
+
+    //READ ALL
+    public List<Equipe> getAllEquipes() {
+        List<Equipe> equipes = new ArrayList<Equipe>();
+        String selectQuery = "SELECT * FROM " + TABLE_EQUIPES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Equipe equipe = new Equipe();
+                equipe.setIdEquipe(Integer.parseInt(cursor.getString(0)));
+                equipe.setNomEquipe(cursor.getString(1));
+                equipe.setNbJoueurs(Integer.parseInt(cursor.getString(2)));
+
+                equipes.add(equipe);
+            }while (cursor.moveToNext());
+        }
+        return equipes;
+    }
+
+    public List<Joueur> getAllJoueurs() {
+        List<Joueur> joueurs = new ArrayList<Joueur>();
+        String selectQuery = "SELECT * FROM " + TABLE_JOUEURS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Joueur joueur = new Joueur();
+                joueur.setIdJoueur(Integer.parseInt(cursor.getString(0)));
+                joueur.setNomJoueur(cursor.getString(1));
+
+                joueurs.add(joueur);
+            }while (cursor.moveToNext());
+        }
+        return joueurs;
+    }
+
+    public List<PreviousWord> getAllPreviousWords() {
+        List<PreviousWord> previousWordList = new ArrayList<PreviousWord>();
+        String selectQuery = "SELECT * FROM " + TABLE_PREVIOUSWORDS;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                PreviousWord word = new PreviousWord();
+                word.setIdPreviousWord(Integer.parseInt(cursor.getString(0)));
+                word.setPreviousWord(cursor.getString(1));
+
+                previousWordList.add(word);
+            }while (cursor.moveToNext());
+        }
+        return previousWordList;
+    }
+
+    public List<Score> getAllScores() {
+        List<Score> scores = new ArrayList<Score>();
+        String selectQuery = "SELECT * FROM " + TABLE_SCORES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Score score = new Score();
+                score.setIdScore(Integer.parseInt(cursor.getString(0)));
+                score.setScore(Integer.parseInt(cursor.getString(1)));
+                score.setDateJeu(cursor.getString(2));
+                score.setNiveauJeu(Integer.parseInt(cursor.getString(3)));
+                score.setEquipes_idEquipe(Integer.parseInt(cursor.getString(4)));
+
+                scores.add(score);
+            }while (cursor.moveToNext());
+        }
+        return scores;
+    }
+
+    public List<Word> getWordsList() {
+        List<Word> wordList = new ArrayList<Word>();
+        String selectQuery = "SELECT * FROM " + TABLE_WORDSLIST;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Word word = new Word();
+                word.setIdWord(Integer.parseInt(cursor.getString(0)));
+                word.setCategory(cursor.getString(1));
+                word.setWord(cursor.getString(2));
+
+                wordList.add(word);
+            }while (cursor.moveToNext());
+        }
+        return wordList;
     }
 }
