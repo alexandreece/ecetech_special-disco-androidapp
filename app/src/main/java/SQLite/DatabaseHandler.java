@@ -1,5 +1,6 @@
 package SQLite;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -49,6 +50,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CATEGORY = "category";
     private static final String KEY_WORD = "word";
 
+
+    //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+    //CONSTRUCTEUR
+    public DatabaseHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
     //CREATION DES TABLES
@@ -57,11 +64,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_TABLE_EQUIPES = "CREATE TABLE " + TABLE_EQUIPES + " ("
                 + KEY_ID_EQUIPE + " INTEGER PRIMARY KEY," + KEY_NOM_EQUIPE + " TEXT,"
                 + KEY_NBJOUEURS_EQUIPE + " INTEGER)";
-        String CREATE_TABLE_JOUEURS = "CREATE TABLE " + TABLE_JOUEURS + " (";
-        String CREATE_TABLE_JOUEURS_HAS_EQUIPES = ;
-        String CREATE_TABLE_PREVIOUSWORDS = ;
-        String CREATE_TABLE_SCORES = ;
-        String CREATE_TABLE_WORDSLIST = ;
+        String CREATE_TABLE_JOUEURS = "CREATE TABLE " + TABLE_JOUEURS + " ("
+                + KEY_ID_JOUEUR + " INTEGER PRIMARY KEY," + KEY_NOM_JOUEUR + " TEXT)";
+        String CREATE_TABLE_JOUEURS_HAS_EQUIPES = "CREATE TABLE " + TABLE_JOUEURS_HAS_EQUIPES + " ("
+                + KEY_ID_JOUEUR + " INTEGER," + KEY_ID_EQUIPE + " INTEGER)";
+        String CREATE_TABLE_PREVIOUSWORDS = "CREATE TABLE " + TABLE_PREVIOUSWORDS + " ("
+                + KEY_ID_PREVIOUSWORDS + " INTEGER PRIMARY KEY," + KEY_PREVIOUSWORD + " TEXT)";
+        String CREATE_TABLE_SCORES = "CREATE TABLE " + TABLE_SCORES + " ("
+                + KEY_ID_SCORE + " INTEGER PRIMARY KEY," + KEY_SCORE + " INTEGER,"
+                + KEY_DATEJEU_SCORE + " TEXT," + KEY_NIVEAUJEU_SCORE + " INTEGER,"
+                + KEY_ID_EQUIPE + " INTEGER)";
+        String CREATE_TABLE_WORDSLIST = "CREATE TABLE " + TABLE_WORDSLIST + " ("
+                + KEY_ID_WORD + " INTEGER PRIMARY KEY,"
+                + KEY_CATEGORY + " TEXT," + KEY_WORD + " TEXT)";
 
         db.execSQL(CREATE_TABLE_EQUIPES);
         db.execSQL(CREATE_TABLE_JOUEURS);
@@ -84,4 +99,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         onCreate(db);
     }
+
+    //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+    //CRUD
+
+    
 }
