@@ -6,11 +6,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import SQLite.DatabaseHandler;
+import SQLite.Word;
 
 public class SelectWord extends AppCompatActivity {
 
     ListView listeMots;
-    ArrayList<String> mots = new ArrayList<>();
+    List<Word> mots = new ArrayList<>();
+    ArrayAdapter<String> adapter;
+    DatabaseHandler db = new DatabaseHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +24,13 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
 
         listeMots = (ListView) findViewById(R.id.listViewSelectWord);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(SelectWord.this,android.R.layout.simple_list_item_1,mots);
+
+        mots = db.getWordsList();
+
         listeMots.setAdapter(adapter);
+
+        for (Word mot : mots) {
+            adapter.add(mot.toString());
+        }
     }
 }
