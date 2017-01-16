@@ -1,5 +1,6 @@
 package SQLite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -103,5 +104,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     //CRUD
 
-    
+    //CREATE
+    void addEquipe(Equipe equipe){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOM_EQUIPE, equipe.getNomEquipe());
+    }
 }

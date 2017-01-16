@@ -12,6 +12,14 @@ public class Equipe {
         this.nbJoueurs = nbJoueurs;
     }
 
+    public Equipe(String nomEquipe, int nbJoueurs) {
+        this.nomEquipe = nomEquipe;
+        this.nbJoueurs = nbJoueurs;
+    }
+
+    public Equipe() {
+    }
+
     public int getIdEquipe() {
         return idEquipe;
     }

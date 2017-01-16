@@ -14,6 +14,13 @@ public class PreviousWord {
         this.previousWord = previousWord;
     }
 
+    public PreviousWord(String previousWord) {
+        this.previousWord = previousWord;
+    }
+
+    public PreviousWord() {
+    }
+
     public int getIdPreviousWord() {
         return idPreviousWord;
     }

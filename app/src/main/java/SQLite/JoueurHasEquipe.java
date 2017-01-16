@@ -14,6 +14,9 @@ public class JoueurHasEquipe {
         this.idEquipe = idEquipe;
     }
 
+    public JoueurHasEquipe() {
+    }
+
     public int getIdJoueur() {
         return idJoueur;
     }

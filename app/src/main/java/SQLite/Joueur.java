@@ -14,6 +14,13 @@ public class Joueur {
         this.nomJoueur = nomJoueur;
     }
 
+    public Joueur(String nomJoueur) {
+        this.nomJoueur = nomJoueur;
+    }
+
+    public Joueur() {
+    }
+
     public int getIdJoueur() {
         return idJoueur;
     }

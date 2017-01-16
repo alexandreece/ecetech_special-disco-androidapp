@@ -16,6 +16,14 @@ public class Word {
         this.word = word;
     }
 
+    public Word(String category, String word) {
+        this.category = category;
+        this.word = word;
+    }
+
+    public Word() {
+    }
+
     public int getIdWord() {
         return idWord;
     }

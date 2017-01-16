@@ -20,6 +20,16 @@ public class Score {
         Equipes_idEquipe = equipes_idEquipe;
     }
 
+    public Score(int score, String dateJeu, int niveauJeu, int equipes_idEquipe) {
+        this.score = score;
+        this.dateJeu = dateJeu;
+        this.niveauJeu = niveauJeu;
+        Equipes_idEquipe = equipes_idEquipe;
+    }
+
+    public Score() {
+    }
+
     public int getIdScore() {
         return idScore;
     }
