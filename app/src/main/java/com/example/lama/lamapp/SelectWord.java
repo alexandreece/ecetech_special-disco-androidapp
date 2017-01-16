@@ -27,10 +27,11 @@ public class SelectWord extends AppCompatActivity {
 
         mots = db.getWordsList();
 
-        listeMots.setAdapter(adapter);
-
         for (Word mot : mots) {
             adapter.add(mot.toString());
         }
+
+        listeMots.setAdapter(adapter);
+
     }
 }
