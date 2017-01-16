@@ -110,5 +110,53 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NOM_EQUIPE, equipe.getNomEquipe());
+        values.put(KEY_NBJOUEURS_EQUIPE, equipe.getNbJoueurs());
+
+        db.insert(TABLE_EQUIPES, null, values);
+        db.close();
+    }
+
+    void addJoueur(Joueur joueur){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOM_JOUEUR, joueur.getNomJoueur());
+
+        db.insert(TABLE_JOUEURS, null, values);
+        db.close();
+    }
+
+    void addPreviousWord(PreviousWord word){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_PREVIOUSWORD, word.getPreviousWord());
+
+        db.insert(TABLE_PREVIOUSWORDS, null, values);
+        db.close();
+    }
+
+    void addScore(Score score){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_SCORE,score.getScore());
+        values.put(KEY_DATEJEU_SCORE,score.getDateJeu());
+        values.put(KEY_NIVEAUJEU_SCORE,score.getNiveauJeu());
+        values.put(KEY_ID_EQUIPE, score.getEquipes_idEquipe());
+
+        db.insert(TABLE_SCORES, null, values);
+        db.close();
+    }
+
+    void addWord(Word word){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_CATEGORY,word.getCategory());
+        values.put(KEY_WORD,word.getWord());
+
+        db.insert(TABLE_WORDSLIST, null, values);
+        db.close();
     }
 }
