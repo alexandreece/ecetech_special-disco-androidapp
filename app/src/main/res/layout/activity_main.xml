@@ -28,7 +28,7 @@
                 android:id="@+id/lucas"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="Quitter"
+                android:text="Lucas"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
                 android:onClick="lucas"
