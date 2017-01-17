@@ -21,8 +21,6 @@ public class Main extends AppCompatActivity {
     }
 
     public void alex(View view) {
-        Intent activityRandomWord = new Intent(Main.this, SelectWord.class);
-        startActivity(activityRandomWord);
 
     }
 

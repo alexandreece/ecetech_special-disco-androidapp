@@ -18,7 +18,6 @@
         <activity android:name=".GameConfiguration" />
         <activity android:name=".SelectRandomWord" />
         <activity android:name=".PlayersName" />
-        <activity android:name=".SelectWord" />
         <activity android:name=".SelectLevel" />
         <activity android:name=".PlayScreen"
                   android:screenOrientation="landscape"
