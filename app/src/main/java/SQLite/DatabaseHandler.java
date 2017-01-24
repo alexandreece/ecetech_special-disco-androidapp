@@ -19,7 +19,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1; //Database Version
-    private static final String DATABASE_NAME = "LAMapp.db"; //Database Name
+    private static final String DATABASE_NAME = "src/main/data/LAMapp.db"; //Database Name
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
