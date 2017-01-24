@@ -14,10 +14,19 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void lucasLevel(View view) {
+        Intent activitySelectLevel = new Intent(Main.this, SelectLevel.class);
+        startActivity(activitySelectLevel);
+    }
+
+    public void lucasInGame(View view) {
+        Intent activityInGame = new Intent(Main.this, InGame.class);
+        startActivity(activityInGame);
+    }
+
     public void adrien(View view) {
      Intent activityRandomWord = new Intent(Main.this, SelectRandomWord.class);
         startActivity(activityRandomWord);
-
     }
 
     public void alex(View view) {
@@ -25,12 +34,11 @@ public class Main extends AppCompatActivity {
         startActivity(activitySelectWord);
     }
 
-
     public void maevaGame(View view) {
         Intent activityRandomWord = new Intent(Main.this, GameConfiguration.class);
         startActivity(activityRandomWord);
-
     }
+
     public void maevaPlayers(View view) {
         Intent activityRandomWord = new Intent(Main.this, PlayersName.class);
         startActivity(activityRandomWord);
