@@ -23,7 +23,8 @@
             android:name=".PlayScreen"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name=".SelectWord"></activity>
+        <activity android:name=".SelectWord" />
+        <activity android:name=".InGame"></activity>
     </application>
 
 </manifest>
