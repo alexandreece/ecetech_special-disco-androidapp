@@ -14,6 +14,11 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void goto_Main(View view) {
+        Intent activityMenuJeu = new Intent(Main.this, MenuJeu.class);
+        startActivity(activityMenuJeu);
+    }
+
     public void lucasLevel(View view) {
         Intent activitySelectLevel = new Intent(Main.this, SelectLevel.class);
         startActivity(activitySelectLevel);

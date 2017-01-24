@@ -20,7 +20,8 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/gradient_box"
         android:backgroundTint="@android:color/background_light"
-        android:id="@+id/button_play" />
+        android:id="@+id/button_play"
+        android:onClick="goto_GameConfiguration" />
 
     <Button
         android:text="Scores"
