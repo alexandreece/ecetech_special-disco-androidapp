@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#017E80"
-    android:weightSum="1"
-    android:orientation="vertical">
+    android:weightSum="1">
 
     <TextView
         android:text="Manche 1"

@@ -20,11 +20,8 @@
         <activity android:name=".PlayersName" />
         <activity android:name=".SelectLevel" />
         <activity android:name=".SelectWord" />
-        <activity
-            android:name=".InGame"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name=".MenuJeu"></activity>
+        <activity android:name=".InGame" android:screenOrientation="landscape" />
+        <activity android:name=".MenuJeu" />
     </application>
 
 </manifest>
