@@ -63,19 +63,6 @@
 
     <EditText
         android:layout_width="248dp"
-        android:id="@+id/editText4"
-        android:textColor="?attr/actionMenuTextColor"
-        android:background="#FFFFFF"
-        android:layout_gravity="center"
-        android:textAlignment="textStart"
-        android:hint=" Exemple: LAMAlédiction"
-        android:layout_marginTop="21dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="248dp"
         android:layout_height="30dp"
         android:id="@+id/editText1"
         android:textColor="?attr/actionMenuTextColor"
@@ -86,20 +73,6 @@
         android:layout_marginTop="26dp"
         android:layout_below="@+id/textView1"
         android:layout_alignStart="@+id/editText4" />
-
-    <TextView
-        android:text="Joueur :"
-        android:layout_marginLeft="10dp"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:id="@+id/textView4"
-        android:textSize="30sp"
-        android:textAlignment="viewStart"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/editText4"
-        android:layout_alignStart="@+id/textView2" />
 
     <EditText
         android:layout_height="30dp"
@@ -112,5 +85,32 @@
         android:layout_width="200dp"
         android:layout_alignTop="@+id/textView4"
         android:layout_alignStart="@+id/editText3" />
+
+    <TextView
+        android:text="Joueur :"
+        android:layout_marginLeft="10dp"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/textView4"
+        android:textSize="30sp"
+        android:textAlignment="viewStart"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/textView2" />
+
+    <EditText
+        android:layout_width="248dp"
+        android:id="@+id/editText4"
+        android:textColor="?attr/actionMenuTextColor"
+        android:background="#FFFFFF"
+        android:layout_gravity="center"
+        android:textAlignment="textStart"
+        android:hint=" Exemple: LAMAlédiction"
+        android:layout_marginTop="23dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

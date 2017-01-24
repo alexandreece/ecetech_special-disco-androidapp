@@ -2,7 +2,6 @@ package com.example.lama.lamapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.content.Intent;
 import android.view.View;
 
 public class GameConfiguration extends AppCompatActivity {

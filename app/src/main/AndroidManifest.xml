@@ -11,6 +11,7 @@
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -19,7 +20,11 @@
         <activity android:name=".PlayersName" />
         <activity android:name=".SelectLevel" />
         <activity android:name=".SelectWord" />
-        <activity android:name=".InGame" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar" ></activity>
+        <activity
+            android:name=".InGame"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:name=".MenuJeu"></activity>
     </application>
 
 </manifest>
