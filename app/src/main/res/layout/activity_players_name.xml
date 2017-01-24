@@ -104,4 +104,18 @@
         android:layout_alignBottom="@+id/textView4"
         android:layout_toEndOf="@+id/textView4" />
 
+    <Button
+        android:text="Valider"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="37dp"
+        android:backgroundTint="@android:color/background_light"
+        android:background="@drawable/gradient_box"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:id="@+id/button1"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp" />
+
 </RelativeLayout>
