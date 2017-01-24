@@ -74,18 +74,6 @@
         android:layout_below="@+id/textView1"
         android:layout_alignStart="@+id/editText4" />
 
-    <EditText
-        android:layout_height="30dp"
-        android:id="@+id/editText2"
-        android:textColor="?attr/actionMenuTextColor"
-        android:background="#FFFFFF"
-        android:layout_gravity="center"
-        android:textAlignment="textStart"
-        android:hint=" Exemple: Versatil"
-        android:layout_width="200dp"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_alignStart="@+id/editText3" />
-
     <TextView
         android:text="Joueur :"
         android:layout_marginLeft="10dp"
@@ -112,5 +100,17 @@
         android:layout_height="30dp"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_height="30dp"
+        android:id="@+id/editText5"
+        android:textColor="?attr/actionMenuTextColor"
+        android:background="#FFFFFF"
+        android:layout_gravity="center"
+        android:hint=" Exemple: Versatil"
+        android:layout_width="200dp"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp" />
 
 </RelativeLayout>
