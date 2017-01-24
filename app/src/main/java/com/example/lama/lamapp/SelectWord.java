@@ -32,12 +32,12 @@ public class SelectWord extends AppCompatActivity {
 
         for(int i = 0 ; i < mots.length ; i++) {
             element = new HashMap<String, String>();
-            element.put("text1", mots[i][0]);
-            element.put("text2", mots[i][1]);
+            element.put("mot", mots[i][0]);
+            element.put("categorie", mots[i][1]);
             liste.add(element);
         }
 
-        ListAdapter adapter = new SimpleAdapter(this, liste, android.R.layout.simple_list_item_2, new String[] {"text1", "text2"}, new int[] {android.R.id.text1, android.R.id.text2 });
+        ListAdapter adapter = new SimpleAdapter(this, liste, android.R.layout.simple_list_item_2, new String[] {"mot", "categorie"}, new int[] {android.R.id.text1, android.R.id.text2 });
         vue.setAdapter(adapter);
 
     }
