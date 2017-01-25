@@ -25,7 +25,8 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MenuJeu" />
-        <activity android:name=".Didacticiel"></activity>
+        <activity android:name=".Didacticiel" />
+        <activity android:name=".EnterWord"></activity>
     </application>
 
 </manifest>
