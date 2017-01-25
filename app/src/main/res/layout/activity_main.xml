@@ -16,20 +16,31 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/goto_Main"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Main Menu"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:onClick="goto_Main"
+                />
+
+            <Button
                 android:id="@+id/adrien"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="adrien"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:onClick="adrien"/>
+                android:onClick="adrien"
+                />
 
             <Button
                 android:id="@+id/lucas_level"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="lucas level"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:onClick="lucasLevel"
                 />
@@ -37,9 +48,9 @@
             <Button
                 android:id="@+id/lucas_game"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="lucas game"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:onClick="lucasInGame"
                 />
@@ -47,9 +58,9 @@
             <Button
                 android:id="@+id/alex"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="Alex"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:onClick="alex"
                 />
@@ -57,9 +68,9 @@
             <Button
                 android:id="@+id/maeva1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="Maeva game"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:onClick="maevaGame"
                 />
@@ -67,9 +78,9 @@
             <Button
                 android:id="@+id/maeva"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:text="Maeva players"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:onClick="maevaPlayers"
                 />
