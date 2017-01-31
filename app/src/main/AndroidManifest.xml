@@ -28,7 +28,9 @@
         <activity android:name=".Didacticiel" />
         <activity android:name=".EnterWord" />
         <activity android:name=".premiere_manche" />
-        <activity android:name=".Premiere_manche"></activity>
+        <activity android:name=".Premiere_manche" />
+        <activity android:name=".Deuxieme_manche" />
+        <activity android:name=".Troisieme_manche"></activity>
     </application>
 
 </manifest>
