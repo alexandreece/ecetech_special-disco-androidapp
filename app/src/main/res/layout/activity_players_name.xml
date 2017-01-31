@@ -109,13 +109,15 @@
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_width="140dp"
         android:backgroundTint="@android:color/background_light"
         android:background="@drawable/gradient_box"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:id="@+id/button1"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_width="140dp" />
+        android:id="@+id/ValidateNames"
+        android:onClick="goto_SelectLevel"
+        />
 
 </RelativeLayout>
