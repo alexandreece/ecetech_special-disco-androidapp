@@ -1,10 +1,16 @@
-package com.example.lama.lamapp.SQLite;
+package com.example.lama.lamapp;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.lama.lamapp.SQLite.Equipe;
+import com.example.lama.lamapp.SQLite.Joueur;
+import com.example.lama.lamapp.SQLite.PreviousWord;
+import com.example.lama.lamapp.SQLite.Score;
+import com.example.lama.lamapp.SQLite.Word;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addPreviousWord(PreviousWord word){
+    void addPreviousWord(PreviousWord word){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
