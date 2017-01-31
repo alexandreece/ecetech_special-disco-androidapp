@@ -26,7 +26,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MenuJeu" />
         <activity android:name=".Didacticiel" />
-        <activity android:name=".EnterWord"></activity>
+        <activity android:name=".EnterWord" />
+        <activity android:name=".premiere_manche" />
+        <activity android:name=".Premiere_manche"></activity>
     </application>
 
 </manifest>
