@@ -6,11 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.lama.lamapp.SQLite.Equipe;
-import com.example.lama.lamapp.SQLite.Joueur;
-import com.example.lama.lamapp.SQLite.PreviousWord;
-import com.example.lama.lamapp.SQLite.Score;
-import com.example.lama.lamapp.SQLite.Word;
+import com.example.lama.lamapp.DAOs.Equipe;
+import com.example.lama.lamapp.DAOs.Joueur;
+import com.example.lama.lamapp.DAOs.PreviousWord;
+import com.example.lama.lamapp.DAOs.Score;
+import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
 import java.util.List;

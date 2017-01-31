@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.example.lama.lamapp.SQLite.PreviousWord;
+import com.example.lama.lamapp.DAOs.PreviousWord;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.lama.lamapp.SQLite;
+package com.example.lama.lamapp.DAOs;
 
 public class Equipe {
 

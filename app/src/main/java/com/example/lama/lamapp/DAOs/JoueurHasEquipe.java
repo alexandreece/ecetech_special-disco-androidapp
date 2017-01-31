@@ -1,4 +1,4 @@
-package com.example.lama.lamapp.SQLite;
+package com.example.lama.lamapp.DAOs;
 
 /**
  * Created by alex on 06/12/2016.
