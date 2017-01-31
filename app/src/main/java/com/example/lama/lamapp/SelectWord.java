@@ -5,11 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
+import com.example.lama.lamapp.SQLite.DatabaseHandler;
+import com.example.lama.lamapp.SQLite.PreviousWord;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import SQLite.DatabaseHandler;
-import SQLite.PreviousWord;
 
 public class SelectWord extends AppCompatActivity {
 

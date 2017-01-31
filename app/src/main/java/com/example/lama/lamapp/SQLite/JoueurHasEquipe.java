@@ -1,4 +1,4 @@
-package SQLite;
+package com.example.lama.lamapp.SQLite;
 
 /**
  * Created by alex on 06/12/2016.
