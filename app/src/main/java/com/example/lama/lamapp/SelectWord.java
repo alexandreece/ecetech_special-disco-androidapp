@@ -1,14 +1,15 @@
 package com.example.lama.lamapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListAdapter;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+
+import SQLite.DatabaseHandler;
+import SQLite.PreviousWord;
 
 public class SelectWord extends AppCompatActivity {
 
@@ -19,25 +20,24 @@ public class SelectWord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word);
 
+        DatabaseHandler db = new DatabaseHandler(this);
+
         vue = (ListView) findViewById(R.id.list);
 
-        String[][] mots = new String[][]{
-                {"Brad Pitt", "People"},
-                {"The Rock", "People"},
-                {"Lombric", "Faune"}
-        };
+        db.addPreviousWord(new PreviousWord("Brad Pitt"));
+        db.addPreviousWord(new PreviousWord("The Rock"));
+        db.addPreviousWord(new PreviousWord("Lombric"));
 
-        List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> element;
+        List<PreviousWord> previousWords = db.getAllPreviousWords();
 
-        for(int i = 0 ; i < mots.length ; i++) {
-            element = new HashMap<String, String>();
-            element.put("mot", mots[i][0]);
-            element.put("categorie", mots[i][1]);
-            liste.add(element);
+
+        List<String> liste = new ArrayList<String>();
+
+        for (PreviousWord mot : previousWords){
+            liste.add(mot.getPreviousWord());
         }
 
-        ListAdapter adapter = new SimpleAdapter(this, liste, android.R.layout.simple_list_item_2, new String[] {"mot", "categorie"}, new int[] {android.R.id.text1, android.R.id.text2 });
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
         vue.setAdapter(adapter);
 
     }

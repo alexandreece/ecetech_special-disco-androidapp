@@ -130,7 +130,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    void addPreviousWord(PreviousWord word){
+    public void addPreviousWord(PreviousWord word){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
