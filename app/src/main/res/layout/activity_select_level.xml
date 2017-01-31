@@ -32,7 +32,8 @@
         android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:id="@+id/button_easy"/>
+        android:id="@+id/button_easy"
+        android:onClick="goto_GameConfiguration" />
 
     <Button
         android:text="Intermédiaire"
@@ -45,7 +46,8 @@
         android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:id="@+id/button_intermediate" />
+        android:id="@+id/button_intermediate"
+        android:onClick="goto_GameConfiguration" />
 
     <Button
         android:text="Difficile"
@@ -58,6 +60,7 @@
         android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:id="@+id/button_hard" />
+        android:id="@+id/button_hard"
+        android:onClick="goto_GameConfiguration" />
 
 </LinearLayout>

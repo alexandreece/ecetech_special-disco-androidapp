@@ -21,7 +21,7 @@
         android:background="@drawable/gradient_box"
         android:backgroundTint="@android:color/background_light"
         android:id="@+id/button_play"
-        android:onClick="goto_GameConfiguration" />
+        android:onClick="goto_SelectLevel" />
 
     <Button
         android:text="Scores"

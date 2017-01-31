@@ -13,8 +13,8 @@ public class MenuJeu extends AppCompatActivity {
         setContentView(R.layout.activity_menu_jeu);
     }
 
-    public void goto_GameConfiguration(View view) {
-        Intent activityGameConfiguration = new Intent(MenuJeu.this, GameConfiguration.class);
-        startActivity(activityGameConfiguration);
+    public void goto_SelectLevel(View view) {
+        Intent activitySelectLevel = new Intent(MenuJeu.this, SelectLevel.class);
+        startActivity(activitySelectLevel);
     }
 }

@@ -30,7 +30,8 @@
         <activity android:name=".premiere_manche" />
         <activity android:name=".Premiere_manche" />
         <activity android:name=".Deuxieme_manche" />
-        <activity android:name=".Troisieme_manche"></activity>
+        <activity android:name=".Troisieme_manche" />
+        <activity android:name=".Fin_de_manche"></activity>
     </application>
 
 </manifest>
