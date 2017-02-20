@@ -53,6 +53,7 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="?attr/colorButtonNormal"
         android:background="@drawable/gradient_box"
+        android:onClick="goto_Didacticiel"
         android:id="@+id/button_rules"/>
 
 </LinearLayout>

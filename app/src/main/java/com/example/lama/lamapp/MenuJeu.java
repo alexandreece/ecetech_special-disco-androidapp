@@ -17,4 +17,10 @@ public class MenuJeu extends AppCompatActivity {
         Intent activitySelectLevel = new Intent(MenuJeu.this, SelectLevel.class);
         startActivity(activitySelectLevel);
     }
+
+    public void goto_Didacticiel(View view) {
+        Intent activityDidacticiel = new Intent(MenuJeu.this, Didacticiel.class);
+        startActivity(activityDidacticiel);
+
+    }
 }
