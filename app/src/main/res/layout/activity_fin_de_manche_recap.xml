@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#017E80"
     android:weightSum="1"
     android:orientation="horizontal">
 
@@ -18,8 +17,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="38dp"
         android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light" />
+        android:textStyle="normal|bold" />
 
     <Button
         android:text="Toucher pour passer"
@@ -29,38 +27,10 @@
         android:gravity="center"
         android:background="@color/colorPrimaryDark"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/background_light"
         android:textStyle="normal|bold"
         android:textSize="18sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="9 mots trouvés"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="67dp"
-        android:layout_below="@+id/textView1"
-        android:layout_toEndOf="@+id/textView1" />
-
-    <TextView
-        android:text="11 mots trouvés"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignStart="@+id/textView" />
 
     <TextView
         android:text="LAMAtraque : "
@@ -70,7 +40,6 @@
         android:textSize="30sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
         android:layout_marginEnd="253dp"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
@@ -84,7 +53,6 @@
         android:textSize="30sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
         android:layout_marginTop="43dp"
         android:layout_marginEnd="232dp"
         android:layout_below="@+id/textView"
@@ -98,9 +66,34 @@
         android:textSize="30sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
         android:layout_above="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:text="11 mots trouvés"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="15dp" />
+
+    <TextView
+        android:text="9 mots trouvés"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="71dp"
+        android:layout_below="@+id/textView1"
+        android:layout_toEndOf="@+id/textView1" />
 
 </RelativeLayout>

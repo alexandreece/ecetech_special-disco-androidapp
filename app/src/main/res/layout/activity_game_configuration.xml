@@ -32,7 +32,8 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button3"
-        android:onClick="nbJoueursx2" />
+        android:onClick="nbJoueursx2"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="2 x 3 joueurs"
@@ -46,7 +47,8 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button4"
-        android:onClick="nbJoueursx3"/>
+        android:onClick="nbJoueursx3"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="2 x 4 joueurs"
@@ -60,7 +62,8 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button5"
-        android:onClick="nbJoueursx4"/>
+        android:onClick="nbJoueursx4"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="2 x 5 joueurs"
@@ -74,5 +77,6 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button6"
-        android:onClick="nbJoueursx5"/>
+        android:onClick="nbJoueursx5"
+        android:textColor="@android:color/black" />
 </LinearLayout>

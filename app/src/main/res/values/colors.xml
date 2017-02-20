@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#017e80</color>
     <color name="colorAccent">#ff4081</color>
     <color name="Grey_LAMApp">#818181</color>
-    <color name="Green_LAMApp">#35a54f</color>
+    <color name="colorText">#ffffff</color>
 </resources>
