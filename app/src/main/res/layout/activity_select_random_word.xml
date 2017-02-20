@@ -76,7 +76,7 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button5"
+        android:id="@+id/button8"
         android:textColor="@android:color/black" />
 
 </LinearLayout>

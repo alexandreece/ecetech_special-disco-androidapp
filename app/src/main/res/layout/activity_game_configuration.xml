@@ -61,7 +61,7 @@
         android:backgroundTint="@android:color/background_light"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:id="@+id/button5"
+        android:id="@+id/button8"
         android:onClick="nbJoueursx4"
         android:textColor="@android:color/black" />
 
