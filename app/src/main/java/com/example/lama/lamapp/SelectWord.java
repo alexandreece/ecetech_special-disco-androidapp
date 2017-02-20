@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.lama.lamapp.DAOs.PreviousWord;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +23,15 @@ public class SelectWord extends AppCompatActivity {
 
         DatabaseHandler db = new DatabaseHandler(this);
 
-        vue = (ListView) findViewById(R.id.list);
 
         db.addPreviousWord(new PreviousWord("Brad Pitt"));
         db.addPreviousWord(new PreviousWord("The Rock"));
         db.addPreviousWord(new PreviousWord("Lombric"));
 
         List<PreviousWord> previousWords = db.getAllPreviousWords();
+
+
+        vue = (ListView) findViewById(R.id.list);
 
 
         List<String> liste = new ArrayList<String>();
