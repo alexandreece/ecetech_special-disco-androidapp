@@ -21,7 +21,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     //The Android's default system path of your application database.
     //private static String DB_PATH = MyApplication.getAppContext().getPackageName()+"/databases/";
-    private static String DB_PATH = "/data/data/votre_package_name/databases/";
+    private static String DB_PATH = "/data/data/com.example.lama.lamapp/databases/";
 
     private static String DB_NAME = "le_nom_de_votre_base";
 
