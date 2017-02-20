@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#017E80"
     android:weightSum="1">
 
     <TextView
@@ -18,7 +17,6 @@
         android:textSize="36sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
         android:id="@+id/textView1" />
 
     <Button
@@ -33,7 +31,8 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_easy"
-        android:onClick="goto_GameConfiguration" />
+        android:onClick="goto_GameConfiguration"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="Intermédiaire"
@@ -47,7 +46,8 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_intermediate"
-        android:onClick="goto_GameConfiguration" />
+        android:onClick="goto_GameConfiguration"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="Difficile"
@@ -61,6 +61,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_hard"
-        android:onClick="goto_GameConfiguration" />
+        android:onClick="goto_GameConfiguration"
+        android:textColor="@android:color/black" />
 
 </LinearLayout>

@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#017E80"
     android:weightSum="1">
 
     <ImageView
@@ -27,7 +26,8 @@
         android:background="@drawable/gradient_box"
         android:backgroundTint="@android:color/background_light"
         android:id="@+id/button_play"
-        android:onClick="goto_SelectLevel" />
+        android:onClick="goto_SelectLevel"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="Scores"
@@ -39,7 +39,8 @@
         android:layout_marginTop="100dp"
         android:backgroundTint="@android:color/background_light"
         android:background="@drawable/gradient_box"
-        android:id="@+id/button_scores" />
+        android:id="@+id/button_scores"
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="Règles"
@@ -52,6 +53,7 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="?attr/colorButtonNormal"
         android:background="@drawable/gradient_box"
+        android:onClick="goto_Didacticiel"
         android:id="@+id/button_rules"/>
 
 </LinearLayout>
