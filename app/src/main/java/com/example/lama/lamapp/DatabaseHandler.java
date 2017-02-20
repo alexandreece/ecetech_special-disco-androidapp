@@ -20,6 +20,9 @@ import java.util.List;
  *
  * http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
  *
+ * https://openclassrooms.com/forum/sujet/android-chargement-base-de-donnee-sqlite
+ *
+ * http://stackoverflow.com/questions/9109438/how-to-use-an-existing-database-with-an-android-application
  */
 
 public class DatabaseHandler extends SQLiteOpenHelper {

@@ -5,10 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
 import com.example.lama.lamapp.DAOs.PreviousWord;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +25,7 @@ public class SelectWord extends AppCompatActivity {
         db.addPreviousWord(new PreviousWord("Brad Pitt"));
         db.addPreviousWord(new PreviousWord("The Rock"));
         db.addPreviousWord(new PreviousWord("Lombric"));
+
 
         List<PreviousWord> previousWords = db.getAllPreviousWords();
 
