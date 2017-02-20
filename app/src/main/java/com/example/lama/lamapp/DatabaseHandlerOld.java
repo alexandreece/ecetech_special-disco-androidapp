@@ -3,9 +3,7 @@ package com.example.lama.lamapp;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.lama.lamapp.DAOs.Equipe;
@@ -14,10 +12,6 @@ import com.example.lama.lamapp.DAOs.PreviousWord;
 import com.example.lama.lamapp.DAOs.Score;
 import com.example.lama.lamapp.DAOs.Word;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +25,12 @@ import java.util.List;
  * http://stackoverflow.com/questions/9109438/how-to-use-an-existing-database-with-an-android-application
  */
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class DatabaseHandlerOld extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1; //Database Version
     private static final String DATABASE_PATH = "/data/data/com.example.lama.lamapp/databases/";
     private static final String DATABASE_NAME = "LAMapp.db";
-
-    private SQLiteDatabase myDataBase;
-    private final Context myContext;
+    private static final String PATH = DATABASE_PATH+DATABASE_NAME;
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
@@ -77,125 +69,51 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     //CONSTRUCTEUR
-    public DatabaseHandler(Context context) {
+    public DatabaseHandlerOld(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.myContext = context;
     }
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
-    /**
-     * Creates a empty database on the system and rewrites it with your own database.
-     * */
-    public void createDataBase() throws IOException{
-
-        boolean dbExist = checkDataBase();
-
-        if(dbExist){
-            //do nothing - database already exist
-        }else{
-
-            //By calling this method and empty database will be created into the default system path
-            //of your application so we are gonna be able to overwrite that database with our database.
-            this.getReadableDatabase();
-
-            try {
-
-                copyDataBase();
-
-            } catch (IOException e) {
-
-                throw new Error("Error copying database");
-
-            }
-        }
-
-    }
-
-    /**
-     * Check if the database already exist to avoid re-copying the file each time you open the application.
-     * @return true if it exists, false if it doesn't
-     */
-    private boolean checkDataBase(){
-
-        SQLiteDatabase checkDB = null;
-
-        try{
-            String myPath = DATABASE_PATH + DATABASE_NAME;
-            checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-
-        }catch(SQLiteException e){
-
-            //database does't exist yet.
-
-        }
-
-        if(checkDB != null){
-
-            checkDB.close();
-
-        }
-
-        return checkDB != null ? true : false;
-    }
-
-    /**
-     * Copies your database from your local assets-folder to the just created empty database in the
-     * system folder, from where it can be accessed and handled.
-     * This is done by transfering bytestream.
-     * */
-    private void copyDataBase() throws IOException {
-
-        //Open your local db as the input stream
-        InputStream myInput = myContext.getAssets().open(DATABASE_NAME);
-
-        // Path to the just created empty db
-        String outFileName = DATABASE_PATH + DATABASE_NAME;
-
-        //Open the empty db as the output stream
-        OutputStream myOutput = new FileOutputStream(outFileName);
-
-        //transfer bytes from the inputfile to the outputfile
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = myInput.read(buffer))>0){
-            myOutput.write(buffer, 0, length);
-        }
-
-        //Close the streams
-        myOutput.flush();
-        myOutput.close();
-        myInput.close();
-
-    }
-
-    public void openDataBase() throws SQLException {
-
-        //Open the database
-        String myPath = DATABASE_PATH + DATABASE_NAME;
-        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-
-    }
-
-    @Override
-    public synchronized void close() {
-
-        if(myDataBase != null)
-            myDataBase.close();
-
-        super.close();
-
-    }
-
-    //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-
+    //CREATION DES TABLES
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_TABLE_EQUIPES = "CREATE TABLE " + TABLE_EQUIPES + " ("
+                + KEY_ID_EQUIPE + " INTEGER PRIMARY KEY," + KEY_NOM_EQUIPE + " TEXT,"
+                + KEY_NBJOUEURS_EQUIPE + " INTEGER)";
+        String CREATE_TABLE_JOUEURS = "CREATE TABLE " + TABLE_JOUEURS + " ("
+                + KEY_ID_JOUEUR + " INTEGER PRIMARY KEY," + KEY_NOM_JOUEUR + " TEXT)";
+        String CREATE_TABLE_JOUEURS_HAS_EQUIPES = "CREATE TABLE " + TABLE_JOUEURS_HAS_EQUIPES + " ("
+                + KEY_ID_JOUEUR + " INTEGER," + KEY_ID_EQUIPE + " INTEGER)";
+        String CREATE_TABLE_PREVIOUSWORDS = "CREATE TABLE " + TABLE_PREVIOUSWORDS + " ("
+                + KEY_ID_PREVIOUSWORDS + " INTEGER PRIMARY KEY," + KEY_PREVIOUSWORD + " TEXT)";
+        String CREATE_TABLE_SCORES = "CREATE TABLE " + TABLE_SCORES + " ("
+                + KEY_ID_SCORE + " INTEGER PRIMARY KEY," + KEY_SCORE + " INTEGER,"
+                + KEY_DATEJEU_SCORE + " TEXT," + KEY_NIVEAUJEU_SCORE + " INTEGER,"
+                + KEY_ID_EQUIPE + " INTEGER)";
+        String CREATE_TABLE_WORDSLIST = "CREATE TABLE " + TABLE_WORDSLIST + " ("
+                + KEY_ID_WORD + " INTEGER PRIMARY KEY,"
+                + KEY_CATEGORY + " TEXT," + KEY_WORD + " TEXT)";
 
+        db.execSQL(CREATE_TABLE_EQUIPES);
+        db.execSQL(CREATE_TABLE_JOUEURS);
+        db.execSQL(CREATE_TABLE_JOUEURS_HAS_EQUIPES);
+        db.execSQL(CREATE_TABLE_PREVIOUSWORDS);
+        db.execSQL(CREATE_TABLE_SCORES);
+        db.execSQL(CREATE_TABLE_WORDSLIST);
     }
+
+    //MISE À JOUR DE LA BASE
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EQUIPES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_JOUEURS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_JOUEURS_HAS_EQUIPES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PREVIOUSWORDS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SCORES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORDSLIST);
 
+        onCreate(db);
     }
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★

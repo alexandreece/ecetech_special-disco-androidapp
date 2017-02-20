@@ -1,5 +1,6 @@
 package com.example.lama.lamapp;
 
+import android.database.SQLException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -7,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.lama.lamapp.DAOs.PreviousWord;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +24,25 @@ public class SelectWord extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
 
 
-        db.addPreviousWord(new PreviousWord("Brad Pitt"));
-        db.addPreviousWord(new PreviousWord("The Rock"));
-        db.addPreviousWord(new PreviousWord("Lombric"));
+        try {
+
+            db.createDataBase();
+
+        } catch (IOException ioe) {
+
+            throw new Error("Unable to create database");
+
+        }
+
+        try {
+
+            db.openDataBase();
+
+        }catch(SQLException sqle){
+
+            throw sqle;
+
+        }
 
 
         List<PreviousWord> previousWords = db.getAllPreviousWords();
