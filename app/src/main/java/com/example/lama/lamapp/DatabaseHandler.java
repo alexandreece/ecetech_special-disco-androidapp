@@ -22,7 +22,7 @@ import java.util.List;
  *
  */
 
-public class DatabaseHandlerAlt extends SQLiteOpenHelper {
+public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1; //Database Version
     private static final String DATABASE_PATH = "/data/data/com.example.lama.lamapp/databases/";
@@ -66,7 +66,7 @@ public class DatabaseHandlerAlt extends SQLiteOpenHelper {
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     //CONSTRUCTEUR
-    public DatabaseHandlerAlt(Context context) {
+    public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
