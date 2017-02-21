@@ -94,6 +94,15 @@
                 android:layout_gravity="center"
                 android:onClick="maevaEnterWord"
                 />
+            <Button
+                android:id="@+id/playername"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Maeva enter word"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:onClick="playername"
+                />
         </LinearLayout>
 
     </LinearLayout>
