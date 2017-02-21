@@ -49,4 +49,10 @@ public class Main extends AppCompatActivity {
         startActivity(activityRandomWord);
 
     }
+
+    public void maevaEnterWord(View view) {
+        Intent activityRandomWord = new Intent(Main.this, EnterWord.class);
+        startActivity(activityRandomWord);
+
+    }
 }

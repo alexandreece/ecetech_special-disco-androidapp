@@ -94,7 +94,8 @@
                 android:id="@+id/button2"
                 android:layout_width="140dp"
                 android:textColor="@color/colorPrimaryDark"
-                android:layout_height="35dp" />
+                android:layout_height="35dp"
+                android:onClick="goto_MenuJeu"/>
         </LinearLayout>
 
     </ScrollView>
