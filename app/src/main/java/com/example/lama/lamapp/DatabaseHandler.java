@@ -38,10 +38,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private final Context myContext;
 
     private static final int DATABASE_VERSION = 1; //Database Version
-    //private static final String DATABASE_PATH = "/data/data/com.example.lama.lamapp/databases/";
     private static String DATABASE_PATH = "";
     private static final String DATABASE_NAME = "LAMapp.db";
-    //private static final String DATABASE_NAME = "";
 
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
@@ -83,7 +81,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.myContext = context;
-        //DATABASE_PATH =  "/data/data/" + myContext.getPackageName() + "/databases/";
         DATABASE_PATH = myContext.getDatabasePath(DATABASE_NAME).getPath();
         Log.i("DB_PATH", DATABASE_PATH);
     }
@@ -95,14 +92,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void createDataBase() throws IOException{
 
         boolean dbExist = checkDataBase();
-        Log.i("Check DB", " exists "+dbExist);
 
         if(dbExist==true){
             //do nothing - database already exist
-            Log.i("DATABASE","exists");
         }else{
 
-            Log.i("DATABASE","does not exist");
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
             this.getReadableDatabase();
@@ -128,19 +122,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase checkDB = null;
 
-        Log.i("Hello","1");
-
         try{
-            //String myPath = DATABASE_PATH + DATABASE_NAME;
             String myPath = DATABASE_PATH;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-            Log.i("Hello", "2");
 
         }catch(SQLiteException e){
-            Log.i("Hello","Catch");
-
             //database does't exist yet.
-
         }
 
         if(checkDB != null){
@@ -163,7 +150,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         InputStream myInput = myContext.getAssets().open(DATABASE_NAME);
 
         // Path to the just created empty db
-        //String outFileName = DATABASE_PATH + DATABASE_NAME;
         String outFileName = DATABASE_PATH;
 
         //Open the empty db as the output stream
@@ -186,9 +172,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void openDataBase() throws SQLException {
 
         //Open the database
-        //String myPath = DATABASE_PATH + DATABASE_NAME;
-        String myPath = DATABASE_PATH;
-        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        myDataBase = SQLiteDatabase.openDatabase(DATABASE_PATH, null, SQLiteDatabase.OPEN_READONLY);
 
     }
 
