@@ -15,7 +15,8 @@ public class PlayersName extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_name);
 
-        ListView mListView;
+        ListView aListView;
+        ListView bListView;
         String[] prenoms = new String[]{
                 "Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
                 "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
@@ -24,14 +25,16 @@ public class PlayersName extends AppCompatActivity {
                 "Yann", "Zoé"
         };
 
-        mListView = (ListView) findViewById(R.id.listeEqA);
+        aListView = (ListView) findViewById(R.id.listeEqA);
+        bListView = (ListView) findViewById(R.id.listeEqB);
 
         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
         //Contenant une TextView avec comme identifiant "@android:id/text1"
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, prenoms);
-        mListView.setAdapter(adapter);
+        aListView.setAdapter(adapter);
+        bListView.setAdapter(adapter);
     }
 
     public void goto_SelectLevel(View view) {
