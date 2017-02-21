@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.lama.lamapp.DAOs.PreviousWord;
+import com.example.lama.lamapp.DAOs.Word;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class SelectWord extends AppCompatActivity {
         }
 
 
-        List<PreviousWord> previousWords = db.getAllPreviousWords();
+        List<Word> words = db.getWordsList();
 
 
         vue = (ListView) findViewById(R.id.list);
@@ -53,8 +53,8 @@ public class SelectWord extends AppCompatActivity {
 
         List<String> liste = new ArrayList<String>();
 
-        for (PreviousWord mot : previousWords){
-            liste.add(mot.getPreviousWord());
+        for (Word mot : words){
+            liste.add(mot.getWord());
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
