@@ -6,15 +6,7 @@ import com.example.lama.lamapp.DAOs.Joueur;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-public class Game {
-=======
-/*
- * Created by VRSTL on 31/01/2017.
- */
-
 class Game {
->>>>>>> 20d329783dc48a72441a02fba976f59b88e36df7
 
     // ----- INSTANTIATION ----- //
     int Level;
