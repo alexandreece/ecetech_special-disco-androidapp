@@ -21,6 +21,5 @@ public class MenuJeu extends AppCompatActivity {
     public void goto_Didacticiel(View view) {
         Intent activityDidacticiel = new Intent(MenuJeu.this, Didacticiel.class);
         startActivity(activityDidacticiel);
-
     }
 }
