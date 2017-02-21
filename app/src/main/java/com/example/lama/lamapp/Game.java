@@ -10,7 +10,7 @@ import java.util.List;
  * Created by VRSTL on 31/01/2017.
  */
 
-public class Game {
+class Game {
 
     // ----- INSTANTIATION ----- //
     int Level;
