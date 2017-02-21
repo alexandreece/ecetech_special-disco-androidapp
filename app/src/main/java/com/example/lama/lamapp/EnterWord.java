@@ -9,7 +9,6 @@ import android.widget.ListView;
 public class EnterWord extends AppCompatActivity {
 
     ListView vue1;
-    ListView vue2;
 
     String[] equipe = new String[]{
             "Lamatraque", "Lamalédiction"
@@ -20,13 +19,18 @@ public class EnterWord extends AppCompatActivity {
         setContentView(R.layout.activity_enter_word);
 
         vue1 = (ListView) findViewById(R.id.list1);
-        vue2 = (ListView) findViewById(R.id.list2);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(EnterWord.this,
                 android.R.layout.simple_list_item_1, equipe);
         vue1.setAdapter(adapter);
 
     }
+
+   /* private List<PlayersEnterWord> affichageEnterWords(){
+        List<PlayersEnterWord> words = new ArrayList<PlayersEnterWord>();
+        words.add(new PlayersEnterWord(Color.BLACK, "Florent", "Mon premier tweet !"));
+        return words;
+    }*/
 
 
 
