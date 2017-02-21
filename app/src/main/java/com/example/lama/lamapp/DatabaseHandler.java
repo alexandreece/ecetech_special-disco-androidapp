@@ -105,12 +105,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 copyDataBase();
 
             } catch (IOException e) {
-
                 throw new Error("Error copying database");
-
             }
         }
-
     }
 
     /**
@@ -148,11 +145,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //Open your local db as the input stream
         InputStream myInput = myContext.getAssets().open(DATABASE_NAME);
 
-        // Path to the just created empty db
-        String outFileName = DATABASE_PATH;
-
         //Open the empty db as the output stream
-        OutputStream myOutput = new FileOutputStream(outFileName);
+        OutputStream myOutput = new FileOutputStream(DATABASE_PATH);
 
         //transfer bytes from the inputfile to the outputfile
         byte[] buffer = new byte[1024];
@@ -169,10 +163,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public void openDataBase() throws SQLException {
-
         //Open the database
         myDataBase = SQLiteDatabase.openDatabase(DATABASE_PATH, null, SQLiteDatabase.OPEN_READONLY);
-
     }
 
     @Override
