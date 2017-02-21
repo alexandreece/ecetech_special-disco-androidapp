@@ -5,18 +5,8 @@
     android:weightSum="1"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Nommez l'équipe A :"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="31dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
 
+   <!--
     <TextView
         android:text="Joueur :"
         android:layout_marginLeft="10dp"
@@ -115,5 +105,51 @@
         android:id="@+id/ValidateNames"
         android:onClick="goto_SelectLevel"
         android:textColor="@android:color/black" />
+-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Nomez l'équipe A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/EqA"
+            android:layout_alignParentTop="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:id="@+id/listeEqA"
+            android:layout_below="@id/EqA"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+        android:text="Nomez l'équipe B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/EqB"
+            android:layout_below="@id/listeEqA"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:id="@+id/listeEqB"
+            android:layout_below="@id/EqB"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -55,4 +55,9 @@ public class Main extends AppCompatActivity {
         startActivity(activityRandomWord);
 
     }
+    public void playername(View view) {
+        Intent activityRandomWord = new Intent(Main.this, PlayersName.class);
+        startActivity(activityRandomWord);
+
+    }
 }
