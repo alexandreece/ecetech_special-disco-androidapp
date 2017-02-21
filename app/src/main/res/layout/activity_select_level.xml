@@ -31,7 +31,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_easy"
-        android:onClick="goto_GameConfiguration"
+        android:onClick="goto_GameConfiguration_Easy"
         android:textColor="@android:color/black" />
 
     <Button
@@ -46,7 +46,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_intermediate"
-        android:onClick="goto_GameConfiguration"
+        android:onClick="goto_GameConfiguration_Intermediate"
         android:textColor="@android:color/black" />
 
     <Button
@@ -61,7 +61,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:id="@+id/button_hard"
-        android:onClick="goto_GameConfiguration"
+        android:onClick="goto_GameConfiguration_Hard"
         android:textColor="@android:color/black" />
 
 </LinearLayout>

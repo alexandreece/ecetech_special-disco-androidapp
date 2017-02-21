@@ -1,11 +1,13 @@
 package com.example.lama.lamapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class GameConfiguration extends AppCompatActivity {
+
+    Game game = this.returnObject();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +33,10 @@ public class GameConfiguration extends AppCompatActivity {
         Intent activity5PlayersName = new Intent(GameConfiguration.this, PlayersName.class);
         startActivity(activity5PlayersName);
         // Faire passer la variable du nb de joueurs à l'activité suivante
+    }
+
+    private Game returnObject(){
+        SelectLevel SelectLevelObject = new SelectLevel();
+        return SelectLevelObject.game;
     }
 }

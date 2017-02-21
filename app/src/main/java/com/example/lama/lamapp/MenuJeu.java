@@ -7,6 +7,8 @@ import android.view.View;
 
 public class MenuJeu extends AppCompatActivity {
 
+    public Game current_game = new Game();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
