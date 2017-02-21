@@ -6,10 +6,6 @@ import com.example.lama.lamapp.DAOs.Joueur;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Created by VRSTL on 31/01/2017.
- */
-
 public class Game {
 
     //Instantiation des variables
