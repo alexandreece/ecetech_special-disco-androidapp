@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Joueur"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:id="@+id/word"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:text="Ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/validerword"
+        android:layout_alignBaseline="@+id/word"
+        android:layout_alignBottom="@+id/word"
+        android:layout_alignEnd="@+id/dicoword" />
+
+    <Button
+        android:text="Aléatoire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/randomword"
+        android:layout_alignBaseline="@+id/dicoword"
+        android:layout_alignBottom="@+id/dicoword"
+        android:layout_toEndOf="@+id/pastword" />
+
+    <Button
+        android:text="Dictionnaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dicoword"
+        android:layout_below="@+id/validerword"
+        android:layout_toEndOf="@+id/randomword" />
+
+    <Button
+        android:text="Précédents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pastword"
+        android:layout_alignBaseline="@+id/randomword"
+        android:layout_alignBottom="@+id/randomword"
+        android:layout_alignStart="@+id/word" />
 
 </RelativeLayout>
