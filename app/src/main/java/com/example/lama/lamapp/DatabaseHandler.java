@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -15,6 +14,7 @@ import com.example.lama.lamapp.DAOs.PreviousWord;
 import com.example.lama.lamapp.DAOs.Score;
 import com.example.lama.lamapp.DAOs.Word;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -127,6 +127,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     private boolean checkDataBase(){
 
+        /*
         SQLiteDatabase checkDB = null;
 
         try{
@@ -144,6 +145,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return checkDB != null ? true : false;
+        */
+
+        File dbFile = myContext.getDatabasePath(DATABASE_NAME);
+        return dbFile.exists();
+
     }
 
     /**
@@ -192,6 +198,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        Log.i("onCreate","Hello");
 
     }
 
