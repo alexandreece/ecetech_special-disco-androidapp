@@ -22,9 +22,9 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
 
         DatabaseHandler db = new DatabaseHandler(this);
-
-
         List<Word> words = db.getWordsList();
+        db.close();
+
         vue = (ListView) findViewById(R.id.list);
 
         List<String> liste = new ArrayList<String>();
