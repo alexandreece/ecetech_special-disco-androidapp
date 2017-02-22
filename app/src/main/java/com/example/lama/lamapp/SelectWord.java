@@ -22,43 +22,16 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
 
         DatabaseHandler db = new DatabaseHandler(this);
-
-
-        try {
-
-            db.createDataBase();
-
-        } catch (IOException ioe) {
-
-            throw new Error("Unable to create database");
-
-        }
-
-        try {
-
-            db.openDataBase();
-
-        }catch(SQLException sqle){
-
-            throw sqle;
-
-        }
-
-
         List<Word> words = db.getWordsList();
-
+        db.close();
 
         vue = (ListView) findViewById(R.id.list);
 
-
         List<String> liste = new ArrayList<String>();
-
         for (Word mot : words){
             liste.add(mot.getWord());
         }
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
         vue.setAdapter(adapter);
-
     }
 }
