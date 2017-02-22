@@ -20,7 +20,7 @@
             android:text="Entrez les mots"
             android:layout_width="360dp"
             android:layout_height="51dp"
-            android:id="@+id/title1"
+            android:id="@+id/enter_word_title1"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textStyle="normal|bold"
@@ -31,16 +31,16 @@
             android:text="LAMAlédiction"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:id="@+id/eq1"
+            android:id="@+id/enter_word_eq1"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textStyle="normal|bold"
-            android:layout_below="@+id/title1"
+            android:layout_below="@+id/enter_word_title1"
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp" />
 
             <ListView
-            android:id="@+id/list1"
+            android:id="@+id/enter_word_list1"
             android:layout_width="match_parent"
             android:layout_height="104dp"
             android:layout_alignParentStart="true" />
@@ -49,18 +49,18 @@
                 android:text="LAMAtrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/eq2"
+                android:id="@+id/enter_word_eq2"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
-                android:layout_below="@+id/title1"
+                android:layout_below="@+id/enter_word_title1"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="113dp"
-                android:id="@+id/list2" />
+                android:id="@+id/enter_word_list2" />
 
             <Button
                 android:text="Commencer"
@@ -72,7 +72,7 @@
                 android:layout_marginTop="50dp"
                 android:backgroundTint="@android:color/background_light"
                 android:background="@drawable/gradient_box"
-                android:id="@+id/button_start_game"
+                android:id="@+id/enter_word_start"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>

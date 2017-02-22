@@ -9,7 +9,7 @@
         android:text="Dictionnaire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/eq1"
+        android:id="@+id/enter_word_eq1"
         android:textSize="30sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"

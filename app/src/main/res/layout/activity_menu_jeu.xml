@@ -10,7 +10,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
-        android:layout_weight="0.49" />
+        android:layout_weight="0.49"
+        android:id="@+id/menu_logo" />
 
     <Button
         android:text="Jouer !"
@@ -25,7 +26,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/gradient_box"
         android:backgroundTint="@android:color/background_light"
-        android:id="@+id/button_play"
+        android:id="@+id/menu_play"
         android:onClick="goto_SelectLevel"
         android:textColor="@android:color/black" />
 
@@ -39,7 +40,7 @@
         android:layout_marginTop="100dp"
         android:backgroundTint="@android:color/background_light"
         android:background="@drawable/gradient_box"
-        android:id="@+id/button_scores"
+        android:id="@+id/menu_scores"
         android:textColor="@android:color/black" />
 
     <Button
@@ -54,6 +55,6 @@
         android:backgroundTint="?attr/colorButtonNormal"
         android:background="@drawable/gradient_box"
         android:onClick="goto_Didacticiel"
-        android:id="@+id/button_rules"/>
+        android:id="@+id/menu_rules"/>
 
 </LinearLayout>
