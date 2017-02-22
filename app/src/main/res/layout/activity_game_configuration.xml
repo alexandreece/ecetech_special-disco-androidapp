@@ -18,7 +18,7 @@
         android:textStyle="normal|bold"
         android:textColor="@android:color/background_light"
         android:textAlignment="center"
-        android:id="@+id/textView1" />
+        android:id="@+id/eq1" />
 
     <Button
         android:text="2 x 2 joueurs"

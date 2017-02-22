@@ -1,46 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1"
-    android:orientation="vertical">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="127dp">
+        android:layout_marginTop="30dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+        <TextView
+            android:text="Entrez les mots"
+            android:layout_width="360dp"
+            android:layout_height="51dp"
+            android:id="@+id/title1"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
 
-        </RelativeLayout>
+        <TextView
+            android:text="LAMAlédiction"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/eq1"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:layout_below="@+id/title1"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+            <ListView
+            android:id="@+id/list1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="LAMAtrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/eq2"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:layout_below="@+id/title1"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/list2" />
+
+            <Button
+                android:text="Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button7" />
+
+        </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:text="Entrez les mots"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="28dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
 
-    <ListView
-        android:id="@+id/list1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp" />
 
-</RelativeLayout>
