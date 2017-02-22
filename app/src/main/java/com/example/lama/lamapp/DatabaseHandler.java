@@ -82,6 +82,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.myContext = context;
         DATABASE_PATH = myContext.getDatabasePath(DATABASE_NAME).getPath();
+
+        try {
+            this.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+        try {
+            this.openDataBase();
+        }catch(SQLException sqle){
+            throw sqle;
+        }
     }
     //★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
