@@ -37,10 +37,9 @@ public class SelectRandomWord extends AppCompatActivity {
                 Log.i("Faune",mot.getWord());
             }
         }
-        //int index = alea.nextInt(liste.size());
-        //Log.i("Taille liste", ""+index);
-        //String ranMot = liste.get(index);
-        String ranMot = "Tigre";
+        int index = alea.nextInt(liste.size());
+        Log.i("Taille liste", ""+index);
+        String ranMot = liste.get(index);
         Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
     }
 
@@ -95,5 +94,4 @@ public class SelectRandomWord extends AppCompatActivity {
         String ranMot = liste.get(alea.nextInt(liste.size()));
         Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
     }
-
 }
