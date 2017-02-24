@@ -7,7 +7,8 @@ import android.view.View;
 
 public class GameConfiguration extends AppCompatActivity {
 
-    Game game = this.returnObject();
+    private int NbPlayers;
+    private int NbWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,28 +16,63 @@ public class GameConfiguration extends AppCompatActivity {
         setContentView(R.layout.activity_game_configuration);
     }
     public void nbJoueursx2(View view) {
-        Intent activity2PlayersName = new Intent(GameConfiguration.this, PlayersName.class);
-        startActivity(activity2PlayersName);
-        // Faire passer la variable du nb de joueurs à l'activité suivante
+
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game");
+        NbPlayers = 2;
+        game.setNbPlayers(NbPlayers);
+        NbWords = 12;
+        game.setNbWords(NbWords);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
+
     }
     public void nbJoueursx3(View view) {
-        Intent activity3PlayersName = new Intent(GameConfiguration.this, PlayersName.class);
-        startActivity(activity3PlayersName);
-        // Faire passer la variable du nb de joueurs à l'activité suivante
+
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game");
+        NbPlayers = 3;
+        game.setNbPlayers(NbPlayers);
+        NbWords = 8;
+        game.setNbWords(NbWords);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
+
     }
     public void nbJoueursx4(View view) {
-        Intent activity4PlayersName = new Intent(GameConfiguration.this, PlayersName.class);
-        startActivity(activity4PlayersName);
-        // Faire passer la variable du nb de joueurs à l'activité suivante
+
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game");
+        NbPlayers = 4;
+        game.setNbPlayers(NbPlayers);
+        NbWords = 6;
+        game.setNbWords(NbWords);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
+
     }
     public void nbJoueursx5(View view) {
-        Intent activity5PlayersName = new Intent(GameConfiguration.this, PlayersName.class);
-        startActivity(activity5PlayersName);
-        // Faire passer la variable du nb de joueurs à l'activité suivante
-    }
 
-    private Game returnObject(){
-        SelectLevel SelectLevelObject = new SelectLevel();
-        return SelectLevelObject.game;
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game");
+        NbPlayers = 5;
+        game.setNbPlayers(NbPlayers);
+        NbWords = 5;
+        game.setNbWords(NbWords);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
+
     }
 }

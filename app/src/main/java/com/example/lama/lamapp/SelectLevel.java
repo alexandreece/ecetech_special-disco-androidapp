@@ -9,8 +9,6 @@ public class SelectLevel extends AppCompatActivity {
 
     private int level;
 
-    Game game = this.returnObject();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,29 +16,39 @@ public class SelectLevel extends AppCompatActivity {
     }
 
     public void goto_GameConfiguration_Easy(View view) {
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game_current");
         level = 0;
         game.setLevel(level);
-        Intent activityGameConfiguration = new Intent(SelectLevel.this, GameConfiguration.class);
-        startActivity(activityGameConfiguration);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.GameConfiguration");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
     }
 
     public void goto_GameConfiguration_Intermediate(View view) {
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game_current");
         level = 1;
         game.setLevel(level);
-        Intent activityGameConfiguration = new Intent(SelectLevel.this, GameConfiguration.class);
-        startActivity(activityGameConfiguration);
+
+        Intent intent_next = new Intent("com.example.lama.lamapp.GameConfiguration");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
     }
 
     public void goto_GameConfiguration_Hard(View view) {
+        Intent intent = getIntent();
+
+        Game game = (Game) intent.getSerializableExtra("game_current");
         level = 2;
         game.setLevel(level);
-        Intent activityGameConfiguration = new Intent(SelectLevel.this, GameConfiguration.class);
-        startActivity(activityGameConfiguration);
-    }
 
-    private Game returnObject(){
-        MenuJeu MenuJeuObject = new MenuJeu();
-        return MenuJeuObject.current_game;
+        Intent intent_next = new Intent("com.example.lama.lamapp.GameConfiguration");
+        intent_next.putExtra("game", game);
+        startActivity(intent_next);
     }
 
 }

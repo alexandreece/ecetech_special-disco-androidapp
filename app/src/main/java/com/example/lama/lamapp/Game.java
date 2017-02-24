@@ -2,11 +2,11 @@ package com.example.lama.lamapp;
 
 import com.example.lama.lamapp.DAOs.Equipe;
 import com.example.lama.lamapp.DAOs.Joueur;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-class Game {
+class Game implements Serializable{
 
     // ----- INSTANTIATION ----- //
     int Level;

@@ -7,8 +7,6 @@ import android.view.View;
 
 public class MenuJeu extends AppCompatActivity {
 
-    public Game current_game = new Game();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,8 +14,10 @@ public class MenuJeu extends AppCompatActivity {
     }
 
     public void goto_SelectLevel(View view) {
-        Intent activitySelectLevel = new Intent(MenuJeu.this, SelectLevel.class);
-        startActivity(activitySelectLevel);
+        Intent intent = new Intent("com.example.lama.lamapp.SelectLevel");
+        Game current_game = new Game();
+        intent.putExtra("game_current", current_game);
+        startActivity(intent);
     }
 
     public void goto_Didacticiel(View view) {
