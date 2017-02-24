@@ -19,8 +19,8 @@ public class EnterWord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_word);
 
-        vue1 = (ListView) findViewById(R.id.list1);
-        vue2 = (ListView) findViewById(R.id.list2);
+        vue1 = (ListView) findViewById(R.id.enter_word_list1);
+        vue2 = (ListView) findViewById(R.id.enter_word_list2);
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(EnterWord.this,
                 android.R.layout.simple_list_item_1, equipe);
