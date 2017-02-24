@@ -1,15 +1,20 @@
 package com.example.lama.lamapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.lama.lamapp.DAOs.Word;
 
-public class EnterWord extends AppCompatActivity {
+import java.util.ArrayList;
 
-    ListView vue1;
-    ListView vue2;
+
+public class EnterWord extends Activity {
+
+    private ListView vue1;
+    private ListView vue2;
+
+    private EnterWordAdapter myAdapter;
 
     String[] equipe = new String[]{
             "Lamatraque", "Lamalédiction"
@@ -22,10 +27,22 @@ public class EnterWord extends AppCompatActivity {
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(EnterWord.this,
-                android.R.layout.simple_list_item_1, equipe);
-        vue1.setAdapter(adapter1);
+        ArrayList<Word> word = new ArrayList<Word>();
+        Word W1 = new Word();
+        Word W2 = new Word();
 
+        word.add(W1);
+        word.add(W2);
+
+        /*
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(EnterWord.this,
+
+                R.layout.enter_word1, equipe);
+        vue1.setAdapter(adapter1);
+        */
+        myAdapter = new EnterWordAdapter(this,R.layout.enter_word1, word);
+        vue1.setAdapter(myAdapter);
+        vue2.setAdapter(myAdapter);
 
     }
 
