@@ -31,7 +31,7 @@ public class SelectRandomWord extends AppCompatActivity {
     public void fauneTouched(View view){
         List<String> liste = new ArrayList<String>();
         for (Word mot : words){
-            if (mot.getCategory()=="Faune")
+            if (mot.getCategory().equalsIgnoreCase("Faune"))
             {
                 liste.add(mot.getWord());
                 Log.i("Faune",mot.getWord());
@@ -47,7 +47,7 @@ public class SelectRandomWord extends AppCompatActivity {
     public void fictifTouched(View view){
         List<String> liste = new ArrayList<String>();
         for (Word mot : words){
-            if (mot.getCategory()=="Fictif")
+            if (mot.getCategory().equalsIgnoreCase("Fictif"))
             {
                 liste.add(mot.getWord());
                 Log.i("Fictif",mot.getWord());
@@ -60,7 +60,7 @@ public class SelectRandomWord extends AppCompatActivity {
     public void floreTouched(View view){
         List<String> liste = new ArrayList<String>();
         for (Word mot : words){
-            if (mot.getCategory()=="Flore")
+            if (mot.getCategory().equalsIgnoreCase("Flore"))
             {
                 liste.add(mot.getWord());
                 Log.i("Flore",mot.getWord());
@@ -73,7 +73,7 @@ public class SelectRandomWord extends AppCompatActivity {
     public void objetTouched(View view){
         List<String> liste = new ArrayList<String>();
         for (Word mot : words){
-            if (mot.getCategory()=="Objet")
+            if (mot.getCategory().equalsIgnoreCase("Objet"))
             {
                 liste.add(mot.getWord());
                 Log.i("Objet",mot.getWord());
@@ -86,7 +86,7 @@ public class SelectRandomWord extends AppCompatActivity {
     public void peopleTouched(View view){
         List<String> liste = new ArrayList<String>();
         for (Word mot : words){
-            if (mot.getCategory()=="People")
+            if (mot.getCategory().equalsIgnoreCase("People"))
             {
                 liste.add(mot.getWord());
                 Log.i("People",mot.getWord());
