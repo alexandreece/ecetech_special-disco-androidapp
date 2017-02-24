@@ -38,7 +38,6 @@
                 android:id="@+id/nameEqA"
                 android:textSize="18sp"
                 android:layout_height="30dp"
-
                 android:hint="Exemple : LAMAtiere" />
 
             <ListView
