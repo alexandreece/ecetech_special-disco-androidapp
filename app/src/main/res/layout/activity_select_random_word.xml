@@ -28,8 +28,9 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button1"
-        android:textColor="@android:color/black" />
+        android:id="@+id/boutonFaune"
+        android:textColor="@android:color/black"
+        android:onClick="fauneTouched" />
     <Button
         android:text="Fictif"
         android:layout_width="295dp"
@@ -40,8 +41,9 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button2"
-        android:textColor="@android:color/black" />
+        android:id="@+id/boutonFictif"
+        android:textColor="@android:color/black"
+        android:onClick="fictifTouched" />
     <Button
         android:text="Flore"
         android:layout_width="295dp"
@@ -52,8 +54,9 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button3"
-        android:textColor="@android:color/black" />
+        android:id="@+id/boutonFlore"
+        android:textColor="@android:color/black"
+        android:onClick="floreTouched" />
     <Button
         android:text="Objet"
         android:layout_width="295dp"
@@ -64,8 +67,9 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button4"
-        android:textColor="@android:color/black" />
+        android:id="@+id/boutonObjet"
+        android:textColor="@android:color/black"
+        android:onClick="objetTouched" />
     <Button
         android:text="People"
         android:layout_width="295dp"
@@ -76,7 +80,8 @@
         android:background="@drawable/gradient_box"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:id="@+id/button8"
-        android:textColor="@android:color/black" />
+        android:id="@+id/boutonPeople"
+        android:textColor="@android:color/black"
+        android:onClick="peopleTouched" />
 
 </LinearLayout>
