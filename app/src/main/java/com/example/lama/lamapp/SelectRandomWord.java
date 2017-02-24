@@ -37,10 +37,10 @@ public class SelectRandomWord extends AppCompatActivity {
                 Log.i("Faune",mot.getWord());
             }
         }
-        //int index = alea.nextInt(liste.size());
-        //Log.i("Taille liste", ""+index);
-        //String ranMot = liste.get(index);
-        String ranMot = "Tigre";
+        int index = alea.nextInt(liste.size());
+        Log.i("Taille liste", ""+index);
+        String ranMot = liste.get(index);
+        //String ranMot = "Tigre";
         Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
     }
 
