@@ -72,7 +72,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="15dp"
-                android:text="Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere. in quibus hoc primum est in quo admirer, cur in gravissimis rebus non delectet eos sermo patrius, cum idem fabellas Latinas ad verbum e Graecis expressas non inviti legant. quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit? Quaestione igitur per multiplices dilatata fortunas cum ambigerentur quaedam, non nulla levius actitata constaret, post multorum clades Apollinares ambo pater et filius in exilium acti cum ad locum Crateras nomine pervenissent, villam scilicet suam quae ab Antiochia vicensimo et quarto disiungitur lapide, ut mandatum est, fractis cruribus occiduntur. Ideoque fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt. et exitiale hoc vitium, quod in aliis non numquam intepescit, in illo aetatis progressu effervescebat, obstinatum eius propositum accendente adulatorum cohorte."
+                android:text="Lors de la première manche, tu peux dire tout ce que tu souhaites, sauf le mot a faire découvrir, sa traduction dans une autre langue et les mots ayant la même racine. Lors de la seconde manche, tu as le droit de ne dire qu’un seul mot. Lors de la troisème et dernière manche, tu dois mimer le mot sans faire de bruit.
+
+A chaque tour, un nouveau joueur fait deviner les mots, en alternant a chaque fois d’équipe. A la d’un, le nombre total de mots trouvés est redistribué en Lamas a l’équipe adverse. Une fois que tous les mots ont été trouvés, le manche est terminée et l’équipe ayant récoltés le moins de Lamas la remporte."
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="normal" />
