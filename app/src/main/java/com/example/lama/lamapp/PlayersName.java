@@ -10,7 +10,8 @@ import android.widget.ListView;
 import com.example.lama.lamapp.DAOs.Joueur;
 
 public class PlayersName extends Activity {
-    private ListView Liste;
+    private ListView Liste1;
+    private ListView Liste2;
     private PlayerNameAdapter myAdapter;
 
     /**
@@ -21,21 +22,23 @@ public class PlayersName extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_name);
 
-        //Liste = (ListView) findViewById(android.R.id.list);
-        Liste = (ListView) findViewById(R.id.list1);
-        Liste.setItemsCanFocus(true);
+        Liste1 = (ListView) findViewById(R.id.listA);
+        Liste2 = (ListView) findViewById(R.id.listB);
+        //Liste1.setItemsCanFocus(true);
 
         ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
         Joueur J1 = new Joueur();
         Joueur J2 = new Joueur();
+        Joueur J3 = new Joueur();
+        Joueur J4 = new Joueur();
 
         joueurs.add(J1);
         joueurs.add(J2);
+        joueurs.add(J3);
+        joueurs.add(J4);
 
         myAdapter = new PlayerNameAdapter(this, R.layout.layout_playername,joueurs);
-        //ListView lv = (ListView) findViewById(R.id.list1);
-        Liste.setAdapter(myAdapter);
-        //setListAdapter(myAdapter);
-
+        Liste1.setAdapter(myAdapter);
+        Liste2.setAdapter(myAdapter);
     }
 }
