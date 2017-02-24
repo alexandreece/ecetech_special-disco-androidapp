@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <TextView
-        android:text="DIDACTICIEL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/enter_word_eq1"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="DIDACTICIEL"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textStyle="normal|bold" />
 
     <TextView
-        android:text="But du jeu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:textSize="28sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Aide ton équipe à trouver le maximum de mots dans le temps imparti !"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="But du jeu"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
         android:id="@+id/textView3"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textStyle="normal"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Déroulement"
-        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textSize="28sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Aide ton équipe à trouver le maximum de mots dans le temps imparti !"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Déroulement"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="normal|bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -63,39 +62,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
-                android:text="Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere. in quibus hoc primum est in quo admirer, cur in gravissimis rebus non delectet eos sermo patrius, cum idem fabellas Latinas ad verbum e Graecis expressas non inviti legant. quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit?
-
-        Quaestione igitur per multiplices dilatata fortunas cum ambigerentur quaedam, non nulla levius actitata constaret, post multorum clades Apollinares ambo pater et filius in exilium acti cum ad locum Crateras nomine pervenissent, villam scilicet suam quae ab Antiochia vicensimo et quarto disiungitur lapide, ut mandatum est, fractis cruribus occiduntur.
-
-        Ideoque fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt. et exitiale hoc vitium, quod in aliis non numquam intepescit, in illo aetatis progressu effervescebat, obstinatum eius propositum accendente adulatorum cohorte."
+                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:textStyle="normal"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="15dp"
+                android:text="Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere. in quibus hoc primum est in quo admirer, cur in gravissimis rebus non delectet eos sermo patrius, cum idem fabellas Latinas ad verbum e Graecis expressas non inviti legant. quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit? Quaestione igitur per multiplices dilatata fortunas cum ambigerentur quaedam, non nulla levius actitata constaret, post multorum clades Apollinares ambo pater et filius in exilium acti cum ad locum Crateras nomine pervenissent, villam scilicet suam quae ab Antiochia vicensimo et quarto disiungitur lapide, ut mandatum est, fractis cruribus occiduntur. Ideoque fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt. et exitiale hoc vitium, quod in aliis non numquam intepescit, in illo aetatis progressu effervescebat, obstinatum eius propositum accendente adulatorum cohorte."
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="normal" />
 
             <Button
-                android:text="Retour"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
-                android:backgroundTint="?attr/colorButtonNormal"
-                android:background="@drawable/gradient_box"
-                android:textSize="25sp"
-                android:textAlignment="center"
                 android:id="@+id/button2"
                 android:layout_width="140dp"
-                android:textColor="@color/colorPrimaryDark"
                 android:layout_height="35dp"
-                android:onClick="goto_MenuJeu"/>
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/gradient_box"
+                android:backgroundTint="?attr/colorButtonNormal"
+                android:onClick="goto_MenuJeu"
+                android:text="Retour"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
         </LinearLayout>
 
     </ScrollView>
