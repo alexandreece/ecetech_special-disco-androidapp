@@ -34,10 +34,9 @@ public class EnterWordAdapter extends ArrayAdapter<Word> {
         Word mot = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
         EditText word = (EditText) convertView.findViewById(R.id.word);
-        Button validword = (Button) convertView.findViewById(R.id.validerword);
+        //Button validword = (Button) convertView.findViewById(R.id.validerword);
 
         word.setText(mot.getWord());
-
 
         return convertView;
 
