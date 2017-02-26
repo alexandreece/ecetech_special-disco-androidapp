@@ -1,88 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/forlistview"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
 
-    <ScrollView
+   <!-- <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+-->
+        <TextView
+            android:id="@+id/textEqA"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textEqA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nommez l'équipe A"
-                android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textSize="24sp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Nommez l'équipe A"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textSize="24sp" />
 
 
-            <EditText
-                android:layout_width="250dp"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="20dp"
-                android:ems="10"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/colorText"
-                android:layout_below="@id/textEqA"
-                android:id="@+id/nameEqA"
-                android:textSize="18sp"
-                android:layout_height="30dp"
-                android:hint="Exemple : LAMAtiere" />
+        <EditText
+            android:layout_width="250dp"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorText"
+            android:layout_below="@id/textEqA"
+            android:id="@+id/nameEqA"
+            android:textSize="18sp"
+            android:layout_height="30dp"
+            android:hint="Exemple : LAMAtiere" />
 
-            <ListView
-                android:id="@+id/listA"
-                android:layout_below="@id/nameEqA"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_height="200dp">
+        <ListView
+            android:id="@+id/listA"
+            android:layout_below="@id/nameEqA"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_height="200dp">
 
-            </ListView>
-
-
-            <TextView
-                android:id="@+id/textEqB"
-                android:layout_below="@id/listA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nommez l'équipe B"
-                android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textSize="24sp" />
+        </ListView>
 
 
-            <EditText
-                android:layout_width="250dp"
-                android:layout_height="30dp"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="20dp"
-                android:ems="10"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/colorText"
-                android:layout_below="@id/textEqB"
-                android:id="@+id/nameEqB"
-                android:hint="Exemple : LAMAtrice" />
+        <TextView
+            android:id="@+id/textEqB"
+            android:layout_below="@id/listA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Nommez l'équipe B"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textSize="24sp" />
 
-            <ListView
-                android:id="@+id/listB"
-                android:layout_below="@id/nameEqB"
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
 
-            </ListView>
-        </RelativeLayout>
-    </ScrollView>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorText"
+            android:layout_below="@id/textEqB"
+            android:id="@+id/nameEqB"
+            android:hint="Exemple : LAMAtrice" />
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/listB"
+            android:layout_below="@id/nameEqB"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </ListView>
+
+</RelativeLayout>
