@@ -37,7 +37,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PlayersName">
+        <activity android:name=".PlayersName"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.PlayersName" />
                 <category android:name="android.intent.category.DEFAULT" />

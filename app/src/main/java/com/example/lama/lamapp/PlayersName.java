@@ -10,9 +10,10 @@ import android.widget.ListView;
 import com.example.lama.lamapp.DAOs.Joueur;
 
 public class PlayersName extends Activity {
-    private ListView Liste1;
-    private ListView Liste2;
-    private PlayerNameAdapter myAdapter;
+    private ListView ListeA;
+    private ListView ListeB;
+    private PlayerNameAdapter adapterA;
+    private PlayerNameAdapter adapterB;
 
     /**
      * Called when the activity is first created.
@@ -22,23 +23,28 @@ public class PlayersName extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_name);
 
-        Liste1 = (ListView) findViewById(R.id.listA);
-        Liste2 = (ListView) findViewById(R.id.listB);
-        //Liste1.setItemsCanFocus(true);
 
-        ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
-        Joueur J1 = new Joueur();
-        Joueur J2 = new Joueur();
-        Joueur J3 = new Joueur();
-        Joueur J4 = new Joueur();
+        Game game = new Game();
 
-        joueurs.add(J1);
-        joueurs.add(J2);
-        joueurs.add(J3);
-        joueurs.add(J4);
+        game.setNbPlayers(10);
 
-        myAdapter = new PlayerNameAdapter(this, R.layout.layout_playername,joueurs);
-        Liste1.setAdapter(myAdapter);
-        Liste2.setAdapter(myAdapter);
+        ArrayList<Joueur> equipeA = new ArrayList<>();
+        ArrayList<Joueur> equipeB = new ArrayList<>();
+
+        for(int i =0; i<game.getNbPlayers();i++){
+            Joueur joueurA = new Joueur();
+            Joueur joueurB = new Joueur();
+
+            equipeA.add(joueurA);
+            equipeB.add(joueurB);
+        }
+
+        ListeA = (ListView) findViewById(R.id.listA);
+        ListeB = (ListView) findViewById(R.id.listB);
+
+        adapterA = new PlayerNameAdapter(this, R.layout.layout_playername,equipeA);
+        adapterB = new PlayerNameAdapter(this, R.layout.layout_playername,equipeB);
+        ListeA.setAdapter(adapterA);
+        ListeB.setAdapter(adapterB);
     }
 }
