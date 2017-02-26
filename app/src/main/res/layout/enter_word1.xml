@@ -10,7 +10,7 @@
         android:layout_height="40dp"
         android:id="@+id/randomword"
         android:layout_alignTop="@+id/dicoword"
-        android:layout_toEndOf="@+id/pastword" />
+        android:layout_toEndOf="@+id/pastword"/>
 
     <Button
         android:text="Précédents"
@@ -18,7 +18,8 @@
         android:layout_height="40dp"
         android:id="@+id/pastword"
         android:layout_alignTop="@+id/randomword"
-        android:layout_alignStart="@+id/word" />
+        android:layout_alignStart="@+id/word"
+        android:onClick="precedent"/>
 
     <Button
         android:text="Dictionnaire"
@@ -27,7 +28,8 @@
         android:id="@+id/dicoword"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/validerword"
-        android:layout_toEndOf="@+id/randomword" />
+        android:layout_toEndOf="@+id/randomword"
+        android:onClick="dictionnaire"/>
 
     <Button
         android:text="Ok"
@@ -37,7 +39,8 @@
         android:layout_marginEnd="23dp"
         android:layout_alignBaseline="@+id/word"
         android:layout_alignBottom="@+id/word"
-        android:layout_alignEnd="@+id/dicoword" />
+        android:layout_alignEnd="@+id/dicoword"
+        />
 
     <EditText
         android:layout_width="wrap_content"

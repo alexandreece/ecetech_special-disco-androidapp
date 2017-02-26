@@ -1,7 +1,9 @@
 package com.example.lama.lamapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,9 +19,6 @@ public class EnterWord extends Activity {
 
     private EnterWordAdapter myAdapter;
 
-    /*String[] equipe = new String[]{
-            "Lamatraque", "Lamalédiction"
-    };*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,31 +33,30 @@ public class EnterWord extends Activity {
         Word W3 = new Word();
         Word W4 = new Word();
         Word W5 = new Word();
-        Word W6 = new Word();
-        Word W7 = new Word();
         word.add(W1);
         word.add(W2);
         word.add(W3);
         word.add(W4);
         word.add(W5);
-        word.add(W6);
-        word.add(W7);
 
-        /*
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(EnterWord.this,
 
-                R.layout.enter_word1, equipe);
-        vue1.setAdapter(adapter1);
-        */
         myAdapter = new EnterWordAdapter(this,R.layout.enter_word1, word);
         vue1.setAdapter(myAdapter);
         vue2.setAdapter(myAdapter);
 
+    }
+
+    public void precedent(View view) {
+        Intent activityRandomWord = new Intent(EnterWord.this, SelectWord.class);
+        startActivity(activityRandomWord);
 
     }
 
+    public void dictionnaire(View view) {
+        Intent activityRandomWord = new Intent(EnterWord.this, SelectRandomWord.class);
+        startActivity(activityRandomWord);
 
-
+    }
 
 
 }
