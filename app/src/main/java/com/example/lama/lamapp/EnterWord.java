@@ -2,6 +2,7 @@ package com.example.lama.lamapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.lama.lamapp.DAOs.Word;
@@ -16,9 +17,9 @@ public class EnterWord extends Activity {
 
     private EnterWordAdapter myAdapter;
 
-    String[] equipe = new String[]{
+    /*String[] equipe = new String[]{
             "Lamatraque", "Lamalédiction"
-    };
+    };*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +31,18 @@ public class EnterWord extends Activity {
         ArrayList<Word> word = new ArrayList<Word>();
         Word W1 = new Word();
         Word W2 = new Word();
-
+        Word W3 = new Word();
+        Word W4 = new Word();
+        Word W5 = new Word();
+        Word W6 = new Word();
+        Word W7 = new Word();
         word.add(W1);
         word.add(W2);
+        word.add(W3);
+        word.add(W4);
+        word.add(W5);
+        word.add(W6);
+        word.add(W7);
 
         /*
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(EnterWord.this,
@@ -43,6 +53,7 @@ public class EnterWord extends Activity {
         myAdapter = new EnterWordAdapter(this,R.layout.enter_word1, word);
         vue1.setAdapter(myAdapter);
         vue2.setAdapter(myAdapter);
+
 
     }
 

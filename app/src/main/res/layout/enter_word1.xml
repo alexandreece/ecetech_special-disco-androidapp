@@ -4,53 +4,54 @@
     android:layout_height="match_parent">
 
 
+    <Button
+        android:text="Aléatoire"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/randomword"
+        android:layout_alignTop="@+id/dicoword"
+        android:layout_toEndOf="@+id/pastword" />
+
+    <Button
+        android:text="Précédents"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/pastword"
+        android:layout_alignTop="@+id/randomword"
+        android:layout_alignStart="@+id/word" />
+
+    <Button
+        android:text="Dictionnaire"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/dicoword"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/validerword"
+        android:layout_toEndOf="@+id/randomword" />
+
+    <Button
+        android:text="Ok"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:id="@+id/validerword"
+        android:layout_marginEnd="23dp"
+        android:layout_alignBaseline="@+id/word"
+        android:layout_alignBottom="@+id/word"
+        android:layout_alignEnd="@+id/dicoword" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:inputType="textPersonName"
         android:text="Joueur"
         android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
         android:id="@+id/word"
         android:textColor="@color/Grey_LAMApp"
-        android:background="#ffffff"/>
+        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="Ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/validerword"
-        android:layout_alignBaseline="@+id/word"
-        android:layout_alignBottom="@+id/word"
-        android:layout_alignEnd="@+id/dicoword" />
-
-    <Button
-        android:text="Aléatoire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/randomword"
-        android:layout_alignBaseline="@+id/dicoword"
-        android:layout_alignBottom="@+id/dicoword"
-        android:layout_toEndOf="@+id/pastword" />
-
-    <Button
-        android:text="Dictionnaire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dicoword"
-        android:layout_below="@+id/validerword"
-        android:layout_toEndOf="@+id/randomword" />
-
-    <Button
-        android:text="Précédents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pastword"
-        android:layout_alignBaseline="@+id/randomword"
-        android:layout_alignBottom="@+id/randomword"
-        android:layout_alignStart="@+id/word" />
 
 </RelativeLayout>
