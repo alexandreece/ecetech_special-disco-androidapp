@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:layout_weight="0.49"
-        android:id="@+id/menu_logo" />
+        android:layout_width="187dp"
+        android:layout_height="166dp"
+        app:srcCompat="@mipmap/logo"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:layout_weight="0.14" />
 
     <Button
         android:text="Jouer !"
