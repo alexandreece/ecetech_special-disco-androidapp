@@ -1,7 +1,6 @@
 package com.example.lama.lamapp;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,8 +31,6 @@ public class EnterWord extends Activity {
         Intent intent = getIntent();
 
         game = (Game) intent.getSerializableExtra("game");
-
-
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
