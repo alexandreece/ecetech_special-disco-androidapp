@@ -2,30 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Saisir un mot"
+        android:ems="10"
+        android:layout_marginTop="11dp"
+        android:id="@+id/nom"
+        android:background="@color/colorText"
+        android:selectAllOnFocus="false"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/nJoueur" />
+
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/nom"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="10dp"
         android:id="@+id/nJoueur"
-        android:textSize="18sp" />
-
-    <EditText android:id="@+id/nom"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:paddingTop="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorText"
-        android:layout_width="240dp">
-    </EditText>
-
-
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/nom"
+        android:layout_alignBottom="@+id/nom"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp" />
 
 </RelativeLayout>
