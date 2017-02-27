@@ -1,6 +1,7 @@
 package com.example.lama.lamapp;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,11 +23,12 @@ public class EnterWord extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_enter_word);
         Intent intent = getIntent();
 
-        game = (Game) intent.getSerializableExtra("game");
+        game = (Game) intent.getSerializableExtra("temp");
 
-        setContentView(R.layout.activity_enter_word);
+
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
@@ -42,8 +44,9 @@ public class EnterWord extends Activity {
         word.add(W3);
         word.add(W4);
         word.add(W5);*/
+        game.setNbPlayers(3);
 
-        for(int i =0; i<game.getNbPlayers();i++){
+        for(int i = 0; i<game.getNbPlayers();i++){
             Word W1 = new Word();
             Word W2 = new Word();
 
