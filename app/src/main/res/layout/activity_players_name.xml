@@ -6,11 +6,6 @@
     android:orientation="vertical">
 
 
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
--->
         <TextView
             android:id="@+id/textEqA"
             android:layout_width="match_parent"
@@ -85,7 +80,6 @@
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
          android:layout_centerHorizontal="true"
-         android:id="@+id/okPlayerName"
-         style="@style/Widget.AppCompat.Button" />
+         android:id="@+id/okPlayerName" />
 
 </RelativeLayout>
