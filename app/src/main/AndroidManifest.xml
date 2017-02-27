@@ -38,8 +38,8 @@
         </activity>
         <activity
             android:name=".PlayersName"
-            android:windowSoftInputMode="stateHidden">
             android:windowSoftInputMode="adjustPan">
+            <!--android:windowSoftInputMode="stateHidden">-->
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.PlayersName" />
 
