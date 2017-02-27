@@ -78,8 +78,11 @@ public class PlayersName extends Activity implements OnClickListener {
         Log.i("Team B", game.getTeamB_List_Joueurs().toString());
         //Toast.makeText(getApplicationContext(), game.getTeamA_List_Joueurs().toString(),Toast.LENGTH_SHORT).show();
         /*Game temp = new Game();*/
-        Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
-        intent_next.putExtra("temp", game);
+        Intent intent_next = new Intent(PlayersName.this, EnterWord.class);
+        //Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
+        Game temp = new Game();
+        temp.setNbPlayers(4);
+        intent_next.putExtra("temp", temp);
         startActivity(intent_next);
 
     }
