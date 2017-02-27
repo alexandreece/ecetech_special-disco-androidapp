@@ -80,9 +80,10 @@ public class PlayersName extends Activity implements OnClickListener {
         /*Game temp = new Game();*/
         Intent intent_next = new Intent(PlayersName.this, EnterWord.class);
         //Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
-        Game temp = new Game();
-        temp.setNbPlayers(4);
-        intent_next.putExtra("temp", temp);
+        //Game temp = new Game();
+        //temp.setNbPlayers(4);
+        Log.i("GAME", "GAME: " + game.getNbPlayers());
+        intent_next.putExtra("game", game);
         startActivity(intent_next);
 
     }

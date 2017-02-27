@@ -1,10 +1,12 @@
 package com.example.lama.lamapp.DAOs;
 
+import java.io.Serializable;
+
 /**
  * Created by alex on 06/12/2016.
  */
 
-public class Joueur {
+public class Joueur implements Serializable {
 
     private int idJoueur;
     private String nomJoueur;

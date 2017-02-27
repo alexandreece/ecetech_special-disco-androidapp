@@ -31,7 +31,7 @@ public class EnterWord extends Activity {
         setContentView(R.layout.activity_enter_word);
         Intent intent = getIntent();
 
-        game = (Game) intent.getSerializableExtra("temp");
+        game = (Game) intent.getSerializableExtra("game");
 
 
 
@@ -49,7 +49,7 @@ public class EnterWord extends Activity {
         word.add(W3);
         word.add(W4);
         word.add(W5);*/
-        game.setNbPlayers(3);
+       // game.setNbPlayers(3);
 
         for(int i = 0; i<game.getNbPlayers();i++){
 
