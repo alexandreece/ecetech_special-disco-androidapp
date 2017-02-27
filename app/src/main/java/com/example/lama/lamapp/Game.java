@@ -16,11 +16,11 @@ class Game implements Serializable{
     String TeamA;
     String TeamB;
 
-    List<Joueur> TeamA_List_Joueurs = new ArrayList<Joueur>();
-    List<Joueur> TeamB_List_Joueurs = new ArrayList<Joueur>();
+    ArrayList<Joueur> TeamA_List_Joueurs = new ArrayList<Joueur>();
+    ArrayList<Joueur> TeamB_List_Joueurs = new ArrayList<Joueur>();
 
     int NbWords;
-    List<String> Words_List = new ArrayList<String>();
+    ArrayList<String> Words_List = new ArrayList<String>();
     String Word;
 
     int NbPointsTurnTeamA;
@@ -58,8 +58,8 @@ class Game implements Serializable{
         return TeamB;
     }
 
-    public List<Joueur> getTeamA_List_Joueurs() { return TeamA_List_Joueurs; }
-    public List<Joueur> getTeamB_List_Joueurs() { return TeamB_List_Joueurs; }
+    public ArrayList<Joueur> getTeamA_List_Joueurs() { return TeamA_List_Joueurs; }
+    public ArrayList<Joueur> getTeamB_List_Joueurs() { return TeamB_List_Joueurs; }
 
     public String getNameJoueurTeamA(int pJoueurID) {
        Joueur Joueur = TeamA_List_Joueurs.get(pJoueurID);
@@ -76,7 +76,7 @@ class Game implements Serializable{
     public int getNbWords() {
         return NbWords;
     }
-    public List<String> getWords_List() {
+    public ArrayList<String> getWords_List() {
         return this.Words_List;
     }
     public String getWord(int pWordID){ return this.Words_List.get(pWordID); }
@@ -99,6 +99,9 @@ class Game implements Serializable{
 
     public void setNameTeamA(String pNameTeamA){this.TeamA = pNameTeamA ;}
     public void setNameTeamB(String pNameTeamB){this.TeamB = pNameTeamB ;}
+
+    public void addTeamA(ArrayList<Joueur> A){this.TeamA_List_Joueurs = A;}
+    public void addTeamB(ArrayList<Joueur> B){this.TeamA_List_Joueurs = B;}
 
     public void addPlayerTeamA(Joueur pJoueur){ this.TeamA_List_Joueurs.add(pJoueur);}
     public void addPlayerTeamB(Joueur pJoueur){ this.TeamB_List_Joueurs.add(pJoueur);}

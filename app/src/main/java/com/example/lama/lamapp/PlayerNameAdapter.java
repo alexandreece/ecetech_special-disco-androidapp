@@ -27,13 +27,15 @@ import static android.content.ContentValues.TAG;
 public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickListener {
     private int ressourceId;
     private Context context;
-    private ArrayList<Joueur> myItems;
+    private ArrayList<Joueur> joueurs;
+    private Joueur joueur;
     private LayoutInflater inflater;
 
 
 
-    public PlayerNameAdapter (Context context, int ressourceId, List myItems ) {
+    public PlayerNameAdapter (Context context, int ressourceId, ArrayList<Joueur> myItems ) {
         super (context, ressourceId, myItems);
+        joueurs = myItems;
         this.context = context;
         this.ressourceId = ressourceId;
 
@@ -43,14 +45,15 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickLi
 
 
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Joueur joueur = getItem(position);
+        joueur = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
-        final TextView nJoueur = (TextView) convertView.findViewById(R.id.nJoueur);
-        EditText nom = (EditText) convertView.findViewById(R.id.nom);
 
-        nom.setText(joueur.getNomJoueur());
+       // joueurs.add(joueur);
+        final TextView nJoueur = (TextView) convertView.findViewById(R.id.nJoueur);
+        final EditText nom = (EditText) convertView.findViewById(R.id.nom);
+
         nJoueur.setText("Joueur " + (position + 1));
-        nJoueur.addTextChangedListener(new TextWatcher() {
+        nom.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -64,9 +67,12 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickLi
             @Override
             public void afterTextChanged(Editable s) {
                 joueur.setIdJoueur(position);
-                joueur.setNomJoueur(nJoueur.getText().toString());
-                myItems.add(joueur);
+                Log.i(TAG, "afterTextChanged: id J :  "+position);
+                Log.i(TAG, "id joueur: "+joueur.toString());
+                joueur.setNomJoueur(nom.getText().toString());
+                Log.i(TAG, "joueur: "+joueur.toString());
 
+                joueurs.add(joueur);
             }
         });
         return convertView;
@@ -74,12 +80,11 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickLi
     }
 
     public ArrayList<Joueur> getList() {
-        return myItems;
+        return joueurs;
     }
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        //Toast.makeText(context,getPosition(this),Toast.LENGTH_SHORT).show();
 
     }
 }
