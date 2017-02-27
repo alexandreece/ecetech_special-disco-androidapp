@@ -51,11 +51,8 @@ public class EnterWord extends Activity {
         word.add(W5);*/
         game.setNbPlayers(3);
 
-<<<<<<< HEAD
         for(int i = 0; i<game.getNbPlayers();i++){
-=======
-        for (int i = 0; i < game.getNbPlayers(); i++) {
->>>>>>> 83a8b570e880bf94667eafdeefa2a3a85ffce0d0
+
             Word W1 = new Word();
             Word W2 = new Word();
 
