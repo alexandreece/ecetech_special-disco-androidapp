@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Word;
@@ -73,11 +75,13 @@ public class EnterWord extends Activity {
     }
 
     public void aleatoire() {
+        EditText word = (EditText) findViewById(R.id.word);
         Random alea = new Random();
         DatabaseHandler db = new DatabaseHandler(this);
         List<Word> words = db.getWordsList();
         db.close();
         String ranMot = words.get(alea.nextInt(words.size())).getWord();
+        word.setText(ranMot, TextView.BufferType.NORMAL);
         Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
     }
 
