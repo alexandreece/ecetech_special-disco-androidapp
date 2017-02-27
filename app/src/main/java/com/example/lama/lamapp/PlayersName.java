@@ -1,22 +1,32 @@
 package com.example.lama.lamapp;
 
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
-
 import android.app.Activity;
-import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Joueur;
 
-public class PlayersName extends Activity {
+public class PlayersName extends Activity implements OnClickListener {
     private ListView ListeA;
     private ListView ListeB;
     private PlayerNameAdapter adapterA;
     private PlayerNameAdapter adapterB;
-
+    private Game game;
+    private ArrayList<Joueur> equipeA ;
+    private ArrayList<Joueur> equipeB ;
+    private Button valider;
+    EditText teamA;
+    EditText teamB;
     /**
      * Called when the activity is first created.
      */
@@ -24,15 +34,21 @@ public class PlayersName extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_name);
-
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         Intent intent = getIntent();
 
-        Game game = (Game) intent.getSerializableExtra("game");
+        game = (Game) intent.getSerializableExtra("game");
 
-        ArrayList<Joueur> equipeA = new ArrayList<>();
-        ArrayList<Joueur> equipeB = new ArrayList<>();
+        equipeA = new ArrayList<>();
+        equipeB = new ArrayList<>();
 
-        Button valider = (Button) findViewById(R.id.okPlayerName);
+        valider = (Button) findViewById(R.id.okPlayerName);
+        teamA = (EditText) findViewById(R.id.nameEqA);
+        teamB = (EditText) findViewById(R.id.nameEqB);
+
+        valider.setOnClickListener(this);
+
+
         for(int i =0; i<game.getNbPlayers();i++){
             Joueur joueurA = new Joueur();
             Joueur joueurB = new Joueur();
@@ -48,5 +64,19 @@ public class PlayersName extends Activity {
         adapterB = new PlayerNameAdapter(this, R.layout.layout_playername,equipeB);
         ListeA.setAdapter(adapterA);
         ListeB.setAdapter(adapterB);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        String nTeamB = teamB.getText().toString();
+        game.setNameTeamA(teamA.getText().toString());
+        Toast.makeText(getApplicationContext(),game.getNameTeamA(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),nTeamB,Toast.LENGTH_SHORT).show();
+
+
+
+
     }
 }
