@@ -11,17 +11,6 @@
     android:orientation="horizontal"
     tools:context="com.example.lama.lamapp.TestFragmentActivity">
 
-    <fragment
-        android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:name="com.example.lama.lamapp.TestFragmentOne"
-        android:orientation="horizontal"
-        tools:layout="@layout/fragment_test_fragment_one"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-    </fragment>
-
     <Button
         android:layout_width="80dp"
         android:layout_height="250dp"
@@ -67,7 +56,8 @@
         android:textAlignment="center"
         android:id="@+id/button_valid_word"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="UpdateWord"/>
 
     <TextView
         android:text="Joueur 1"
@@ -79,5 +69,27 @@
         android:id="@+id/text_team_one_player_one"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text=""
+        android:textSize="40sp"
+        android:textStyle="normal|bold"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/ShowWord"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/button_quit_word" />
+
+    <TextView
+        android:text=""
+        android:textSize="25sp"
+        android:textStyle="normal|bold"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/ShowTimer"
+        android:layout_alignTop="@+id/button_valid_word"
+        android:layout_toEndOf="@+id/button_quit_word" />
 
 </RelativeLayout>
