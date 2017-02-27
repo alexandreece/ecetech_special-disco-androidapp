@@ -5,11 +5,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 public class EnterWord extends Activity {
@@ -46,7 +51,11 @@ public class EnterWord extends Activity {
         word.add(W5);*/
         game.setNbPlayers(3);
 
+<<<<<<< HEAD
         for(int i = 0; i<game.getNbPlayers();i++){
+=======
+        for (int i = 0; i < game.getNbPlayers(); i++) {
+>>>>>>> 83a8b570e880bf94667eafdeefa2a3a85ffce0d0
             Word W1 = new Word();
             Word W2 = new Word();
 
@@ -54,7 +63,7 @@ public class EnterWord extends Activity {
             word.add(W2);
         }
 
-        myAdapter = new EnterWordAdapter(this,R.layout.enter_word1, word);
+        myAdapter = new EnterWordAdapter(this, R.layout.enter_word1, word);
         vue1.setAdapter(myAdapter);
         vue2.setAdapter(myAdapter);
 
@@ -70,6 +79,17 @@ public class EnterWord extends Activity {
         Intent activityRandomWord = new Intent(EnterWord.this, SelectRandomWord.class);
         startActivity(activityRandomWord);
 
+    }
+
+    public void aleatoire() {
+        EditText word = (EditText) findViewById(R.id.word);
+        Random alea = new Random();
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Word> words = db.getWordsList();
+        db.close();
+        String ranMot = words.get(alea.nextInt(words.size())).getWord();
+        word.setText(ranMot, TextView.BufferType.NORMAL);
+        Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
     }
 
 

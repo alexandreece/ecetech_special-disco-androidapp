@@ -1,9 +1,7 @@
 package com.example.lama.lamapp;
 
-import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +11,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Joueur;
 
@@ -21,7 +18,7 @@ public class PlayersName extends Activity implements OnClickListener {
     private ListView ListeA;
     private ListView ListeB;
     private PlayerNameAdapter adapterA;
-    private PlayerNameAdapter adapterB;
+    private PlayerNameAdapterB adapterB;
     private Game game;
     private ArrayList<Joueur> equipeA ;
     private ArrayList<Joueur> equipeB ;
@@ -50,19 +47,21 @@ public class PlayersName extends Activity implements OnClickListener {
         valider.setOnClickListener(this);
 
 
-        for(int i =0; i<game.getNbPlayers();i++){
+       for(int i =0; i<game.getNbPlayers();i++){
             Joueur joueurA = new Joueur();
             Joueur joueurB = new Joueur();
 
             equipeA.add(joueurA);
             equipeB.add(joueurB);
         }
-
+        Log.i("EquipeA", "onCreate: " + equipeA.toString());
+        Log.i("EquipeB", "onCreate: " + equipeB.toString());
         ListeA = (ListView) findViewById(R.id.listA);
         ListeB = (ListView) findViewById(R.id.listB);
 
         adapterA = new PlayerNameAdapter(this, R.layout.layout_playername,equipeA);
-        adapterB = new PlayerNameAdapter(this, R.layout.layout_playername,equipeB);
+        adapterB = new PlayerNameAdapterB(this, R.layout.layout_playername,equipeB);
+
         ListeA.setAdapter(adapterA);
         ListeB.setAdapter(adapterB);
 
@@ -74,12 +73,14 @@ public class PlayersName extends Activity implements OnClickListener {
         game.setNameTeamA(teamA.getText().toString());
         game.setNameTeamB(teamB.getText().toString());
         game.addTeamA(adapterA.getList());
-        game.addTeamA(adapterB.getList());
-        Toast.makeText(getApplicationContext(), game.getTeamA_List_Joueurs().toString(),Toast.LENGTH_SHORT).show();
-        Game temp = new Game();
+        game.addTeamB(adapterB.getList());
+        Log.i("Team A", game.getTeamA_List_Joueurs().toString());
+        Log.i("Team B", game.getTeamB_List_Joueurs().toString());
+        //Toast.makeText(getApplicationContext(), game.getTeamA_List_Joueurs().toString(),Toast.LENGTH_SHORT).show();
+        /*Game temp = new Game();
         Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
         intent_next.putExtra("temp", temp);
-        startActivity(intent_next);
+        startActivity(intent_next);*/
 
 
     }
