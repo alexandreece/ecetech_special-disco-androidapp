@@ -30,6 +30,8 @@ public class EnterWordAdapter extends ArrayAdapter<Word> {
 
     }
 
+
+
     public View getView(int position, View convertView, ViewGroup parent) {
         Word mot = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
