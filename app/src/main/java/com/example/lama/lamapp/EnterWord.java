@@ -78,7 +78,7 @@ public class EnterWord extends Activity {
 
     }
 
-    public void aleatoire() {
+    public void aleatoire(View view) {
         EditText word = (EditText) findViewById(R.id.word);
         Random alea = new Random();
         DatabaseHandler db = new DatabaseHandler(this);
