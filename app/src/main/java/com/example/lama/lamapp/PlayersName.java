@@ -32,7 +32,7 @@ public class PlayersName extends Activity {
         ArrayList<Joueur> equipeA = new ArrayList<>();
         ArrayList<Joueur> equipeB = new ArrayList<>();
 
-        Button valider = find
+        Button valider = (Button) findViewById(R.id.okPlayerName);
         for(int i =0; i<game.getNbPlayers();i++){
             Joueur joueurA = new Joueur();
             Joueur joueurB = new Joueur();
