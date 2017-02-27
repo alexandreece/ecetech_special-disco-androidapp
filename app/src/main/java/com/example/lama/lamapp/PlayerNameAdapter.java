@@ -24,7 +24,7 @@ import static android.content.ContentValues.TAG;
  * Created by adri-laptop on 23/02/17.
  */
 
-public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickListener {
+public class PlayerNameAdapter extends ArrayAdapter<Joueur> {
     private int ressourceId;
     private Context context;
     private ArrayList<Joueur> joueurs;
@@ -36,6 +36,7 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickLi
     public PlayerNameAdapter (Context context, int ressourceId, ArrayList<Joueur> myItems ) {
         super (context, ressourceId, myItems);
         joueurs = myItems;
+        Log.i(TAG, "PlayerNameAdapter: " +joueurs.toString());
         this.context = context;
         this.ressourceId = ressourceId;
 
@@ -66,25 +67,23 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> implements OnClickLi
 
             @Override
             public void afterTextChanged(Editable s) {
+                joueur = joueurs.get(position);
                 joueur.setIdJoueur(position);
-                Log.i(TAG, "afterTextChanged: id J :  "+position);
                 Log.i(TAG, "id joueur: "+joueur.toString());
                 joueur.setNomJoueur(nom.getText().toString());
                 Log.i(TAG, "joueur: "+joueur.toString());
-
-                joueurs.add(joueur);
+                joueurs.set(position, joueur);
+                //joueurs.add(joueur);
             }
+
         });
         return convertView;
 
     }
 
     public ArrayList<Joueur> getList() {
+        Log.i(TAG, "getList: " + joueurs.toString());
         return joueurs;
     }
 
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
-
-    }
 }
