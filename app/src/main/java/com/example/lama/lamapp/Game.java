@@ -23,8 +23,10 @@ class Game implements Serializable{
     List<String> Words_List = new ArrayList<String>();
     String Word;
 
-    int NbPointsTurn;
-    int NbPointsRound;
+    int NbPointsTurnTeamA;
+    int NbPointsTurnTeamB;
+    int NbPointsRoundTeamA;
+    int NbPointsRoundTeamB;
 
     // ----- CONSTRUCTOR ----- //
     public Game() {
@@ -34,8 +36,10 @@ class Game implements Serializable{
         TeamB = "";
         NbWords = 0;
         Word = "";
-        NbPointsTurn = 0;
-        NbPointsRound = 0;
+        NbPointsTurnTeamA = 0;
+        NbPointsTurnTeamB = 0;
+        NbPointsRoundTeamA = 0;
+        NbPointsRoundTeamB = 0;
     }
 
     // ----- GETTERS ----- //
@@ -77,11 +81,13 @@ class Game implements Serializable{
     }
     public String getWord(int pWordID){ return this.Words_List.get(pWordID); }
 
-    public int getNbPointsTurn() {
-        return NbPointsTurn;
+    public int getNbPointsTurnTeamA() { return NbPointsTurnTeamA; }
+    public int getNbPointsTurnTeamB() { return NbPointsTurnTeamB; }
+    public int getNbPointsRoundTeamA() {
+        return NbPointsRoundTeamA;
     }
-    public int getNbPointsRound() {
-        return NbPointsRound;
+    public int getNbPointsRoundTeamB() {
+        return NbPointsRoundTeamB;
     }
 
     // ----- SETTERS ----- //
@@ -104,10 +110,16 @@ class Game implements Serializable{
         this.Words_List.add(pWord);
     }
 
-    public void setNbPointsTurn(int pNbPointsTurn){
-        NbPointsTurn = pNbPointsTurn;
+    public void setNbPointsTurnTeamA(int pNbPointsTurn){
+        NbPointsTurnTeamA = pNbPointsTurn;
     }
-    public void setNbPointRound(int pNbPointsRound){
-        NbPointsRound = pNbPointsRound;
+    public void setNbPointsTurnTeamB(int pNbPointsTurn){
+        NbPointsTurnTeamB = pNbPointsTurn;
+    }
+    public void setNbPointRoundTeamA(int pNbPointsRound){
+        NbPointsRoundTeamA = pNbPointsRound;
+    }
+    public void setNbPointRoundTeamB(int pNbPointsRound){
+        NbPointsRoundTeamB = pNbPointsRound;
     }
 }
