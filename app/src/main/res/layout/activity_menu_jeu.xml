@@ -44,6 +44,7 @@
         android:backgroundTint="@android:color/background_light"
         android:background="@drawable/gradient_box"
         android:id="@+id/menu_scores"
+        android:onClick="goto_Scores"
         android:textColor="@android:color/black" />
 
     <Button

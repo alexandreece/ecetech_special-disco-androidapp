@@ -39,7 +39,8 @@
         <activity
             android:name=".PlayersName"
             android:windowSoftInputMode="adjustPan">
-            <!--android:windowSoftInputMode="stateHidden">-->
+
+            <!-- android:windowSoftInputMode="stateHidden"> -->
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.PlayersName" />
 
@@ -66,10 +67,11 @@
         <activity android:name=".Troisieme_manche" />
         <activity android:name=".Fin_de_manche" />
         <activity android:name=".Fin_de_manche_recap" />
-
-        <activity android:name=".TestFragmentActivity"
+        <activity
+            android:name=".TestFragmentActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Scores"></activity>
     </application>
 
 </manifest>

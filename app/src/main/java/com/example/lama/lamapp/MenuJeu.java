@@ -24,4 +24,9 @@ public class MenuJeu extends AppCompatActivity {
         Intent activityDidacticiel = new Intent(MenuJeu.this, Didacticiel.class);
         startActivity(activityDidacticiel);
     }
+
+    public void goto_Scores(View view) {
+        Intent activityScores = new Intent(MenuJeu.this, Scores.class);
+        startActivity(activityScores);
+    }
 }

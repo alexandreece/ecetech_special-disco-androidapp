@@ -39,6 +39,7 @@ public class EnterWord extends Activity {
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
 
         ArrayList<Word> word = new ArrayList<Word>();
+
         /*Word W1 = new Word();
         Word W2 = new Word();
         Word W3 = new Word();
@@ -54,10 +55,8 @@ public class EnterWord extends Activity {
         for(int i = 0; i<game.getNbPlayers();i++){
 
             Word W1 = new Word();
-            Word W2 = new Word();
 
             word.add(W1);
-            word.add(W2);
         }
 
         myAdapter = new EnterWordAdapter(this, R.layout.enter_word1, word);
