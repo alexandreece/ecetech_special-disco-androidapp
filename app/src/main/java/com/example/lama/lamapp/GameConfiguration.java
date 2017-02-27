@@ -3,6 +3,7 @@ package com.example.lama.lamapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 public class GameConfiguration extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class GameConfiguration extends AppCompatActivity {
         game.setNbPlayers(NbPlayers);
         NbWords = 12;
         game.setNbWords(NbWords);
-
+        Log.i("Package",view.getContext().getPackageName());
         Intent intent_next = new Intent("com.example.lama.lamapp.PlayersName");
         intent_next.putExtra("game", game);
         startActivity(intent_next);
