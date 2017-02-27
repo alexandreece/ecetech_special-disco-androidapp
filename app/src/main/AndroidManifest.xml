@@ -8,53 +8,54 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MenuJeu">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.MenuJeu" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SelectLevel">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.SelectLevel" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".GameConfiguration">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.GameConfiguration" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".PlayersName"
+        <activity
+            android:name=".PlayersName"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.PlayersName" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Test">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.Test" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SelectRandomWord" />
         <activity android:name=".SelectWord" />
-        <activity android:name=".InGame"
+        <activity
+            android:name=".InGame"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Didacticiel" />
@@ -64,6 +65,10 @@
         <activity android:name=".Troisieme_manche" />
         <activity android:name=".Fin_de_manche" />
         <activity android:name=".Fin_de_manche_recap" />
+
+        <activity android:name=".TestFragmentActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

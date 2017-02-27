@@ -19,14 +19,9 @@ public class Main extends AppCompatActivity {
         startActivity(activityMenuJeu);
     }
 
-    public void lucasLevel(View view) {
-        Intent activitySelectLevel = new Intent(Main.this, SelectLevel.class);
+    public void testFragment(View view) {
+        Intent activitySelectLevel = new Intent(Main.this, TestFragmentActivity.class);
         startActivity(activitySelectLevel);
-    }
-
-    public void lucasInGame(View view) {
-        Intent activityInGame = new Intent(Main.this, InGame.class);
-        startActivity(activityInGame);
     }
 
     public void adrien(View view) {
