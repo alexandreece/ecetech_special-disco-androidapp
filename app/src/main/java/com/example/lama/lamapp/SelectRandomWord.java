@@ -38,7 +38,6 @@ public class SelectRandomWord extends AppCompatActivity {
             }
         }
         int index = alea.nextInt(liste.size());
-        Log.i("Taille liste", ""+index);
         String ranMot = liste.get(index);
         Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
     }
