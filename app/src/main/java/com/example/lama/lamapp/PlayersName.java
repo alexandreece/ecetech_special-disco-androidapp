@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -70,12 +71,15 @@ public class PlayersName extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        String nTeamB = teamB.getText().toString();
         game.setNameTeamA(teamA.getText().toString());
-        Toast.makeText(getApplicationContext(),game.getNameTeamA(),Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),nTeamB,Toast.LENGTH_SHORT).show();
-
-
+        game.setNameTeamB(teamB.getText().toString());
+        game.addTeamA(adapterA.getList());
+        game.addTeamA(adapterB.getList());
+        Toast.makeText(getApplicationContext(), game.getTeamA_List_Joueurs().toString(),Toast.LENGTH_SHORT).show();
+        Game temp = new Game();
+        Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
+        intent_next.putExtra("temp", temp);
+        startActivity(intent_next);
 
 
     }
