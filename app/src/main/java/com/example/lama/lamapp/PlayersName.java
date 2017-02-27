@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.lama.lamapp.DAOs.Joueur;
@@ -23,14 +25,14 @@ public class PlayersName extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_name);
 
+        Intent intent = getIntent();
 
-        Game game = new Game();
-
-        game.setNbPlayers(10);
+        Game game = (Game) intent.getSerializableExtra("game");
 
         ArrayList<Joueur> equipeA = new ArrayList<>();
         ArrayList<Joueur> equipeB = new ArrayList<>();
 
+        Button valider = find
         for(int i =0; i<game.getNbPlayers();i++){
             Joueur joueurA = new Joueur();
             Joueur joueurB = new Joueur();

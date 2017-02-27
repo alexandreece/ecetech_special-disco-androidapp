@@ -20,63 +20,72 @@
             android:gravity="center"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textSize="24sp" />
+    <EditText
+        android:layout_width="250dp"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="20dp"
+        android:ems="10"
+        android:layout_marginTop="9dp"
+        android:background="@color/colorText"
+        android:id="@+id/nameEqA"
+        android:textSize="18sp"
+        android:layout_height="30dp"
+        android:hint="Exemple : LAMAtiere"
+        android:layout_below="@+id/textEqA"
+        android:layout_alignStart="@+id/nameEqB" />
 
 
-        <EditText
-            android:layout_width="250dp"
-            android:inputType="textPersonName"
-            android:layout_marginLeft="20dp"
-            android:ems="10"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorText"
-            android:layout_below="@id/textEqA"
-            android:id="@+id/nameEqA"
-            android:textSize="18sp"
-            android:layout_height="30dp"
-            android:hint="Exemple : LAMAtiere" />
-
-        <ListView
+     <ListView
             android:id="@+id/listA"
             android:layout_below="@id/nameEqA"
             android:layout_width="match_parent"
             android:layout_marginBottom="10dp"
-            android:layout_height="200dp">
+            android:layout_height="180dp">
 
         </ListView>
 
 
-        <TextView
-            android:id="@+id/textEqB"
-            android:layout_below="@id/listA"
+     <ListView
+            android:id="@+id/listB"
+            android:layout_below="@id/nameEqB"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Nommez l'équipe B"
-            android:gravity="center"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-            android:textSize="24sp" />
+            android:layout_height="180dp">
+
+        </ListView>
 
 
-        <EditText
+     <TextView
+         android:id="@+id/textEqB"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Nommez l'équipe B"
+         android:gravity="center"
+         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+         android:textSize="24sp"
+         android:layout_below="@+id/listA"
+         android:layout_alignParentStart="true" />
+
+     <EditText
             android:layout_width="250dp"
             android:layout_height="30dp"
             android:inputType="textPersonName"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorText"
-            android:layout_below="@id/textEqB"
-            android:id="@+id/nameEqB"
-            android:hint="Exemple : LAMAtrice" />
+            android:layout_marginTop="9dp"
+         android:background="@color/colorText"
+         android:id="@+id/nameEqB"
+            android:hint="Exemple : LAMAtrice"
+         android:layout_marginStart="32dp"
+         android:layout_below="@+id/textEqB"
+         android:layout_alignParentStart="true" />
 
-        <ListView
-            android:id="@+id/listB"
-            android:layout_below="@id/nameEqB"
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-
-        </ListView>
+     <Button
+         android:text="Valider"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:id="@+id/okPlayerName"
+         style="@style/Widget.AppCompat.Button" />
 
 </RelativeLayout>

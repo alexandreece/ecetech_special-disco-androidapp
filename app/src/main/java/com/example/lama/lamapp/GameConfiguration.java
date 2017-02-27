@@ -25,7 +25,7 @@ public class GameConfiguration extends AppCompatActivity {
         NbWords = 12;
         game.setNbWords(NbWords);
 
-        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        Intent intent_next = new Intent("com.example.lama.lamapp.PlayersName");
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
@@ -40,7 +40,7 @@ public class GameConfiguration extends AppCompatActivity {
         NbWords = 8;
         game.setNbWords(NbWords);
 
-        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        Intent intent_next = new Intent("com.example.lama.lamapp.PlayersName");
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
@@ -55,9 +55,10 @@ public class GameConfiguration extends AppCompatActivity {
         NbWords = 6;
         game.setNbWords(NbWords);
 
-        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        Intent intent_next = new Intent("com.example.lama.lamapp.PlayersName");
         intent_next.putExtra("game", game);
         startActivity(intent_next);
+
 
     }
     public void nbJoueursx5(View view) {
@@ -70,7 +71,7 @@ public class GameConfiguration extends AppCompatActivity {
         NbWords = 5;
         game.setNbWords(NbWords);
 
-        Intent intent_next = new Intent("com.example.lama.lamapp.Test");
+        Intent intent_next = new Intent("com.example.lama.lamapp.PlayersName");
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
