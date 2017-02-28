@@ -25,6 +25,8 @@ public class TestFragmentActivity extends AppCompatActivity {
 
     TextView mTimer;
     TextView mWord;
+    TextView mCount;
+    String CountText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,10 @@ public class TestFragmentActivity extends AppCompatActivity {
 
         mWord = (TextView) findViewById(R.id.ShowWord);
         mWord.setText(WordList[0]);
+
+        mCount = (TextView) findViewById(R.id.ShowCount);
+        CountText = "0/" + WordList.length;
+        mCount.setText(CountText);
 
         // START TIMER
         startTimerThread();
@@ -63,7 +69,6 @@ public class TestFragmentActivity extends AppCompatActivity {
                         }
                     });
                     timer--;
-//                    Log.i("timer", "run: " + timer);
                 }
             }
         };
@@ -73,8 +78,24 @@ public class TestFragmentActivity extends AppCompatActivity {
     void WordListThread (){
         new Thread(new Runnable() {
             public void run() {
-                final Button button = (Button) findViewById(R.id.button_valid_word);
-                button.setOnClickListener(new View.OnClickListener(){
+                final Button button_validate = (Button) findViewById(R.id.button_valid_word);
+                button_validate.setOnClickListener(new View.OnClickListener(){
+                    int i = 0;
+                    int Count = 0;
+                    int NbWord = WordList.length;
+                    public void onClick(View v){
+                        if(i < NbWord) {
+                            i++;
+                            mWord.setText(WordList[i]);
+                            Count++;
+                            CountText = Integer.toString(Count)+ "/" + Integer.toString(WordList.length);
+                            mCount.setText(CountText);
+                            if(i == WordList.length - 1) i = 0;
+                        }
+                    }
+                });
+                final Button button_quit = (Button) findViewById(R.id.button_quit_word);
+                button_quit.setOnClickListener(new View.OnClickListener(){
                     int i = 0;
                     int NbWord = WordList.length;
                     public void onClick(View v){
@@ -82,25 +103,11 @@ public class TestFragmentActivity extends AppCompatActivity {
                             i++;
                             mWord.setText(WordList[i]);
                             if(i == WordList.length - 1) i = 0;
-
-                            Log.i("Mot", "Word: " + WordList[i]);
                         }
                     }
                 });
-                }
-            }).start();
-        }
-
-
-        // UPDATE WORD TO GUESS
-        public void UpdateWord(View view) {
-        /*
-        for (int i = 1; i < 12; i++) {
-            mWord = (TextView) findViewById(R.id.ShowWord);
-            mWord.setText(WordList[i]);
-
-            if(i == 11) i = 0;
-        }
-        */
+            }
+        }).start();
     }
 }
+
