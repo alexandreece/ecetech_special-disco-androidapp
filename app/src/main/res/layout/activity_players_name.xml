@@ -15,7 +15,7 @@
             android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textEqA"
+            android:id="@+id/playerName_Textview_textEqA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -31,17 +31,17 @@
         android:ems="10"
         android:layout_marginTop="9dp"
         android:background="@color/colorText"
-        android:id="@+id/nameEqA"
+        android:id="@+id/playerName_Editext_nameEqA"
         android:textSize="18sp"
         android:layout_height="30dp"
         android:hint="Exemple : LAMAtiere"
-        android:layout_below="@+id/textEqA"
-        android:layout_alignStart="@+id/nameEqB" />
+        android:layout_below="@+id/playerName_Textview_textEqA"
+        android:layout_alignStart="@+id/playerName_Editext_nameEqB" />
 
 
      <ListView
-            android:id="@+id/listA"
-            android:layout_below="@id/nameEqA"
+            android:id="@+id/playerName_ListView_listA"
+            android:layout_below="@id/playerName_Editext_nameEqA"
             android:layout_width="match_parent"
          android:layout_height="170dp">
 
@@ -49,8 +49,8 @@
 
 
      <ListView
-            android:id="@+id/listB"
-            android:layout_below="@id/nameEqB"
+            android:id="@+id/playerName_Listview_listB"
+            android:layout_below="@id/playerName_Editext_nameEqB"
             android:layout_width="match_parent"
          android:layout_height="170dp">
 
@@ -58,7 +58,7 @@
 
 
      <TextView
-         android:id="@+id/textEqB"
+         android:id="@+id/playerName_TextView_textEqB"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_marginTop="10dp"
@@ -66,7 +66,7 @@
          android:gravity="center"
          android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
          android:textSize="24sp"
-         android:layout_below="@+id/listA"
+         android:layout_below="@+id/playerName_ListView_listA"
          android:layout_alignParentStart="true" />
 
      <EditText
@@ -77,19 +77,19 @@
             android:ems="10"
             android:layout_marginTop="9dp"
          android:background="@color/colorText"
-         android:id="@+id/nameEqB"
+         android:id="@+id/playerName_Editext_nameEqB"
             android:hint="Exemple : LAMAtrice"
          android:layout_marginBottom="10dp"
          android:layout_marginStart="32dp"
-         android:layout_below="@+id/textEqB"
+         android:layout_below="@+id/playerName_TextView_textEqB"
          android:layout_alignParentStart="true" />
 
             <Button
                 android:text="Valider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/okPlayerName"
-                android:layout_below="@+id/listB"
+                android:id="@+id/playerName_Button_okPlayerName"
+                android:layout_below="@+id/playerName_Listview_listB"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:inputType="text|textPersonName" />
