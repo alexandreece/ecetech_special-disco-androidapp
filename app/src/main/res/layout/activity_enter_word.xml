@@ -29,10 +29,10 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="LAMAlédiction"
+            android:text="Equipe 1"
             android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:id="@+id/title_scores"
+            android:id="@+id/NameEq1TextViewEnterWord"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textStyle="normal|bold"
@@ -48,10 +48,10 @@
                 android:layout_weight="0.28" />
 
             <TextView
-                android:text="LAMAtrice"
+                android:text="Equipe 2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/enter_word_eq2"
+                android:id="@+id/NameEq2TextViewEnterWord"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
