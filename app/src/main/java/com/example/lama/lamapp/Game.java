@@ -125,4 +125,23 @@ class Game implements Serializable{
     public void setNbPointRoundTeamB(int pNbPointsRound){
         NbPointsRoundTeamB = pNbPointsRound;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "Level=" + Level +
+                ", NbPlayers=" + NbPlayers +
+                ", TeamA='" + TeamA + '\'' +
+                ", TeamB='" + TeamB + '\'' +
+                ", TeamA_List_Joueurs=" + TeamA_List_Joueurs +
+                ", TeamB_List_Joueurs=" + TeamB_List_Joueurs +
+                ", NbWords=" + NbWords +
+                ", Words_List=" + Words_List +
+                ", Word='" + Word + '\'' +
+                ", NbPointsTurnTeamA=" + NbPointsTurnTeamA +
+                ", NbPointsTurnTeamB=" + NbPointsTurnTeamB +
+                ", NbPointsRoundTeamA=" + NbPointsRoundTeamA +
+                ", NbPointsRoundTeamB=" + NbPointsRoundTeamB +
+                '}';
+    }
 }

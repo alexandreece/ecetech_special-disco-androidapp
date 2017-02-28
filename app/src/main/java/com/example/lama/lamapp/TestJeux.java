@@ -56,8 +56,8 @@ public class TestJeux extends AppCompatActivity {
         new Thread(runnable).start();
     }
 
-    void jeux(){
-        for(int i = 0; i<game.getNbPlayers(),)
-    }
+    //void jeux(){
+   //     for(int i = 0; i<game.getNbPlayers(),)
+   // }
 
 }
