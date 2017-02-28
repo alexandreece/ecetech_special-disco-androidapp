@@ -3,6 +3,7 @@ package com.example.lama.lamapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,6 +23,7 @@ public class EnterWord extends Activity {
     private ListView vue2;
     private TextView LabelNomEq1, LabelNomEq2;
     private Game game;
+    private String motChoisi=null;
 
     private EnterWordAdapter myAdapter;
 
@@ -30,13 +32,26 @@ public class EnterWord extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_word);
         Intent intent = getIntent();
-
         game = (Game) intent.getSerializableExtra("game");
+        Log.i("Game",game.toString());
+
+        if (intent.getStringExtra("motChoisi")!=null){
+            motChoisi = intent.getStringExtra("motChoisi");
+            Log.i("Mot choisi", motChoisi);
+        }
 
         LabelNomEq1 = (TextView) findViewById(R.id.NameEq1TextViewEnterWord);
         LabelNomEq2 = (TextView) findViewById(R.id.NameEq2TextViewEnterWord);
         LabelNomEq1.setText(game.getNameTeamA());
         LabelNomEq2.setText(game.getNameTeamB());
+
+        if (motChoisi!=null){
+            Log.i("Mot choisi","Non null !");
+            EditText word = (EditText) findViewById(R.id.word);
+            Log.i("Hello EditText",word.toString());
+            word.setText(motChoisi, TextView.BufferType.NORMAL);
+            Toast.makeText(getApplicationContext(), motChoisi, Toast.LENGTH_SHORT).show();
+        }
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
@@ -68,6 +83,7 @@ public class EnterWord extends Activity {
 
     public void precedent(View view) {
         Intent activityRandomWord = new Intent(EnterWord.this, SelectWord.class);
+        activityRandomWord.putExtra("game",game);
         startActivity(activityRandomWord);
 
     }

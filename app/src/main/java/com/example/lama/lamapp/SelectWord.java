@@ -1,7 +1,9 @@
 package com.example.lama.lamapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,11 +18,15 @@ import java.util.List;
 public class SelectWord extends AppCompatActivity {
 
     ListView vue;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word);
+
+        Intent intent = getIntent();
+        game = (Game) intent.getSerializableExtra("game");
 
         DatabaseHandler db = new DatabaseHandler(this);
         List<Word> words = db.getWordsList();
@@ -40,6 +46,11 @@ public class SelectWord extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
                 String selected = (String) vue.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),selected,Toast.LENGTH_SHORT).show();
+                Intent intent_next = new Intent(SelectWord.this, EnterWord.class);
+                intent_next.putExtra("motChoisi", selected);
+                intent_next.putExtra("game", game);
+                Log.i("Game SELECTWORD",game.toString());
+                startActivity(intent_next);
             }
         });
     }
