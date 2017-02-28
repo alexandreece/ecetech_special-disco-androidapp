@@ -1,8 +1,6 @@
 package com.example.lama.lamapp;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Joueur;
 import java.util.ArrayList;
-import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -49,31 +45,26 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> {
         joueur = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
 
-       // joueurs.add(joueur);
-        final TextView nJoueur = (TextView) convertView.findViewById(R.id.nJoueur);
-        final EditText nom = (EditText) convertView.findViewById(R.id.nom);
+        final TextView nJoueur = (TextView) convertView.findViewById(R.id.layoutPlayerName_Textview_nJoueur);
+        final EditText nom = (EditText) convertView.findViewById(R.id.layoutPlayerName_Editext_nom);
 
         nJoueur.setText("Joueur " + (position + 1));
+
         nom.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 joueur = joueurs.get(position);
                 joueur.setIdJoueur(position);
-                Log.i(TAG, "id joueur: "+joueur.toString());
                 joueur.setNomJoueur(nom.getText().toString());
-                Log.i(TAG, "joueur: "+joueur.toString());
                 joueurs.set(position, joueur);
-                //joueurs.add(joueur);
             }
 
         });
@@ -82,7 +73,6 @@ public class PlayerNameAdapter extends ArrayAdapter<Joueur> {
     }
 
     public ArrayList<Joueur> getList() {
-        Log.i(TAG, "getList: " + joueurs.toString());
         return joueurs;
     }
 
