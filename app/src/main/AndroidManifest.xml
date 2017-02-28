@@ -71,7 +71,8 @@
             android:name=".TestFragmentActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Scores"></activity>
+        <activity android:name=".Scores" />
+        <activity android:name=".TestJeux"></activity>
     </application>
 
 </manifest>
