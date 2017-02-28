@@ -101,7 +101,7 @@ class Game implements Serializable{
     public void setNameTeamB(String pNameTeamB){this.TeamB = pNameTeamB ;}
 
     public void addTeamA(ArrayList<Joueur> A){this.TeamA_List_Joueurs = A;}
-    public void addTeamB(ArrayList<Joueur> B){this.TeamA_List_Joueurs = B;}
+    public void addTeamB(ArrayList<Joueur> B){this.TeamB_List_Joueurs = B;}
 
     public void addPlayerTeamA(Joueur pJoueur){ this.TeamA_List_Joueurs.add(pJoueur);}
     public void addPlayerTeamB(Joueur pJoueur){ this.TeamB_List_Joueurs.add(pJoueur);}

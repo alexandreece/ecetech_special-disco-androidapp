@@ -18,13 +18,14 @@ public class PlayersName extends Activity implements OnClickListener {
     private ListView ListeA;
     private ListView ListeB;
     private PlayerNameAdapter adapterA;
-    private PlayerNameAdapterB adapterB;
+    private PlayerNameAdapter adapterB;
     private Game game;
     private ArrayList<Joueur> equipeA ;
     private ArrayList<Joueur> equipeB ;
     private Button valider;
     EditText teamA;
     EditText teamB;
+
     /**
      * Called when the activity is first created.
      */
@@ -54,13 +55,12 @@ public class PlayersName extends Activity implements OnClickListener {
             equipeA.add(joueurA);
             equipeB.add(joueurB);
         }
-        Log.i("EquipeA", "onCreate: " + equipeA.toString());
-        Log.i("EquipeB", "onCreate: " + equipeB.toString());
+
         ListeA = (ListView) findViewById(R.id.listA);
         ListeB = (ListView) findViewById(R.id.listB);
 
         adapterA = new PlayerNameAdapter(this, R.layout.layout_playername,equipeA);
-        adapterB = new PlayerNameAdapterB(this, R.layout.layout_playername,equipeB);
+        adapterB = new PlayerNameAdapter(this, R.layout.layout_playername,equipeB);
 
         ListeA.setAdapter(adapterA);
         ListeB.setAdapter(adapterB);
@@ -76,13 +76,11 @@ public class PlayersName extends Activity implements OnClickListener {
         game.addTeamB(adapterB.getList());
         Log.i("Team A", game.getTeamA_List_Joueurs().toString());
         Log.i("Team B", game.getTeamB_List_Joueurs().toString());
-        //Toast.makeText(getApplicationContext(), game.getTeamA_List_Joueurs().toString(),Toast.LENGTH_SHORT).show();
-        /*Game temp = new Game();*/
+
         Intent intent_next = new Intent(PlayersName.this, EnterWord.class);
-        //Intent intent_next = new Intent("com.example.lama.lamapp.EnterWord");
-        //Game temp = new Game();
-        //temp.setNbPlayers(4);
-        Log.i("GAME", "GAME: " + game.getNbPlayers());
+
+        Log.i("Team Name", "A: " + game.getNameTeamA());
+        Log.i("Team Name", "B: " + game.getNameTeamB());
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
