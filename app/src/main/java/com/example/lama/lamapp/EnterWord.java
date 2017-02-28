@@ -20,6 +20,7 @@ public class EnterWord extends Activity {
 
     private ListView vue1;
     private ListView vue2;
+    private TextView LabelNomEq1, LabelNomEq2;
     private Game game;
 
     private EnterWordAdapter myAdapter;
@@ -31,6 +32,11 @@ public class EnterWord extends Activity {
         Intent intent = getIntent();
 
         game = (Game) intent.getSerializableExtra("game");
+
+        LabelNomEq1 = (TextView) findViewById(R.id.NameEq1TextViewEnterWord);
+        LabelNomEq2 = (TextView) findViewById(R.id.NameEq2TextViewEnterWord);
+        LabelNomEq1.setText(game.getNameTeamA());
+        LabelNomEq2.setText(game.getNameTeamB());
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
@@ -50,9 +56,7 @@ public class EnterWord extends Activity {
        // game.setNbPlayers(3);
 
         for(int i = 0; i<game.getNbPlayers();i++){
-
             Word W1 = new Word();
-
             word.add(W1);
         }
 
@@ -84,6 +88,4 @@ public class EnterWord extends Activity {
         word.setText(ranMot, TextView.BufferType.NORMAL);
         Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
     }
-
-
 }
