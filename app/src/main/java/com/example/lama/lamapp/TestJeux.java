@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.lama.lamapp.DAOs.Joueur;
@@ -12,13 +13,13 @@ public class TestJeux extends AppCompatActivity {
 
     private TextView textTimer;
     private Game game;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_jeux);
         Intent intent = getIntent();
         game = (Game) intent.getSerializableExtra("game");
+        gameFirstRound();
 
     }
 
@@ -28,7 +29,7 @@ public class TestJeux extends AppCompatActivity {
         playername.setText(name);
     }
 
-    void startTimerThread() {
+   public void startTimerThread() {
         textTimer = (TextView) findViewById(R.id.TestJeux_TextView_ShowTimer);
         final Handler handler = new Handler();
         Runnable runnable = new Runnable() {
@@ -46,18 +47,35 @@ public class TestJeux extends AppCompatActivity {
                         public void run() {
                             textTimer = (TextView) findViewById(R.id.TestJeux_TextView_ShowTimer);
                             textTimer.setText(finalTimer);
+
                         }
                     });
+
                     timer--;
+
+
 //                    Log.i("timer", "run: " + timer);
                 }
-            }
+                  }
         };
         new Thread(runnable).start();
+
     }
 
-    void jeux(){
-        for(int i = 0; i<game.getNbPlayers(),)
+    void gameFirstRound(){
+        int nbPlayer = (game.getNbPlayers() * 2);
+        int i = 0, a=0, b=0;
+        Joueur player;
+        //Boucle principale
+        while(nbPlayer <= nbPlayer){
+            player = game.getTeamA_List_Joueurs().get(i);
+            setPlayerName(player.getNomJoueur());
+            startTimerThread();
+            while(time >= 0){
+                //Log.i("chrono", "gameFirstRound: " + time);
+            }
+            Log.i("dv", "gameFirstRound: ");
+        }
     }
 
 }
