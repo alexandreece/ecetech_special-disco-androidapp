@@ -72,7 +72,6 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Scores" />
-        <activity android:name=".TestJeux" />
         <activity android:name=".Activity_points"></activity>
     </application>
 
