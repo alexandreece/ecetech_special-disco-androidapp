@@ -23,9 +23,13 @@ public class EnterWord extends Activity {
     private ListView vue2;
     private TextView LabelNomEq1, LabelNomEq2;
     private Game game;
-    private String motChoisi=null;
+    private EditText word;
+    private EnterWordAdapter adaptaterA;
+    private EnterWordAdapter adaptaterB;
 
-    private EnterWordAdapter myAdapter;
+    private ArrayList<String> wordlist =null;
+    private ArrayList<String> wordA;
+    private ArrayList<String> wordB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,61 +37,62 @@ public class EnterWord extends Activity {
         setContentView(R.layout.activity_enter_word);
         Intent intent = getIntent();
         game = (Game) intent.getSerializableExtra("game");
+
         Log.i("Game",game.toString());
 
-        if (intent.getStringExtra("motChoisi")!=null){
+       /* if (intent.getStringExtra("motChoisi")!=null){
             motChoisi = intent.getStringExtra("motChoisi");
             Log.i("Mot choisi", motChoisi);
-        }
+        }*/
 
+        if (intent.getStringExtra("wordlist")!=null){
+            wordlist = (ArrayList<String>) intent.getSerializableExtra("wordlist");
+            wordA = wordlist;
+            Log.i("wordlist", wordlist.toString());
+        }else{
+            for(int i = 0; i<game.getNbPlayers();i++){
+                //   String wA =null;
+                String wB = new String();
+                //wordA.add(wA);
+                wordB.add(wB);
+            }
+        }
         LabelNomEq1 = (TextView) findViewById(R.id.NameEq1TextViewEnterWord);
         LabelNomEq2 = (TextView) findViewById(R.id.NameEq2TextViewEnterWord);
         LabelNomEq1.setText(game.getNameTeamA());
         LabelNomEq2.setText(game.getNameTeamB());
 
-        if (motChoisi!=null){
+       /* if (motChoisi!=null){
             Log.i("Mot choisi","Non null !");
-            EditText word = (EditText) findViewById(R.id.word);
+
+             word = (EditText) findViewById(R.id.word);
             Log.i("Hello EditText",word.toString());
             word.setText(motChoisi, TextView.BufferType.NORMAL);
             Toast.makeText(getApplicationContext(), motChoisi, Toast.LENGTH_SHORT).show();
-        }
+        }*/
+
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
         vue2 = (ListView) findViewById(R.id.enter_word_list2);
 
-        ArrayList<Word> word = new ArrayList<Word>();
 
-        /*Word W1 = new Word();
-        Word W2 = new Word();
-        Word W3 = new Word();
-        Word W4 = new Word();
-        Word W5 = new Word();
-        word.add(W1);
-        word.add(W2);
-        word.add(W3);
-        word.add(W4);
-        word.add(W5);*/
-       // game.setNbPlayers(3);
 
-        for(int i = 0; i<game.getNbPlayers();i++){
-            Word W1 = new Word();
-            word.add(W1);
-        }
 
-        myAdapter = new EnterWordAdapter(this, R.layout.enter_word1, word);
-        vue1.setAdapter(myAdapter);
-        vue2.setAdapter(myAdapter);
+        adaptaterA = new EnterWordAdapter(this, R.layout.enter_word1, wordA);
+        adaptaterB = new EnterWordAdapter(this, R.layout.enter_word1, wordB);
+        vue1.setAdapter(adaptaterA);
+        vue2.setAdapter(adaptaterB);
 
     }
-
+/*
     public void precedent(View view) {
+        Log.i("bouton", "precedent: " + view.findViewById(R.id.pastword));
         Intent activityRandomWord = new Intent(EnterWord.this, SelectWord.class);
         activityRandomWord.putExtra("game",game);
         startActivity(activityRandomWord);
 
     }
-
+*/
     public void dictionnaire(View view) {
         Intent activityRandomWord = new Intent(EnterWord.this, SelectRandomWord.class);
         startActivity(activityRandomWord);
