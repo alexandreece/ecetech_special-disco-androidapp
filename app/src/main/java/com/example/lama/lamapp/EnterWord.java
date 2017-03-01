@@ -88,7 +88,7 @@ public class EnterWord extends Activity {
         vue2.setAdapter(adaptaterB);
 
     }
-
+/*
     public void aleatoire(View view) {
         EditText word = (EditText) findViewById(R.id.word);
         Random alea = new Random();
@@ -99,4 +99,6 @@ public class EnterWord extends Activity {
         word.setText(ranMot, TextView.BufferType.NORMAL);
         Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
     }
+
+    */
 }

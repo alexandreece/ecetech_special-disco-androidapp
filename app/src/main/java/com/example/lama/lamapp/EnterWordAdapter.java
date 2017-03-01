@@ -17,6 +17,7 @@ import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
@@ -64,13 +65,14 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
         EditText word = (EditText) convertView.findViewById(R.id.word);
         Button precedent = (Button) convertView.findViewById(R.id.pastword);
         Button dictionnaire = (Button) convertView.findViewById(R.id.dicoword);
+        Button random = (Button) convertView.findViewById(R.id.randomword);
         precedent.setOnClickListener(this);
         dictionnaire.setOnClickListener(this);
+        random.setOnClickListener(this);
         precedent.setTag(position);
-        //precedent.setOnClickListener(this);
         dictionnaire.setTag(position);
-        //dictionnaire.setOnClickListener(this);
-        word.setHint("Joueur" + position);
+        random.setTag(position);
+        word.setHint("Entrez un mot" + position);
         if (!words.get(position).isEmpty()) {
             word.setText(words.get(position));
         }
@@ -99,7 +101,8 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
             activity.putExtra("game", game);
             activity.putExtra("ab", ab);
             this.getContext().startActivity(activity);
-        } else if (v.getId() == R.id.dicoword) {
+        }
+        else if (v.getId() == R.id.dicoword) {
             activity = new Intent(this.getContext(), SelectRandomWord.class);
             activity.putExtra("position", (int) v.findViewById(R.id.dicoword).getTag());
             if (ab == 1) {
@@ -115,7 +118,31 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
 
         }
 
+        else if (v.getId() == R.id.randomword) {
+            Random alea = new Random();
+            DatabaseHandler db = new DatabaseHandler(this.getContext());
+            List<Word> wordsR = db.getWordsList();
+            db.close();
+            String ranMot = wordsR.get(alea.nextInt(wordsR.size())).getWord();
+
+            Log.i("pos", "onClick: "+(int)v.findViewById(R.id.randomword).getTag());
+            words.set((int)v.findViewById(R.id.randomword).getTag(),ranMot);
+        this.notifyDataSetChanged();
+
+        }
+
     }
 
 
+
+    /*
+     EditText word = (EditText) findViewById(R.id.word);
+        Random alea = new Random();
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Word> words = db.getWordsList();
+        db.close();
+        String ranMot = words.get(alea.nextInt(words.size())).getWord();
+        word.setText(ranMot, TextView.BufferType.NORMAL);
+        Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
+     */
 }
