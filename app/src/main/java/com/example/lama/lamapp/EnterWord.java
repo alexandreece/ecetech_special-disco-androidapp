@@ -86,6 +86,7 @@ public class EnterWord extends Activity {
         Random random = new Random();
         Collections.shuffle(words,random);
         game.setWords_List(words);
+        game.Words_Current_List = game.getWords_List();
         Intent next = new Intent(EnterWord.this, TestFragmentActivity.class);
         next.putExtra("game", game);
         startActivity(next);
