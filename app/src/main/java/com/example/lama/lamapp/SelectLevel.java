@@ -9,10 +9,15 @@ public class SelectLevel extends AppCompatActivity {
 
     private int level;
 
+    Game game = new Game();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_level);
+
+        // SET GAME VALUE
+
     }
 
     public void goto_GameConfiguration_Easy(View view) {

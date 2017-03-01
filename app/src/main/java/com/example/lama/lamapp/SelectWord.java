@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.lama.lamapp.DAOs.Joueur;
 import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ public class SelectWord extends AppCompatActivity {
 
     ListView vue;
     private Game game;
+    private int position;
+    private ArrayList<String> wordList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +30,10 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
 
         Intent intent = getIntent();
-        game = (Game) intent.getSerializableExtra("game");
-
+        //position = (int) intent.getSerializableExtra("position");
+        position = intent.getIntExtra("position",100);
         DatabaseHandler db = new DatabaseHandler(this);
-        List<Word> words = db.getWordsList();
+        final List<Word> words = db.getWordsList();
         db.close();
 
         vue = (ListView) findViewById(R.id.list);
@@ -47,9 +51,8 @@ public class SelectWord extends AppCompatActivity {
                 String selected = (String) vue.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),selected,Toast.LENGTH_SHORT).show();
                 Intent intent_next = new Intent(SelectWord.this, EnterWord.class);
-                intent_next.putExtra("motChoisi", selected);
-                intent_next.putExtra("game", game);
-                Log.i("Game SELECTWORD",game.toString());
+                wordList.add(position,selected);
+                intent_next.putExtra("wordlist", wordList);
                 startActivity(intent_next);
             }
         });

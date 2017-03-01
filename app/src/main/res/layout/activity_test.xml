@@ -10,12 +10,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lama.lamapp.Test">
 
-    <TextView
-        android:text=""
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TestText"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:text="JOUER !"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/TestText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button7"
+        android:onClick="goto_TestFragmentActivity"/>
 
 </RelativeLayout>

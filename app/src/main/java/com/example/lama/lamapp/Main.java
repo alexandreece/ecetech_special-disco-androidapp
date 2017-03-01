@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.lama.lamapp.DAOs.Joueur;
+
 
 public class Main extends AppCompatActivity {
 
@@ -20,7 +22,47 @@ public class Main extends AppCompatActivity {
     }
 
     public void testFragment(View view) {
-        Intent activitySelectLevel = new Intent(Main.this, TestFragmentActivity.class);
+        Intent activitySelectLevel = new Intent(Main.this, Test.class);
+        Game game = new Game();
+
+        // SET TEAMS' NAMES AND PLAYERS' NAMES
+
+        int Level = 3;
+        game.setLevel(Level);
+        int NbPlayers = 4;
+        game.setNbPlayers(NbPlayers);
+        int NbWords = 6;
+        game.setNbWords(NbWords);
+        int CurrentRound = 1;
+        game.setCurrentRound(CurrentRound);
+
+        String TeamA_Name = "Lamalmenée";
+        String TeamB_Name = "Lamarquise";
+        game.setNameTeamA(TeamA_Name);
+        game.setNameTeamB(TeamB_Name);
+
+        int i;
+
+        for (i = 0; i <= NbPlayers-1; i++) {
+            Joueur TeamA_Joueur = new Joueur();
+            Joueur TeamB_Joueur = new Joueur();
+
+            String j = Integer.toString(i+1);
+            String TeamA_Joueur_X = "Joueur " + j + "A";
+            String TeamB_Joueur_X = "Joueur " + j + "B";
+
+            TeamA_Joueur.setNomJoueur(TeamA_Joueur_X);
+            TeamB_Joueur.setNomJoueur(TeamB_Joueur_X);
+
+            game.addPlayerTeamA(TeamA_Joueur);
+            game.addPlayerTeamB(TeamB_Joueur);
+        }
+        String[] pWords = {"Chien", "Chat", "Poisson", "Ours", "Lombric", "Loup", "Chèvre", "Hyène", "Pigeon", "Aigle", "Souris", "Rat", "Grenouille", "Vache"};
+        for(int j = 0; j < pWords.length; j++){
+            game.addWord(pWords[j]);
+        }
+
+        activitySelectLevel.putExtra("game", game);
         startActivity(activitySelectLevel);
     }
 
