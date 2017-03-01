@@ -62,6 +62,9 @@ public class Test extends AppCompatActivity {
     }
 
     public void goto_TestFragmentActivity(View view) {
+        Intent intent = getIntent();
+        Game game = (Game) intent.getSerializableExtra("game");
+        
         Intent intent_next = new Intent(Test.this, TestFragmentActivity.class);
         intent_next.putExtra("game", game);
         startActivity(intent_next);
