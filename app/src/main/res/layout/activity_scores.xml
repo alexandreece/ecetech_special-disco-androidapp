@@ -41,10 +41,32 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/best_scores" />
 
-            <ExpandableListView
+            <TextView
+                android:text="LAMATRAQUE : 3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/best" />
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="LAMATRICE : 5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="LAMATIERE : 9 "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
 
             <TextView
                 android:text="Pires scores"
@@ -57,10 +79,32 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/worse_scores" />
 
-            <ExpandableListView
+            <TextView
+                android:text="LAMA : 43"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/worse" />
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="LAMALICE : 51"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="LAMARIONETTE : 60"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView17"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="24sp"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button2"
