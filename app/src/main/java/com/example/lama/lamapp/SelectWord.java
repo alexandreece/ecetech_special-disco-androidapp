@@ -30,7 +30,8 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
 
         Intent intent = getIntent();
-        position = (int) intent.getSerializableExtra("position");
+        //position = (int) intent.getSerializableExtra("position");
+        position = intent.getIntExtra("position",100);
         DatabaseHandler db = new DatabaseHandler(this);
         final List<Word> words = db.getWordsList();
         db.close();

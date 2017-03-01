@@ -27,7 +27,7 @@ import static android.support.v4.content.ContextCompat.startActivity;
 public class EnterWordAdapter extends ArrayAdapter<Word> implements OnClickListener {
     private int ressourceId;
     private Context context;
-    private ArrayList<Word> myItems;
+    private ArrayList<String> myItems;
     private LayoutInflater inflater;
     private int wpos;
     public EnterWordAdapter(Context context, int resourceId , List myItems) {
@@ -42,7 +42,7 @@ public class EnterWordAdapter extends ArrayAdapter<Word> implements OnClickListe
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Word mot = getItem(position);
+        //String mot = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
         EditText word = (EditText) convertView.findViewById(R.id.word);
         Button precedent = (Button) convertView.findViewById(R.id.pastword);
@@ -50,7 +50,7 @@ public class EnterWordAdapter extends ArrayAdapter<Word> implements OnClickListe
         precedent.setOnClickListener(this);
         //Button validword = (Button) convertView.findViewById(R.id.validerword);
 
-        word.setText(mot.getWord());
+       // word.setText(mot.getWord());
 
         return convertView;
 
