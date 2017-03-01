@@ -27,9 +27,9 @@ public class EnterWord extends Activity {
     private EnterWordAdapter adaptaterA;
     private EnterWordAdapter adaptaterB;
 
-    private ArrayList<String> wordlist =null;
-    private ArrayList<String> wordA;
-    private ArrayList<String> wordB;
+    private ArrayList<String> wordlist;
+    private ArrayList<String> wordA = new ArrayList<>();
+    private ArrayList<String> wordB = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +47,15 @@ public class EnterWord extends Activity {
 
         if (intent.getStringExtra("wordlist")!=null){
             wordlist = (ArrayList<String>) intent.getSerializableExtra("wordlist");
+            if(!wordlist.isEmpty()){
             wordA = wordlist;
-            Log.i("wordlist", wordlist.toString());
+            Log.i("wordlist", wordlist.toString());}
         }else{
             for(int i = 0; i<game.getNbPlayers();i++){
-                //   String wA =null;
-                String wB = new String();
-                //wordA.add(wA);
+                String wA ="";
+                String wB = "";
+                Log.i("test ", "onCreate: " +i);
+                wordA.add(wA);
                 wordB.add(wB);
             }
         }
