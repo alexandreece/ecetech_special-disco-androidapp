@@ -54,7 +54,6 @@
         android:background="#ffffff"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Joueur"
         android:textColor="@color/Grey_LAMApp" />
 
 

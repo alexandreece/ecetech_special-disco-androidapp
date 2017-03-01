@@ -19,9 +19,10 @@ import java.util.List;
 public class SelectWord extends AppCompatActivity {
 
     ListView vue;
-    private Game game;
-    private int position;
+    private int pos;
     private ArrayList<String> wordList;
+    private Game game;
+    private int ab;
 
 
     @Override
@@ -29,8 +30,14 @@ public class SelectWord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word);
 
-        Intent intent = getIntent();
-        position = (int) intent.getSerializableExtra("position");
+        //get data (int position, ArrayList<String> list) from enterWord adapter
+        final Intent intent = getIntent();
+        pos = (int) intent.getIntExtra("position", pos);
+        ab = (int) intent.getSerializableExtra("ab");
+        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
+        game = (Game) intent.getSerializableExtra("game");
+
+        //get word from DB
         DatabaseHandler db = new DatabaseHandler(this);
         final List<Word> words = db.getWordsList();
         db.close();
@@ -41,17 +48,28 @@ public class SelectWord extends AppCompatActivity {
         for (Word mot : words){
             liste.add(mot.getWord());
         }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
         vue.setAdapter(adapter);
 
+
+        //click listener
         vue.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+
+
                 String selected = (String) vue.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),selected,Toast.LENGTH_SHORT).show();
+
                 Intent intent_next = new Intent(SelectWord.this, EnterWord.class);
-                wordList.add(position,selected);
+                Log.i("SELECTED", "onItemClick: "+ selected);
+
+                wordList.add(pos,selected);
+                Log.i("WORDLIST", "onItemClick: "+wordList.toString());
                 intent_next.putExtra("wordlist", wordList);
+                intent_next.putExtra("game", game);
+                intent_next.putExtra("ab",ab);
                 startActivity(intent_next);
             }
         });
