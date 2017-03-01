@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 public class TestFragmentActivity extends AppCompatActivity {
@@ -16,7 +17,7 @@ public class TestFragmentActivity extends AppCompatActivity {
     TextView mCount;
     TextView mPlayerName;
     TextView mTeamName;
-    TextView mCurrentTurn;
+    TextView mCurrentRound;
     String CountText;
 
     @Override
@@ -30,23 +31,66 @@ public class TestFragmentActivity extends AppCompatActivity {
         int[] PlayerToPlay = new int[2];
         PlayerToPlay = game.getPlayerToPlay();
         String NamePlayerToPlay;
+        String NameTeam;
 
-        //if(PlayerToPlay[0] == )
-/*
-        mPlayerName= (TextView) findViewById(R.id.text_player_name);
-        mPlayerName.setText(NamePlayerToPlay);
-*/
-        mWord = (TextView) findViewById(R.id.ShowWord);
-        mWord.setText(game.getWord(0));
+        if(PlayerToPlay[0] == 0){
+            NamePlayerToPlay = game.getNameJoueurTeamA(PlayerToPlay[1]);
+            mPlayerName = (TextView) findViewById(R.id.text_player_name);
+            mPlayerName.setText(NamePlayerToPlay);
+            NameTeam = game.getNameTeamA();
+            mTeamName = (TextView) findViewById(R.id.text_team);
+            mTeamName.setText(NameTeam);
+        }else if(PlayerToPlay[0] == 1){
+            NamePlayerToPlay = game.getNameJoueurTeamB(PlayerToPlay[1]);
+            mPlayerName = (TextView) findViewById(R.id.text_player_name);
+            mPlayerName.setText(NamePlayerToPlay);
+            NameTeam = game.getNameTeamB();
+            mTeamName = (TextView) findViewById(R.id.text_team);
+            mTeamName.setText(NameTeam);
+        }else{
+            NamePlayerToPlay = "Null";
+            mPlayerName = (TextView) findViewById(R.id.text_player_name);
+            mPlayerName.setText(NamePlayerToPlay);
+            NameTeam = "Null";
+            mTeamName = (TextView) findViewById(R.id.text_team);
+            mTeamName.setText(NameTeam);
+        }
+
+        int Round = game.getCurrentRound();
+        Log.i("Current", "Round = " + Round);
+        String CurrentRound;
+        switch (Round){
+            case 1:
+                CurrentRound = "Manche 1";
+                mCurrentRound = (TextView) findViewById(R.id.text_round);
+                mCurrentRound.setText(CurrentRound);
+                break;
+
+            case 2:
+                CurrentRound = "Manche 2";
+                mCurrentRound = (TextView) findViewById(R.id.text_round);
+                mCurrentRound.setText(CurrentRound);
+                break;
+
+            case 3:
+                CurrentRound = "Manche 3";
+                mCurrentRound = (TextView) findViewById(R.id.text_round);
+                mCurrentRound.setText(CurrentRound);
+                break;
+
+            default:
+                CurrentRound = "Manche indéterminée";
+                mCurrentRound = (TextView) findViewById(R.id.text_round);
+                mCurrentRound.setText(CurrentRound);
+                break;
+        }
 
         mWord = (TextView) findViewById(R.id.ShowWord);
-        mWord.setText(game.getWord(0));
-
-        mWord = (TextView) findViewById(R.id.ShowWord);
-        mWord.setText(game.getWord(0));
+        mWord.setText(game.getWordCurrentList(0));
 
         mCount = (TextView) findViewById(R.id.ShowCount);
         CountText = "0/" + game.Words_List.size();
+        Log.i("Word", "ListSize = " + game.Words_List.size());
         mCount.setText(CountText);
 
         // START TIMER
@@ -90,23 +134,31 @@ public class TestFragmentActivity extends AppCompatActivity {
             public void run() {
                 final Button button_validate = (Button) findViewById(R.id.button_valid_word);
                 button_validate.setOnClickListener(new View.OnClickListener(){
-                    int i = 0;
+
                     int Count = 0;
                     int CurrentPoint = 0;
-                    int NbWord = game.Words_List.size(); //game.getNbWords();
+                    int Nb = game.Words_List.size();//game.getNbWords();
+
                     public void onClick(View v){
-                        if(i < NbWord) {
-                            i++;
-                            CurrentPoint++;
-                            mWord.setText(game.getWord(i));
-                            Count++;
-                            CountText = Integer.toString(Count)+ "/" + Integer.toString(NbWord);
-                            mCount.setText(CountText);
-                            game.setNbPointsTurn(CurrentPoint);
-                            Log.i("Test", "NbPoint = " + game.getNbPointsTurn());
-                            if(i == NbWord - 1) i = 0;
-                        }
-                        if(Count == game.Words_List.size()){
+
+                        int NbWord = game.Words_Current_List.size();//game.getNbWords();
+                        int CurrentWord = game.getCurrentWord();
+
+                        String LastWord = game.getWordCurrentList(CurrentWord);
+                        game.deleteWord(LastWord);
+                        mWord.setText(game.getWordCurrentList(CurrentWord));
+
+                        Count++;
+                        CountText = Integer.toString(Count)+ "/" + Integer.toString(Nb);
+                        mCount.setText(CountText);
+
+                        CurrentPoint++;
+                        game.setNbPointsTurn(CurrentPoint);
+                        Log.i("Count", "=" + Count);
+                        Log.i("WordCurrent","List =" + game.getWords_Current_List().toString());
+                        Log.i("Word","List=" + game.getWords_List().toString());
+
+                        if(Count == Nb){
                         Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
                             intent_next.putExtra("game", game);
                             startActivity(intent_next);
@@ -115,13 +167,15 @@ public class TestFragmentActivity extends AppCompatActivity {
                 });
                 final Button button_quit = (Button) findViewById(R.id.button_quit_word);
                 button_quit.setOnClickListener(new View.OnClickListener(){
-                    int i = 0;
-                    int NbWord = game.Words_List.size();
+
                     public void onClick(View v){
-                        if(i < NbWord) {
-                            i++;
-                            mWord.setText(game.getWord(i));
-                            if(i == NbWord - 1) i = 0;
+                        int NbWord = game.Words_List.size();
+                        int CurrentWord = game.getCurrentWord();
+                        if(CurrentWord < NbWord) {
+                            CurrentWord++;
+                            if(CurrentWord == NbWord) CurrentWord = 0;
+                            mWord.setText(game.getWordCurrentList(CurrentWord));
+                            game.setCurrentWord(CurrentWord);
                         }
                     }
                 });

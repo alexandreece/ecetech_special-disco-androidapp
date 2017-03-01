@@ -42,7 +42,7 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:textAlignment="textEnd"
-        android:id="@+id/text_team_one"
+        android:id="@+id/text_team"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 

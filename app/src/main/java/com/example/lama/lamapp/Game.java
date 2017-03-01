@@ -18,6 +18,7 @@ class Game implements Serializable{
     ArrayList<Joueur> TeamB_List_Joueurs = new ArrayList<Joueur>();
 
     int NbWords;
+    int CurrentWord;
     ArrayList<String> Words_List = new ArrayList<String>();
     ArrayList<String> Words_Current_List = new ArrayList<String>();
     String Word;
@@ -38,6 +39,7 @@ class Game implements Serializable{
         TeamB = "";
         NbWords = 0;
         Word = "";
+        CurrentWord = 0;
         CurrentRound = 0;
         PlayerToPlay[0] = 0;
         PlayerToPlay[1] = 0;
@@ -79,6 +81,7 @@ class Game implements Serializable{
         return JoueurName;
     }
 
+    public int getCurrentWord() {return this.CurrentWord; };
     public int getNbWords() {
         return NbWords;
     }
@@ -120,12 +123,14 @@ class Game implements Serializable{
     public void addPlayerTeamA(Joueur pJoueur){ this.TeamA_List_Joueurs.add(pJoueur);}
     public void addPlayerTeamB(Joueur pJoueur){ this.TeamB_List_Joueurs.add(pJoueur);}
 
+    public void setCurrentWord(int pCurrentWord) { this.CurrentWord = pCurrentWord; }
     public void setNbWords(int pNbWords){
         this.NbWords = pNbWords;
     }
     public void addWord(String pWord){
         this.Words_List.add(pWord);
     }
+    public void deleteWord(String pLastWord){ this.Words_Current_List.remove(pLastWord);}
 
     public void setCurrentRound(int pCurrentRound){ CurrentRound = pCurrentRound; }
     public void setPlayerToPlay(int[] pPlayerToPlay){ PlayerToPlay = pPlayerToPlay; }

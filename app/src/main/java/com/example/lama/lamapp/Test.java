@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import com.example.lama.lamapp.DAOs.Joueur;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Test extends AppCompatActivity {
@@ -64,6 +66,8 @@ public class Test extends AppCompatActivity {
     public void goto_TestFragmentActivity(View view) {
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
+
+        game.Words_Current_List = game.getWords_List();
 
         Intent intent_next = new Intent(Test.this, TestFragmentActivity.class);
         intent_next.putExtra("game", game);
