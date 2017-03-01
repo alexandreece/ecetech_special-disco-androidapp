@@ -23,7 +23,8 @@ public class MenuJeu extends AppCompatActivity {
 
         Vibrator vibreur = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Log.i("Vibreur", ""+vibreur.hasVibrator());
-        vibreur.vibrate(30000);
+        long[] pattern = {0, 200, 200, 200, 200, 200};//attente, vibration, attente, vibration etc.
+        vibreur.vibrate(pattern, -1);
 
         startActivity(intent);
     }
