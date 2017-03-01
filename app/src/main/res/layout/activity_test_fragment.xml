@@ -25,7 +25,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Manche 1"
+        android:text=""
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:layout_width="150dp"
@@ -36,7 +36,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="LAMAtraque"
+        android:text=""
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:layout_width="175dp"
@@ -60,13 +60,13 @@
         android:onClick="UpdateWord"/>
 
     <TextView
-        android:text="Joueur 1"
+        android:text=""
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:id="@+id/text_team_one_player_one"
+        android:id="@+id/text_player_name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

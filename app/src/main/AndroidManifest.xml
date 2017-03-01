@@ -67,12 +67,16 @@
         <activity android:name=".Troisieme_manche" />
         <activity android:name=".Fin_de_manche" />
         <activity android:name=".Fin_de_manche_recap" />
-        <activity
-            android:name=".TestFragmentActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity android:name=".TestFragmentActivity"
+                  android:screenOrientation="landscape"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".EndTurn"
+                  android:screenOrientation="landscape"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity android:name=".Scores" />
-        <activity android:name=".Activity_points"></activity>
+        <activity android:name=".Activity_points" />
     </application>
 
 </manifest>

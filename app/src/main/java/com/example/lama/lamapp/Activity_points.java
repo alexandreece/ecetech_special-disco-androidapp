@@ -17,7 +17,7 @@ public class Activity_points extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_points);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
+/*
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
 
@@ -33,6 +33,6 @@ public class Activity_points extends AppCompatActivity {
             mNamePlayerToPlay = (TextView) findViewById(R.id.PlayerName);
             mNamePlayerToPlay.setText(NamePlayerToPlay);
         }
-
+*/
     }
 }

@@ -14,6 +14,9 @@ public class TestFragmentActivity extends AppCompatActivity {
     TextView mTimer;
     TextView mWord;
     TextView mCount;
+    TextView mPlayerName;
+    TextView mTeamName;
+    TextView mCurrentTurn;
     String CountText;
 
     @Override
@@ -23,6 +26,21 @@ public class TestFragmentActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
+
+        int[] PlayerToPlay = new int[2];
+        PlayerToPlay = game.getPlayerToPlay();
+        String NamePlayerToPlay;
+
+        //if(PlayerToPlay[0] == )
+/*
+        mPlayerName= (TextView) findViewById(R.id.text_player_name);
+        mPlayerName.setText(NamePlayerToPlay);
+*/
+        mWord = (TextView) findViewById(R.id.ShowWord);
+        mWord.setText(game.getWord(0));
+
+        mWord = (TextView) findViewById(R.id.ShowWord);
+        mWord.setText(game.getWord(0));
 
         mWord = (TextView) findViewById(R.id.ShowWord);
         mWord.setText(game.getWord(0));
@@ -59,7 +77,7 @@ public class TestFragmentActivity extends AppCompatActivity {
                         }
                     });
                 }
-                Intent intent_next = new Intent(TestFragmentActivity.this, Test.class);
+                Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
                 intent_next.putExtra("game", game);
                 startActivity(intent_next);
             }
@@ -89,7 +107,7 @@ public class TestFragmentActivity extends AppCompatActivity {
                             if(i == NbWord - 1) i = 0;
                         }
                         if(Count == game.Words_List.size()){
-                            Intent intent_next = new Intent(TestFragmentActivity.this, Test.class);
+                        Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
                             intent_next.putExtra("game", game);
                             startActivity(intent_next);
                         }
