@@ -33,6 +33,8 @@ public class Main extends AppCompatActivity {
         game.setNbPlayers(NbPlayers);
         int NbWords = 6;
         game.setNbWords(NbWords);
+        int CurrentRound = 1;
+        game.setCurrentRound(CurrentRound);
 
         String TeamA_Name = "Lamalmenée";
         String TeamB_Name = "Lamarquise";

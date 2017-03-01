@@ -93,6 +93,7 @@ class Game implements Serializable{
 
     public int[] getPlayerToPlay() { return this.PlayerToPlay; }
 
+    public int getCurrentRound(){ return CurrentRound; }
     public int getNbPointsTurn()  { return NbPointsTurn; }
     public int getNbPointsTurnTeamA() { return NbPointsTurnTeamA; }
     public int getNbPointsTurnTeamB() { return NbPointsTurnTeamB; }
@@ -126,6 +127,7 @@ class Game implements Serializable{
         this.Words_List.add(pWord);
     }
 
+    public void setCurrentRound(int pCurrentRound){ CurrentRound = pCurrentRound; }
     public void setPlayerToPlay(int[] pPlayerToPlay){ PlayerToPlay = pPlayerToPlay; }
     public void setNbPointsTurn(int pNbPointsTurn){
         NbPointsTurn = pNbPointsTurn;
