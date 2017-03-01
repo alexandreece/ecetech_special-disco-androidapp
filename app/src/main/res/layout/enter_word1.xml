@@ -11,8 +11,8 @@
         android:layout_height="40dp"
         android:layout_alignTop="@+id/dicoword"
         android:layout_toEndOf="@+id/pastword"
-        android:onClick="aleatoire"
-        android:text="Aléatoire" />
+
+        android:text="Aléatoire" /> <!--android:onClick="aleatoire"-->
 
     <Button
         android:id="@+id/pastword"
@@ -30,8 +30,8 @@
         android:layout_below="@+id/validerword"
         android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/randomword"
-        android:onClick="dictionnaire"
-        android:text="Dictionnaire" />
+        android:text="Dictionnaire" />        <!--android:onClick="dictionnaire"-->
+
 
     <Button
         android:id="@+id/validerword"

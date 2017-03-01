@@ -1,5 +1,6 @@
 package com.example.lama.lamapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +18,23 @@ public class SelectRandomWord extends AppCompatActivity {
     List<Word> words;
     Random alea = new Random();
 
+    private int pos;
+    private ArrayList<String> wordList;
+    private Game game;
+    private int ab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_random_word);
+
+        //get data (int position, ArrayList<String> list) from enterWord adapter
+        final Intent intent = getIntent();
+        pos = (int) intent.getSerializableExtra("position");
+        ab = (int) intent.getSerializableExtra("ab");
+        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
+        game = (Game) intent.getSerializableExtra("game");
+
 
         DatabaseHandler db = new DatabaseHandler(this);
         words = db.getWordsList();
@@ -39,7 +53,7 @@ public class SelectRandomWord extends AppCompatActivity {
         }
         int index = alea.nextInt(liste.size());
         String ranMot = liste.get(index);
-        Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
+        returnEnterWord(ranMot);
     }
 
     public void fictifTouched(View view){
@@ -52,7 +66,7 @@ public class SelectRandomWord extends AppCompatActivity {
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
-        Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
+        returnEnterWord(ranMot);
     }
 
     public void floreTouched(View view){
@@ -65,7 +79,8 @@ public class SelectRandomWord extends AppCompatActivity {
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
-        Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
+        returnEnterWord(ranMot);
+
     }
 
     public void objetTouched(View view){
@@ -78,7 +93,8 @@ public class SelectRandomWord extends AppCompatActivity {
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
-        Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
+        returnEnterWord(ranMot);
+
     }
 
     public void peopleTouched(View view){
@@ -91,6 +107,19 @@ public class SelectRandomWord extends AppCompatActivity {
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
-        Toast.makeText(getApplicationContext(),ranMot,Toast.LENGTH_SHORT).show();
+        returnEnterWord(ranMot);
+
+    }
+
+    public void returnEnterWord(String mot){
+        Intent intent_next = new Intent(SelectRandomWord.this, EnterWord.class);
+        Log.i("SELECTED", "onItemClick: "+ mot);
+
+        wordList.add(pos,mot);
+        Log.i("WORDLIST", "onItemClick: "+wordList.toString());
+        intent_next.putExtra("wordlist", wordList);
+        intent_next.putExtra("game", game);
+        intent_next.putExtra("ab",ab);
+        startActivity(intent_next);
     }
 }

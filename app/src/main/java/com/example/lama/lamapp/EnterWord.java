@@ -103,13 +103,13 @@ public class EnterWord extends Activity {
             startActivity(activityRandomWord);
 
         }
-    */
+
     public void dictionnaire(View view) {
         Intent activityRandomWord = new Intent(EnterWord.this, SelectRandomWord.class);
         startActivity(activityRandomWord);
 
     }
-
+    */
     public void aleatoire(View view) {
         EditText word = (EditText) findViewById(R.id.word);
         Random alea = new Random();
