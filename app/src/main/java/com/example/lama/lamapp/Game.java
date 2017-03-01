@@ -1,10 +1,8 @@
 package com.example.lama.lamapp;
 
-import com.example.lama.lamapp.DAOs.Equipe;
 import com.example.lama.lamapp.DAOs.Joueur;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 class Game implements Serializable{
 
@@ -21,8 +19,12 @@ class Game implements Serializable{
 
     int NbWords;
     ArrayList<String> Words_List = new ArrayList<String>();
+    ArrayList<String> Words_Current_List = new ArrayList<String>();
     String Word;
 
+    int CurrentRound;
+    int[] PlayerToPlay = new int[2];
+    int NbPointsTurn;
     int NbPointsTurnTeamA;
     int NbPointsTurnTeamB;
     int NbPointsRoundTeamA;
@@ -36,6 +38,10 @@ class Game implements Serializable{
         TeamB = "";
         NbWords = 0;
         Word = "";
+        CurrentRound = 0;
+        PlayerToPlay[0] = 0;
+        PlayerToPlay[1] = 0;
+        NbPointsTurn = 0;
         NbPointsTurnTeamA = 0;
         NbPointsTurnTeamB = 0;
         NbPointsRoundTeamA = 0;
@@ -62,9 +68,9 @@ class Game implements Serializable{
     public ArrayList<Joueur> getTeamB_List_Joueurs() { return TeamB_List_Joueurs; }
 
     public String getNameJoueurTeamA(int pJoueurID) {
-       Joueur Joueur = TeamA_List_Joueurs.get(pJoueurID);
-       String JoueurName = Joueur.getNomJoueur();
-       return JoueurName;
+        Joueur Joueur = TeamA_List_Joueurs.get(pJoueurID);
+        String JoueurName = Joueur.getNomJoueur();
+        return JoueurName;
     }
 
     public String getNameJoueurTeamB(int pJoueurID) {
@@ -79,8 +85,15 @@ class Game implements Serializable{
     public ArrayList<String> getWords_List() {
         return this.Words_List;
     }
-    public String getWord(int pWordID){ return this.Words_List.get(pWordID); }
+    public ArrayList<String> getWords_Current_List() {
+        return this.Words_Current_List;
+    }
+    public String getWord(int pWordID) { return this.Words_List.get(pWordID); }
+    public String getWordCurrentList(int pWordID) { return this.Words_Current_List.get(pWordID); }
 
+    public int[] getPlayerToPlay() { return this.PlayerToPlay; }
+
+    public int getNbPointsTurn()  { return NbPointsTurn; }
     public int getNbPointsTurnTeamA() { return NbPointsTurnTeamA; }
     public int getNbPointsTurnTeamB() { return NbPointsTurnTeamB; }
     public int getNbPointsRoundTeamA() {
@@ -113,6 +126,10 @@ class Game implements Serializable{
         this.Words_List.add(pWord);
     }
 
+    public void setPlayerToPlay(int[] pPlayerToPlay){ PlayerToPlay = pPlayerToPlay; }
+    public void setNbPointsTurn(int pNbPointsTurn){
+        NbPointsTurn = pNbPointsTurn;
+    }
     public void setNbPointsTurnTeamA(int pNbPointsTurn){
         NbPointsTurnTeamA = pNbPointsTurn;
     }
