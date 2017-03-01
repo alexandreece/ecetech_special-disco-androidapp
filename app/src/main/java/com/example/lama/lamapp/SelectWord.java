@@ -20,7 +20,8 @@ public class SelectWord extends AppCompatActivity {
 
     ListView vue;
     private int pos;
-    private ArrayList<String> wordList;
+    private ArrayList<String> wordListA;
+    private ArrayList<String> wordListB;
     private Game game;
     private int ab;
 
@@ -32,9 +33,10 @@ public class SelectWord extends AppCompatActivity {
 
         //get data (int position, ArrayList<String> list) from enterWord adapter
         final Intent intent = getIntent();
-        pos = (int) intent.getIntExtra("position", pos);
+        pos = (int) intent.getSerializableExtra("position");
         ab = (int) intent.getSerializableExtra("ab");
-        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
+        wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
+        wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
         game = (Game) intent.getSerializableExtra("game");
 
         //get word from DB
@@ -65,9 +67,14 @@ public class SelectWord extends AppCompatActivity {
                 Intent intent_next = new Intent(SelectWord.this, EnterWord.class);
                 Log.i("SELECTED", "onItemClick: "+ selected);
 
-                wordList.add(pos,selected);
-                Log.i("WORDLIST", "onItemClick: "+wordList.toString());
-                intent_next.putExtra("wordlist", wordList);
+                if(ab == 1){
+                    wordListA.set(pos,selected);}
+                else if(ab == 2){
+                    wordListB.set(pos,selected);}
+
+           //     wordList.add(pos,selected);
+                intent_next.putExtra("wordlistA", wordListA);
+                intent_next.putExtra("wordlistB", wordListB);
                 intent_next.putExtra("game", game);
                 intent_next.putExtra("ab",ab);
                 startActivity(intent_next);

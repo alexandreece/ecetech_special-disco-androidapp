@@ -19,7 +19,8 @@ public class SelectRandomWord extends AppCompatActivity {
     Random alea = new Random();
 
     private int pos;
-    private ArrayList<String> wordList;
+    private ArrayList<String> wordListA;
+    private ArrayList<String> wordListB;
     private Game game;
     private int ab;
 
@@ -32,7 +33,8 @@ public class SelectRandomWord extends AppCompatActivity {
         final Intent intent = getIntent();
         pos = (int) intent.getSerializableExtra("position");
         ab = (int) intent.getSerializableExtra("ab");
-        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
+        wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
+        wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
         game = (Game) intent.getSerializableExtra("game");
 
 
@@ -113,11 +115,17 @@ public class SelectRandomWord extends AppCompatActivity {
 
     public void returnEnterWord(String mot){
         Intent intent_next = new Intent(SelectRandomWord.this, EnterWord.class);
-        Log.i("SELECTED", "onItemClick: "+ mot);
+        Log.i("SELECTED", "onItemClick: "+ pos);
+        Log.i("AB","AABB"+ab);
+        Log.i("WordlistA " , wordListA.toString());
+        if(ab == 1){
+        wordListA.set(pos,mot);}
+        else if(ab == 2){
+        wordListB.set(pos,mot);}
 
-        wordList.add(pos,mot);
-        Log.i("WORDLIST", "onItemClick: "+wordList.toString());
-        intent_next.putExtra("wordlist", wordList);
+
+        intent_next.putExtra("wordlistA", wordListA);
+        intent_next.putExtra("wordlistB", wordListB);
         intent_next.putExtra("game", game);
         intent_next.putExtra("ab",ab);
         startActivity(intent_next);
