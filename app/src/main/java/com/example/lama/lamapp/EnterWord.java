@@ -13,8 +13,12 @@ import android.widget.Toast;
 import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import static android.R.attr.logo;
+import static android.R.attr.max;
 
 
 public class EnterWord extends Activity {
@@ -40,12 +44,6 @@ public class EnterWord extends Activity {
 
         game = (Game) intent.getSerializableExtra("game");
 
-
-
-       /* if (intent.getStringExtra("motChoisi")!=null){
-            motChoisi = intent.getStringExtra("motChoisi");
-            Log.i("Mot choisi", motChoisi);
-        }*/
         int ab;
         if (intent.getSerializableExtra("wordlistA") != null || intent.getSerializableExtra("wordlistB") != null) {
             ab = (int) intent.getSerializableExtra("ab");
@@ -68,14 +66,6 @@ public class EnterWord extends Activity {
         LabelNomEq1.setText(game.getNameTeamA());
         LabelNomEq2.setText(game.getNameTeamB());
 
-       /* if (motChoisi!=null){
-            Log.i("Mot choisi","Non null !");
-
-             word = (EditText) findViewById(R.id.word);
-            Log.i("Hello EditText",word.toString());
-            word.setText(motChoisi, TextView.BufferType.NORMAL);
-            Toast.makeText(getApplicationContext(), motChoisi, Toast.LENGTH_SHORT).show();
-        }*/
 
 
         vue1 = (ListView) findViewById(R.id.enter_word_list1);
@@ -88,17 +78,12 @@ public class EnterWord extends Activity {
         vue2.setAdapter(adaptaterB);
 
     }
-/*
-    public void aleatoire(View view) {
-        EditText word = (EditText) findViewById(R.id.word);
-        Random alea = new Random();
-        DatabaseHandler db = new DatabaseHandler(this);
-        List<Word> words = db.getWordsList();
-        db.close();
-        String ranMot = words.get(alea.nextInt(words.size())).getWord();
-        word.setText(ranMot, TextView.BufferType.NORMAL);
-        Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
-    }
 
-    */
+    public void start(View v){
+            ArrayList <String>  words = new ArrayList<>();
+            words.addAll(adaptaterA.getList());
+            words.addAll(adaptaterB.getList());
+        Random random = new Random();
+        Collections.shuffle(words,random);
+    }
 }

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.lama.lamapp.DAOs.Joueur;
 import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
@@ -131,9 +132,13 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
 
         }
 
+
+
     }
 
-
+    public ArrayList<String> getList(){
+        return words;
+    }
 
     /*
      EditText word = (EditText) findViewById(R.id.word);

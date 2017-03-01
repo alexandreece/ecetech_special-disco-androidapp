@@ -72,6 +72,7 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
+                android:onClick="start"
                 android:backgroundTint="@android:color/background_light"
                 android:background="@drawable/gradient_box"
                 android:id="@+id/enter_word_start"
