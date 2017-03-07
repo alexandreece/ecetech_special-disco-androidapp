@@ -1,8 +1,11 @@
 package com.example.lama.lamapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MenuJeu extends AppCompatActivity {
@@ -17,6 +20,12 @@ public class MenuJeu extends AppCompatActivity {
         Intent intent = new Intent("com.example.lama.lamapp.SelectLevel");
         Game current_game = new Game();
         intent.putExtra("game_current", current_game);
+
+        Vibrator vibreur = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        Log.i("Vibreur", ""+vibreur.hasVibrator());
+        long[] pattern = {0, 200, 200, 200, 200, 200};//attente, vibration, attente, vibration etc.
+        vibreur.vibrate(pattern, -1); //-1 : pas de répétition
+
         startActivity(intent);
     }
 
