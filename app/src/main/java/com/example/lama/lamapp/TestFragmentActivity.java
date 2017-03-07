@@ -57,7 +57,7 @@ public class TestFragmentActivity extends AppCompatActivity {
         }
 
         int Round = game.getCurrentRound();
-        Log.i("Current", "Round = " + Round);
+
         String CurrentRound;
         switch (Round){
             case 1:
@@ -138,33 +138,33 @@ public class TestFragmentActivity extends AppCompatActivity {
                     int Count = 0;
                     int CurrentPoint = 0;
                     int Nb = game.Words_List.size();//game.getNbWords();
+                    int n = 0;
 
                     public void onClick(View v){
 
                         int NbWord = game.Words_Current_List.size();//game.getNbWords();
                         int CurrentWord = game.getCurrentWord();
 
-                        String LastWord = game.getWordCurrentList(CurrentWord);
-                        game.deleteWord(LastWord);
-                        mWord.setText(game.getWordCurrentList(CurrentWord));
-
                         Count++;
-                        CountText = Integer.toString(Count)+ "/" + Integer.toString(Nb);
-                        mCount.setText(CountText);
-
-                        CurrentPoint++;
-                        game.setNbPointsTurn(CurrentPoint);
-                        Log.i("Count", "=" + Count);
-                        Log.i("WordCurrent","List =" + game.getWords_Current_List().toString());
-                        Log.i("Word","List=" + game.getWords_List().toString());
-
-                        if(Count == Nb){
-                        Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
+                        if(Count == 4) {
+                            Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
                             intent_next.putExtra("game", game);
                             startActivity(intent_next);
+                        }else {
+                            CountText = Integer.toString(Count) + "/" + Integer.toString(Nb);
+                            mCount.setText(CountText);
+
+                            String LastWord = game.getWordCurrentList(CurrentWord);
+
+                            game.deleteWord(LastWord);
+
+                            mWord.setText(game.getWordCurrentList(CurrentWord));
+
+                            CurrentPoint++;
+                            game.setNbPointsTurn(CurrentPoint);
                         }
                     }
-                });
+                 });
                 final Button button_quit = (Button) findViewById(R.id.button_quit_word);
                 button_quit.setOnClickListener(new View.OnClickListener(){
 

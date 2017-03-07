@@ -128,6 +128,9 @@ class Game implements Serializable{
         this.NbWords = pNbWords;
     }
     public void setWords_List(ArrayList<String> pWordList){ this.Words_List = pWordList;}
+    public void setWords_Current_List() {
+        this.Words_Current_List.addAll(this.Words_List);
+    }
     public void addWord(String pWord){
         this.Words_List.add(pWord);
     }

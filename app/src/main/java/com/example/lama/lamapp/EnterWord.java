@@ -47,16 +47,12 @@ public class EnterWord extends Activity {
         int ab;
         if (intent.getSerializableExtra("wordlistA") != null || intent.getSerializableExtra("wordlistB") != null) {
             ab = (int) intent.getSerializableExtra("ab");
-            Log.i("WORDLISTA", "onCreate: "+intent.getSerializableExtra("wordlistA"));
-            Log.i("WORDLISTB", "onCreate: "+intent.getSerializableExtra("wordlistB"));
             wordA = (ArrayList<String>) intent.getSerializableExtra("wordlistA");
             wordB = (ArrayList<String>) intent.getSerializableExtra("wordlistB");
         } else {
-            Log.i("ELSE", "onCreate: ");
             for (int i = 0; i < game.getNbPlayers(); i++) {
                 String wA = "";
                 String wB = "";
-                Log.i("test ", "onCreate: " + i);
                 wordA.add(wA);
                 wordB.add(wB);
             }
@@ -80,13 +76,14 @@ public class EnterWord extends Activity {
     }
 
     public void start(View v){
-            ArrayList <String>  words = new ArrayList<>();
-            words.addAll(adaptaterA.getList());
-            words.addAll(adaptaterB.getList());
+        ArrayList <String>  words = new ArrayList<>();
+        words.addAll(adaptaterA.getList());
+        words.addAll(adaptaterB.getList());
         Random random = new Random();
         Collections.shuffle(words,random);
         game.setWords_List(words);
-        game.Words_Current_List = game.getWords_List();
+        game.setWords_Current_List();
+        game.setCurrentRound(1);
         Intent next = new Intent(EnterWord.this, TestFragmentActivity.class);
         next.putExtra("game", game);
         startActivity(next);
