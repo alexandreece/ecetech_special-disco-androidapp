@@ -22,9 +22,6 @@ import java.util.List;
 
 public class SelectWord extends AppCompatActivity {
 
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-    SharedPreferences.Editor editor = preferences.edit();
-
     ListView vue;
 
     private int pos;
@@ -47,14 +44,6 @@ public class SelectWord extends AppCompatActivity {
         wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
         wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
         game = (Game) intent.getSerializableExtra("game");
-
-        for(int i = 0; i<game.getNbPlayers(); i++){
-            Log.i("val", "A"+i);
-            editor.putInt("A"+i,5);
-            editor.putInt("B"+i,5);
-            editor.apply();
-            Log.i("valCrée ", "val : "+preferences.getInt("A"+i, 0));
-        }
 
         //get word from DB
         DatabaseHandler db = new DatabaseHandler(this);

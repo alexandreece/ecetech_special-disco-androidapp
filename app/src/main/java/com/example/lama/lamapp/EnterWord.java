@@ -1,27 +1,27 @@
 package com.example.lama.lamapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
-import static android.R.attr.logo;
-import static android.R.attr.max;
 
 
 public class EnterWord extends Activity {
+
+
+
 
     private ListView vue1;
     private ListView vue2;
@@ -55,6 +55,7 @@ public class EnterWord extends Activity {
                 String wB = "";
                 wordA.add(wA);
                 wordB.add(wB);
+                saveWordNumber(i);
             }
         }
         LabelNomEq1 = (TextView) findViewById(R.id.NameEq1TextViewEnterWord);
@@ -78,14 +79,23 @@ public class EnterWord extends Activity {
     public void start(View v){
         ArrayList <String>  words = new ArrayList<>();
         words.addAll(adaptaterA.getList());
-        words.addAll(adaptaterB.getList());
         Random random = new Random();
         Collections.shuffle(words,random);
+        Log.i("START ", "start: "+ words.toString());
         game.setWords_List(words);
         game.setWords_Current_List();
         game.setCurrentRound(1);
         Intent next = new Intent(EnterWord.this, TestFragmentActivity.class);
         next.putExtra("game", game);
         startActivity(next);
+    }
+
+    private void saveWordNumber(int i){
+        SharedPreferences sharedPreferences = getSharedPreferences("NBWord", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Log.i("val", "A"+i);
+        editor.putInt("A"+i,0);
+        editor.putInt("B"+i,0);
+        editor.apply();
     }
 }

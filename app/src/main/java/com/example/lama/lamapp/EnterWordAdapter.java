@@ -3,7 +3,6 @@ package com.example.lama.lamapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +11,20 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.lama.lamapp.DAOs.Word;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Mae on 24/02/2017.
@@ -27,16 +32,11 @@ import java.util.Set;
 
 public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickListener {
 
-    //shared preferences
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this.getContext());
-    SharedPreferences.Editor editor = preferences.edit();
-    //Var static preferences
-    public static final String MyPREFERENCES = "Enterword" ;
-    public static final String listCountA = "listCountA";
+    SharedPreferences sharedPreferences = this.getContext().getSharedPreferences("NBWord", MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
 
-    public static final String listCountB = "listCountB";
-
-
+    SharedPreferences wordListPreference = this.getContext().getSharedPreferences("wordListPreference", MODE_PRIVATE);
+    String wordlisSerialize = wordListPreference.getString("list", "");
 
     private int ressourceId;
     private Context context;
@@ -46,6 +46,7 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
     private LayoutInflater inflater;
     private int ab;
     private Game game;
+
     public EnterWordAdapter(Context context, int resourceId, ArrayList<String> myItemsA, ArrayList<String> myItemsB, Game game, int ab) {
 
         super(context, resourceId, myItemsA);
@@ -60,7 +61,11 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
         this.ressourceId = resourceId;
         this.game = game;
         this.ab = ab;
-
+        if (getWordListSave() == null) {
+            words = new ArrayList<String>();
+        }else{
+            words = getWordListSave();
+        }
         inflater = LayoutInflater.from(this.context);
 
     }
@@ -72,7 +77,7 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
         convertView = inflater.inflate(this.ressourceId, null);
         // convertView.setOnClickListener(this);
         EditText word = (EditText) convertView.findViewById(R.id.EnterWord_EditText_Word);
-
+        TextView nbWord = (TextView) convertView.findViewById(R.id.EnterWord_TextView_NbWord);
         //Creating Button
         Button precedent = (Button) convertView.findViewById(R.id.pastword);
         Button dictionnaire = (Button) convertView.findViewById(R.id.dicoword);
@@ -90,16 +95,18 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
         dictionnaire.setTag(position);
         random.setTag(position);
         ok.setTag(position);
-
-
+        nbWord.setTag(position);
+        if (ab == 1) {
+            nbWord.setText(sharedPreferences.getInt("A" + Integer.valueOf(ok.getTag().toString()), 0) + "/" + game.getNbWords());
+        } else if (ab == 2) {
+            nbWord.setText(sharedPreferences.getInt("B" + Integer.valueOf(ok.getTag().toString()), 0) + "/" + game.getNbWords());
+        }
         //Temporary Arraylist
-       // ArrayList<int> word
         word.setHint("Entrez un mot" + position);
         if (!wordsA.get(position).isEmpty()) {
             word.setText(wordsA.get(position));
         }
 
-        // word.setText(mot.getWord());
 
         return convertView;
 
@@ -151,20 +158,49 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
             db.close();
             String ranMot = wordsR.get(alea.nextInt(wordsR.size())).getWord();
 
-            Log.i("pos", "onClick: "+(int)v.findViewById(R.id.randomword).getTag());
-            wordsA.set((int)v.findViewById(R.id.randomword).getTag(),ranMot);
-        this.notifyDataSetChanged();
+            Log.i("pos", "onClick: " + (int) v.findViewById(R.id.randomword).getTag());
+            wordsA.set((int) v.findViewById(R.id.randomword).getTag(), ranMot);
+            this.notifyDataSetChanged();
 
-        }
+        } else if (v.getId() == R.id.EnterWord_Button_ok) {
+            if (ab == 1) {
+                int val = sharedPreferences.getInt("A" + Integer.valueOf(v.findViewById(R.id.EnterWord_Button_ok).getTag().toString()), 0);
+                int id = Integer.valueOf(v.findViewById(R.id.EnterWord_Button_ok).getTag().toString());
+                if (val < game.getNbWords()) {
+                    val++;
+                    words.add(wordsA.get(id));
+                    wordsA.set(id, "");
+                    Log.i("words", "onClick: " + words.toString());
+                    setwordListSave();
+                } else if (val == game.getNbWords()) {
+                    Log.i("NB MOT OK ", "onClick: ");
+                    v.findViewById(R.id.EnterWord_Button_ok).setVisibility(v.GONE);
+                }
 
-        else if (v.getId() == R.id.EnterWord_Button_ok){
-            if(ab == 1){
-                int test =0;
-                Log.i("onClick IDDD  ",v.findViewById(R.id.EnterWord_Button_ok).getTag().toString() );
-               // Log.i("Nb mots", preferences.getInt("A"+v.findViewById(R.id.EnterWord_Button_ok).getTag().toString(), ""));
-                Log.i("Nb mots", "valeur : "+preferences.getInt("A1",0));
-            }
-            else if (ab == 2) {
+                editor.putInt("A" + id, val);
+                editor.apply();
+                this.notifyDataSetChanged();
+
+
+            } else if (ab == 2) {
+                int val = sharedPreferences.getInt("B" + Integer.valueOf(v.findViewById(R.id.EnterWord_Button_ok).getTag().toString()), 0);
+                int id = Integer.valueOf(v.findViewById(R.id.EnterWord_Button_ok).getTag().toString());
+                if (val < game.getNbWords()) {
+                    val++;
+                    words.add(wordsB.get(id));
+                    wordsB.set(id, "");
+                    Log.i("words", "onClick: " + words.toString());
+                    setwordListSave();
+                } else if (val == game.getNbWords()) {
+                    Log.i("NB MOT OK ", "onClick: ");
+                    v.findViewById(R.id.EnterWord_Button_ok).setVisibility(v.GONE);
+                }
+
+                editor.putInt("B" + id, val);
+                editor.apply();
+                this.notifyDataSetChanged();
+
+
 
 
             }
@@ -173,19 +209,38 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
 
     }
 
-    public ArrayList<String> getList(){
+    public static Object fromJson(String jsonString, Type type) {
+        return new Gson().fromJson(jsonString, type);
+    }
+
+    public static String toJson(Object jsonObject) {
+        return new Gson().toJson(jsonObject);
+    }
+
+    public ArrayList<String> getWordListSave() {
+        SharedPreferences wordListPreference = this.getContext().getSharedPreferences("wordListPreference", MODE_PRIVATE);
+        String serialize = wordListPreference.getString("list", "");
+
+        ArrayList<String> playersList = (ArrayList<String>) fromJson(serialize,
+                new TypeToken<ArrayList<String>>() {
+                }.getType());
+
+        return playersList;
+    }
+
+    public void setwordListSave() {
+        String serialize = toJson(words);
+        SharedPreferences wordListPreference = this.getContext().getSharedPreferences("wordListPreference", MODE_PRIVATE);
+        String wordlisSerialize = wordListPreference.getString("list", "");
+    }
+
+
+    public ArrayList<String> getList() {
+        Log.i("Liste Words !!! ", "getList: "  + words.toString());
         return words;
     }
 
-    /*
-     EditText word = (EditText) findViewById(R.id.word);
-        Random alea = new Random();
-        DatabaseHandler db = new DatabaseHandler(this);
-        List<Word> words = db.getWordsList();
-        db.close();
-        String ranMot = words.get(alea.nextInt(words.size())).getWord();
-        word.setText(ranMot, TextView.BufferType.NORMAL);
-        Toast.makeText(getApplicationContext(), ranMot, Toast.LENGTH_SHORT).show();
-     */
+
+
 
 }
