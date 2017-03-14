@@ -18,7 +18,7 @@
         android:id="@+id/pastword"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/word"
+        android:layout_alignStart="@+id/EnterWord_EditText_Word"
         android:layout_alignTop="@+id/randomword"
         android:onClick="precedent"
         android:text="Précédents" />
@@ -27,24 +27,14 @@
         android:id="@+id/dicoword"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_below="@+id/validerword"
+        android:layout_below="@+id/EnterWord_Button_ok"
         android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/randomword"
         android:text="Dictionnaire" />        <!--android:onClick="dictionnaire"-->
 
 
-    <Button
-        android:id="@+id/validerword"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_alignBaseline="@+id/word"
-        android:layout_alignBottom="@+id/word"
-        android:layout_alignEnd="@+id/dicoword"
-        android:layout_marginEnd="23dp"
-        android:text="Ok" />
-
     <EditText
-        android:id="@+id/word"
+        android:id="@+id/EnterWord_EditText_Word"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
@@ -55,6 +45,26 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/Grey_LAMApp" />
+
+    <Button
+        android:id="@+id/EnterWord_Button_ok"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="Ok"
+        android:layout_alignBaseline="@+id/EnterWord_EditText_Word"
+        android:layout_alignBottom="@+id/EnterWord_EditText_Word"
+        android:layout_alignEnd="@+id/dicoword" />
+
+    <TextView
+        android:text="5/10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EnterWord_TextView_NbWord"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_alignBaseline="@+id/EnterWord_EditText_Word"
+        android:layout_alignBottom="@+id/EnterWord_EditText_Word"
+        android:layout_toEndOf="@+id/EnterWord_EditText_Word" />
 
 
 </RelativeLayout>
