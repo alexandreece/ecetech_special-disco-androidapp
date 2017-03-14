@@ -4,42 +4,31 @@
     android:layout_height="fill_parent">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/layoutPlayerName_Textview_nJoueur"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/layoutPlayerName_Editext_nom"
+        android:layout_alignBottom="@+id/layoutPlayerName_Editext_nom"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="10dp"
-                android:id="@+id/layoutPlayerName_Textview_nJoueur"
-                android:textSize="18sp"
-                android:layout_alignBaseline="@+id/layoutPlayerName_Editext_nom"
-                android:layout_alignBottom="@+id/layoutPlayerName_Editext_nom"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="13dp" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:layout_marginTop="11dp"
-                android:id="@+id/layoutPlayerName_Editext_nom"
-                android:background="@color/colorText"
-                android:selectAllOnFocus="false"
-                android:layout_marginStart="20dp"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/layoutPlayerName_Textview_nJoueur"
-                android:hint="Saisir un mot" />
-        </RelativeLayout>
-    </ScrollView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="11dp"
+        android:id="@+id/layoutPlayerName_Editext_nom"
+        android:background="@color/colorText"
+        android:selectAllOnFocus="false"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/layoutPlayerName_Textview_nJoueur"
+        android:hint="Saisir un mot" />
 
 </RelativeLayout>
