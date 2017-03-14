@@ -2,8 +2,10 @@ package com.example.lama.lamapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +22,11 @@ import java.util.List;
 
 public class SelectWord extends AppCompatActivity {
 
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    SharedPreferences.Editor editor = preferences.edit();
+
     ListView vue;
+
     private int pos;
     private ArrayList<String> wordListA;
     private ArrayList<String> wordListB;
@@ -41,6 +47,14 @@ public class SelectWord extends AppCompatActivity {
         wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
         wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
         game = (Game) intent.getSerializableExtra("game");
+
+        for(int i = 0; i<game.getNbPlayers(); i++){
+            Log.i("val", "A"+i);
+            editor.putInt("A"+i,5);
+            editor.putInt("B"+i,5);
+            editor.apply();
+            Log.i("valCrée ", "val : "+preferences.getInt("A"+i, 0));
+        }
 
         //get word from DB
         DatabaseHandler db = new DatabaseHandler(this);
