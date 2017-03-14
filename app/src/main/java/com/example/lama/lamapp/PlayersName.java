@@ -86,5 +86,7 @@ public class PlayersName extends Activity implements OnClickListener {
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
+
+
     }
 }
