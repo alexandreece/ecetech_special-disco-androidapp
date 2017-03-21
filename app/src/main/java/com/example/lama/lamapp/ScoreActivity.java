@@ -54,7 +54,7 @@ public class ScoreActivity extends AppCompatActivity {
             // Showing progress dialog
             pDialog = new ProgressDialog(ScoreActivity.this);
             pDialog.setMessage("Récupération des meilleurs scores...");
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
         }
 
@@ -141,7 +141,7 @@ public class ScoreActivity extends AppCompatActivity {
             // Showing progress dialog
             pDialog = new ProgressDialog(ScoreActivity.this);
             pDialog.setMessage("Récupération des pires scores...");
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
         }
 
