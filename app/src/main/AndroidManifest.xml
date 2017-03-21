@@ -74,7 +74,8 @@
         <activity android:name=".Activity_points" />
         <activity android:name=".ScoreActivity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".EnterWord2"></activity>
+        <activity android:name=".EnterWord2" />
+        <activity android:name=".PickupWord"></activity>
     </application>
 
 </manifest>
