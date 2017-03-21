@@ -3,6 +3,7 @@
     package="com.example.lama.lamapp">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -71,6 +72,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Activity_points" />
+        <activity android:name=".ScoreActivity"></activity>
         <activity android:name=".Main2Activity" />
         <activity android:name=".EnterWordV2"></activity>
     </application>
