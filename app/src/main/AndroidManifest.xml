@@ -72,9 +72,9 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Activity_points" />
-        <activity android:name=".ScoreActivity"></activity>
+        <activity android:name=".ScoreActivity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".EnterWordV2"></activity>
+        <activity android:name=".EnterWord2"></activity>
     </application>
 
 </manifest>
