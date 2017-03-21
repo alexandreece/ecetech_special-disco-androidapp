@@ -83,7 +83,7 @@ public class PlayersName extends Activity implements OnClickListener {
 
         //sendind game object to next class
 
-        Intent intent_next = new Intent(PlayersName.this, EnterWord.class);
+        Intent intent_next = new Intent(PlayersName.this, EnterWord2.class);
         intent_next.putExtra("game", game);
         startActivity(intent_next);
 
