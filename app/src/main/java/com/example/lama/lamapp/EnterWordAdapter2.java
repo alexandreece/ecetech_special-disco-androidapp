@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.lama.lamapp.DAOs.Joueur;
@@ -78,8 +79,8 @@ public class EnterWordAdapter2 extends BaseAdapter {
         switch (type) {
             case ROW:
                 Joueur player = (Joueur) getItemList(position);
-                TextView joueur = (TextView)convertView.findViewById(R.id.Layout_enterword_content_textview_joueur);
-                //joueur.setText(player.getAddress());
+                Button joueur = (Button) convertView.findViewById(R.id.Layout_enterword_content_button_joueur);
+                joueur.setText(player.getNomJoueur());
                 break;
             case HEADER:
                 TextView title = (TextView)convertView.findViewById(R.id.Layout_enterword_section_textview_title);
