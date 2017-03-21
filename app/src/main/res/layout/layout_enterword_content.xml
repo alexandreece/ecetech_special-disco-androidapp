@@ -5,12 +5,13 @@
     android:layout_height="wrap_content"
     >
 
-    <TextView
-        android:id="@+id/Layout_enterword_content_textview_joueur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Name"
-        />
-
+    <Button
+        android:id="@+id/Layout_enterword_content_button_joueur"
+        android:layout_width="250sp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/colorText"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 </LinearLayout>
