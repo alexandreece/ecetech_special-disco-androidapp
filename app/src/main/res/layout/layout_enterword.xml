@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/EnterWordAdapter_EditText_Word"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="31dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/Grey_LAMApp"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/EnterWordAdapter_Button_randomword"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Aléatoire"
+        android:layout_alignBaseline="@+id/dicoword"
+        android:layout_alignBottom="@+id/dicoword"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/EnterWord_Button_Pastword"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:onClick="precedent"
+        android:text="Précédents"
+        android:layout_alignBaseline="@+id/dicoword"
+        android:layout_alignBottom="@+id/dicoword"
+        android:layout_alignEnd="@+id/EnterWordAdapter_EditText_Word" />
+
+    <Button
+        android:id="@+id/dicoword"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Dictionnaire"
+        android:layout_below="@+id/EnterWordAdapter_EditText_Word"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7dp" />        <!--android:onClick="dictionnaire"-->
+
+
+
+
+
+</RelativeLayout>
