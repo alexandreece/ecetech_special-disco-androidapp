@@ -41,24 +41,24 @@
         android:layout_alignStart="@+id/playerName_Editext_nameEqB" />
 
 
-     <ListView
-            android:id="@+id/playerName_ListView_listA"
-            android:layout_below="@id/playerName_Editext_nameEqA"
-            android:layout_width="match_parent"
-         android:layout_height="170dp"
-         android:layout_marginBottom="20dp">
+            <ListView
+                android:id="@+id/playerName_ListView_listA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerName_Editext_nameEqA"
+                android:layout_marginBottom="20dp">
 
-        </ListView>
+            </ListView>
 
 
-     <ListView
-            android:id="@+id/playerName_Listview_listB"
-            android:layout_below="@id/playerName_Editext_nameEqB"
-            android:layout_width="match_parent"
-         android:layout_height="170dp"
-         android:layout_marginBottom="20dp">
+            <ListView
+                android:id="@+id/playerName_Listview_listB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerName_Editext_nameEqB"
+                android:layout_marginBottom="20dp">
 
-        </ListView>
+            </ListView>
 
 
      <TextView

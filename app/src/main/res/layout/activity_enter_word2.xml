@@ -12,30 +12,59 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <TextView
-            android:id="@+id/ActivityEnterword2_Textview_title"
-            android:layout_width="268dp"
-            android:layout_height="36dp"
-            android:layout_weight="1"
-            android:text="Entrer les mots"
-            android:textAlignment="center"
-            android:textSize="28sp"
-            android:textStyle="normal|bold"
-            tools:layout_editor_absoluteX="46dp"
-            tools:layout_editor_absoluteY="8dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/ActivityEnterword2_listView"
-            android:layout_width="360dp"
-            android:layout_height="567dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="18dp"
-            android:layout_below="@+id/ActivityEnterword2_Textview_title"
-            android:layout_alignParentStart="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ActivityEnterword2_Textview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:text="Entrer les mots"
+                    android:textAlignment="center"
+                    android:textSize="28sp"
+                    android:textStyle="normal|bold"
+                    tools:layout_editor_absoluteX="46dp"
+                    tools:layout_editor_absoluteY="8dp" />
+
+                <ListView
+                    android:id="@+id/ActivityEnterword2_listView"
+                    android:layout_width="360dp"
+                    android:layout_height="480dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/ActivityEnterword2_button"
+                    android:layout_weight="16.66"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="18dp" />
+
+                <Button
+                    android:id="@+id/ActivityEnterword2_button"
+                    android:layout_width="300dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/gradient_box"
+                    android:backgroundTint="?attr/colorButtonNormal"
+                    android:onClick=""
+                    android:text="Commencer le jeu"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 
