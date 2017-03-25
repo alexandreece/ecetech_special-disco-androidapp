@@ -89,7 +89,7 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
             activity.putExtra("position", (int) v.findViewById(R.id.Layout_PickupWord_Button_Pastword).getTag());
 
             activity.putExtra("game", game);
-            activity.putExtra("ab", ab);
+           // activity.putExtra("ab", ab);
             this.getContext().startActivity(activity);
         }
 
@@ -99,7 +99,7 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
             activity.putExtra("position", (int) v.findViewById(R.id.Layout_PickupWord_Button_Dicoword).getTag());
 
             activity.putExtra("game", game);
-            activity.putExtra("ab", ab);
+         //   activity.putExtra("ab", ab);
             this.getContext().startActivity(activity);
 
         }
