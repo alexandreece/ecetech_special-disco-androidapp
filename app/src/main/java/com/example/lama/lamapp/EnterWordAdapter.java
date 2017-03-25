@@ -19,10 +19,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -72,7 +70,7 @@ public class EnterWordAdapter extends ArrayAdapter<String> implements OnClickLis
         //String mot = getItem(position);
         convertView = inflater.inflate(this.ressourceId, null);
         // convertView.setOnClickListener(this);
-        EditText word = (EditText) convertView.findViewById(R.id.EnterWord_EditText_Word);
+        EditText word = (EditText) convertView.findViewById(R.id.Layout_PickupWord_EditText_Word);
         TextView nbWord = (TextView) convertView.findViewById(R.id.EnterWord_TextView_NbWord);
         //Creating Button
         Button precedent = (Button) convertView.findViewById(R.id.pastword);

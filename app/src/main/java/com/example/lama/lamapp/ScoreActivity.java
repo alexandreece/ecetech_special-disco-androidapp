@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class ScoreActivity extends AppCompatActivity {
 
-    private static final String API_SERV_URL = "http://172.16.229.131/api/index.php/teams/";
+    private static final String API_SERV_URL = "http://78.192.156.30:8050/LAMA/api/index.php/teams/";
 
     private ProgressDialog pDialog;
     private ListView bestScoresLV;
