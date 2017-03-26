@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 public class TestFragmentActivity extends AppCompatActivity {
@@ -89,8 +88,8 @@ public class TestFragmentActivity extends AppCompatActivity {
         mWord.setText(game.getWordCurrentList(0));
 
         mCount = (TextView) findViewById(R.id.ShowCount);
-        CountText = "0/" + game.Words_List.size();
-        Log.i("Word", "ListSize = " + game.Words_List.size());
+        int Count = game.getCount();
+        CountText = Count + "/" + game.Words_List.size();
         mCount.setText(CountText);
 
         // START TIMER
@@ -135,52 +134,73 @@ public class TestFragmentActivity extends AppCompatActivity {
                 final Button button_validate = (Button) findViewById(R.id.button_valid_word);
                 button_validate.setOnClickListener(new View.OnClickListener(){
 
-                    int Count = 0;
+                    int Count = game.getCount();
                     int CurrentPoint = 0;
-                    int Nb = game.Words_List.size();//game.getNbWords();
-                    int n = 0;
 
                     public void onClick(View v){
 
-                        int NbWord = game.Words_Current_List.size();//game.getNbWords();
                         int CurrentWord = game.getCurrentWord();
 
                         Count++;
-                        if(Count == 4) {
+                        game.setCount(Count);
+
+                        Log.i("VALD", "-Count = " + Count);
+                        Log.i("VALD", "-WordListSize = " + game.Words_List.size());
+
+                        if(Count == game.Words_List.size()) {
+                            CurrentPoint++;
+                            game.setNbPointsTurn(CurrentPoint);
                             Intent intent_next = new Intent(TestFragmentActivity.this, EndTurn.class);
                             intent_next.putExtra("game", game);
                             startActivity(intent_next);
                         }else {
-                            CountText = Integer.toString(Count) + "/" + Integer.toString(Nb);
+                            CountText = Integer.toString(Count) + "/" + Integer.toString(game.Words_List.size());
                             mCount.setText(CountText);
-
                             String LastWord = game.getWordCurrentList(CurrentWord);
+                            Log.i("VALD", "-AvantCurrentWordList = " + game.getWords_Current_List());
 
                             game.deleteWord(LastWord);
+                            Log.i("VALD", "-AprèsCurrentWordList = " + game.getWords_Current_List());
 
+                            if(CurrentWord == game.getWords_Current_List().size()) CurrentWord--;
                             mWord.setText(game.getWordCurrentList(CurrentWord));
+                            Log.i("VALD", "-CurrentWordNB = " + CurrentWord);
 
                             CurrentPoint++;
                             game.setNbPointsTurn(CurrentPoint);
                         }
                     }
-                 });
+                });
                 final Button button_quit = (Button) findViewById(R.id.button_quit_word);
                 button_quit.setOnClickListener(new View.OnClickListener(){
 
                     public void onClick(View v){
-                        int NbWord = game.Words_List.size();
                         int CurrentWord = game.getCurrentWord();
-                        if(CurrentWord < NbWord) {
+
+                        Log.i("QUIT", "-Count = " + game.getCount());
+                        Log.i("QUIT", "-1CurrentWord = " + CurrentWord);
+                        Log.i("QUIT", "-CurrentListSIze = " + game.getWords_Current_List().size());
+                        if(CurrentWord < game.getWords_Current_List().size()) {
                             CurrentWord++;
-                            if(CurrentWord == NbWord) CurrentWord = 0;
+                            Log.i("QUIT", "-2CurrentWord = " + CurrentWord);
+
+                            if(CurrentWord == game.getWords_Current_List().size()) {
+                                CurrentWord = 0;
+                                Log.i("QUIT", "-4CurrentWord = " + CurrentWord);
+                            }
+
+                            mWord.setText(game.getWordCurrentList(CurrentWord));
+                            game.setCurrentWord(CurrentWord);
+                        } else if(CurrentWord == game.getWords_Current_List().size()) {
+                            CurrentWord = 0;
+                            Log.i("QUIT", "-3CurrentWord = " + CurrentWord);
                             mWord.setText(game.getWordCurrentList(CurrentWord));
                             game.setCurrentWord(CurrentWord);
                         }
+
                     }
                 });
             }
         }).start();
     }
 }
-
