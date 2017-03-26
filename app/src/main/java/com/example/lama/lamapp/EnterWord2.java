@@ -88,7 +88,7 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
             Intent next = new Intent(EnterWord2.this, TestFragmentActivity.class);
             next.putExtra("game", game);
             Log.i("Game launching ", "onClick: "+game.getWords_List().toString());
-            //startActivity(next);
+            startActivity(next);
         }
     }
 }
