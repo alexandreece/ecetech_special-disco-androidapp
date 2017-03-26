@@ -37,7 +37,7 @@ public class SelectWord extends AppCompatActivity {
         setContentView(R.layout.activity_select_word);
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         final Intent intent = getIntent();
-        position = (int) intent.getSerializableExtra("position");
+        position = (int) intent.getIntExtra("position",0);
         pos = (int) intent.getIntExtra("pos",0);
 
         wordList = (ArrayList<String>) intent.getSerializableExtra("list");
@@ -62,17 +62,17 @@ public class SelectWord extends AppCompatActivity {
         //click listener
         vue.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapter, View view, int positions, long id) {
 
 
-                String selected = (String) vue.getItemAtPosition(position);
+                String selected = (String) vue.getItemAtPosition(positions);
 
                 Intent intent_next = new Intent(SelectWord.this, PickupWord.class);
 
 
                 wordList.set(position, selected);
 
-                //     wordList.add(pos,selected);
+                //wordList.add(pos,selected);
                 intent_next.putExtra("list", wordList);
                 intent_next.putExtra("game", game);
                 intent_next.putExtra("pos", pos);

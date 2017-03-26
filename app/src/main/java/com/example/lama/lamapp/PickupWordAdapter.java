@@ -77,11 +77,7 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
 
         //Edit text
         EditText word = (EditText) convertView.findViewById(R.id.Layout_PickupWord_EditText_Word);
-        //Temporary Arraylist
-        word.setHint("Entrez un mot");
-        if (!list.get(position).isEmpty()) {
-            word.setText(list.get(position));
-        }
+
         //Adding listener on buttons
         precedent.setOnClickListener(this);
         dictionnaire.setOnClickListener(this);
@@ -94,6 +90,11 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
         random.setTag(position);
         ok.setTag(position);
 
+//Temporary Arraylist
+        word.setHint("Entrez un mot");
+        if (!list.get(position).isEmpty()) {
+            word.setText(list.get(position));
+        }
         return convertView;
 
     }
@@ -104,9 +105,10 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
         Intent activity;
         SharedPreferences sharedPreferences = this.context.getSharedPreferences("NBWord", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
         //Show the wordlist of previous word
         if (v.getId() == R.id.Layout_PickupWord_Button_Pastword) {
-
+            Log.i("PickupWord", "onClick: " + v.getTag());
             activity = new Intent(this.getContext(), SelectWord.class);
             activity.putExtra("position", (int) v.findViewById(R.id.Layout_PickupWord_Button_Pastword).getTag());
             activity.putExtra("list", list);
@@ -142,7 +144,7 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
         // ok button
         else if (v.getId() == R.id.Layout_PickupWord_Button_ok) {
 
-            if (list.size()>=0) {
+            if (list.size() >= 0) {
                 if (!list.get((int) v.getTag()).isEmpty()) {
                     editor.putInt("J" + pos, (sharedPreferences.getInt("J" + pos, 0) - 1));
                     editor.apply();
@@ -158,8 +160,7 @@ public class PickupWordAdapter extends ArrayAdapter<String> implements View.OnCl
 
                         v.getContext().startActivity(next);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(context, "Entrez un mot", Toast.LENGTH_SHORT).show();
                 }
                 this.notifyDataSetChanged();
