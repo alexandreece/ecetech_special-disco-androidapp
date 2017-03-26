@@ -3,7 +3,6 @@ package com.example.lama.lamapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.RelativeLayout;
@@ -30,31 +29,43 @@ public class EndTurn extends AppCompatActivity {
         String NameTeam;
 
         if(PlayerToPlay[0] == 0){
+
             NamePlayerToPlay = game.getNameJoueurTeamA(PlayerToPlay[1]);
             mPlayerName = (TextView) findViewById(R.id.text_player_name);
             mPlayerName.setText(NamePlayerToPlay);
             NameTeam = game.getNameTeamA();
+
             mTeamName = (TextView) findViewById(R.id.text_team);
             mTeamName.setText(NameTeam);
+            game.setNbPointRoundTeamA(game.getNbPointsTurn());
+
         }else if(PlayerToPlay[0] == 1){
+
             NamePlayerToPlay = game.getNameJoueurTeamB(PlayerToPlay[1]);
             mPlayerName = (TextView) findViewById(R.id.text_player_name);
             mPlayerName.setText(NamePlayerToPlay);
+
             NameTeam = game.getNameTeamB();
             mTeamName = (TextView) findViewById(R.id.text_team);
             mTeamName.setText(NameTeam);
+            game.setNbPointRoundTeamB(game.getNbPointsTurn());
+
         }else{
+
             NamePlayerToPlay = "Null";
             mPlayerName = (TextView) findViewById(R.id.text_player_name);
             mPlayerName.setText(NamePlayerToPlay);
+
             NameTeam = "Null";
             mTeamName = (TextView) findViewById(R.id.text_team);
             mTeamName.setText(NameTeam);
+
         }
 
         int Round = game.getCurrentRound();
         String CurrentRound;
         switch (Round){
+
             case 1:
                 CurrentRound = "Manche 1";
                 mCurrentRound = (TextView) findViewById(R.id.text_round);
@@ -91,26 +102,24 @@ public class EndTurn extends AppCompatActivity {
             TablePoint[i] = 0;
         }
 
-        for(int i = 0; i < game.getCount(); i++){
+        int point = game.getNbPointsTurn();
+        if(game.getLevel() == 2){
+            point = point * 2;
+        }
+
+        for(int i = 0; i < point; i++){
             Random rand = new Random();
             int player = rand.nextInt(game.getNbPlayers());
 
             TablePoint[player] = TablePoint[player] + 1;
         }
 
-        for(int i = 0; i < game.getNbPlayers(); i++){
-            Log.i("Table","Point = " + TablePoint[i]);
-        }
-
         final TextView[] myTextViews = new TextView[game.NbPlayers];
 
         RelativeLayout activity_end_turn = (RelativeLayout)findViewById(R.id.activity_end_turn);
-        Log.i("Nb","Players =" + game.getNbPlayers());
         int n = 450;
-        for (int i = 0; i < game.getNbPlayers(); i++) { // game.getNbPlayers()
+        for (int i = 0; i < game.getNbPlayers(); i++) {
             final TextView rowTextView = new TextView(this);
-            Log.i("val", " i =" + i );
-
             if (PlayerToPlay[0]  == 0){
                 rowTextView.setText(game.getNameJoueurTeamB(i)+ " ⟶ " + TablePoint[i] + " lamas");
             }else if (PlayerToPlay[0]  == 1){
@@ -132,33 +141,21 @@ public class EndTurn extends AppCompatActivity {
         }
     }
 
-    public void goto_NextPlayer(View view) {
+    public void goto_EndTurnRecap(View view) {
+
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
 
-        int[] LastPlayer = new int[2];
-        int[] NextPlayer = new int[2];
-        LastPlayer = game.getPlayerToPlay();
-
-        int NbPlayer = game.getNbPlayers();
-
-        if(LastPlayer[0] != 1 || LastPlayer[1] != NbPlayer-1){
-            if (LastPlayer[0] == 0){
-                NextPlayer[0] = 1;
-                NextPlayer[1] = LastPlayer[1];
-            }else if(LastPlayer[0] == 1){
-                NextPlayer[0] = 0;
-                NextPlayer[1] = LastPlayer[1]+1;
-            }
-        }else{
-            NextPlayer[0] = 0;
-            NextPlayer[1] = 0;
+        if(game.getCount() == game.getWords_List().size())
+        {
+            Intent intent_next = new Intent(EndTurn.this, EndRound.class);
+            intent_next.putExtra("game", game);
+            startActivity(intent_next);
+        } else {
+            Intent intent_next = new Intent(EndTurn.this, EndTurnRecap.class);
+            intent_next.putExtra("game", game);
+            startActivity(intent_next);
         }
 
-        game.setPlayerToPlay(NextPlayer);
-
-        Intent intent_next = new Intent(EndTurn.this, TestFragmentActivity.class);
-        intent_next.putExtra("game", game);
-        startActivity(intent_next);
     }
 }

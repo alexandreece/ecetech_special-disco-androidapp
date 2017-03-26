@@ -84,6 +84,6 @@
         android:id="@+id/button5"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="goto_NextPlayer"/>
+        android:onClick="goto_EndTurnRecap"/>
 
 </RelativeLayout>
