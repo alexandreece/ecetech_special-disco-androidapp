@@ -57,7 +57,6 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Didacticiel" />
-        <activity android:name=".EnterWord" />
         <activity android:name=".Premiere_manche" />
         <activity android:name=".Deuxieme_manche" />
         <activity android:name=".Troisieme_manche" />
@@ -71,7 +70,6 @@
             android:screenOrientation="landscape" />
         <activity android:name=".Activity_points" />
         <activity android:name=".ScoreActivity" />
-        <activity android:name=".Main2Activity" />
         <activity android:name=".EnterWord2" />
         <activity android:name=".PickupWord"></activity>
     </application>
