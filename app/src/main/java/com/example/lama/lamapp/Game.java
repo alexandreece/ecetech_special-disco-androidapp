@@ -3,6 +3,8 @@ package com.example.lama.lamapp;
 import com.example.lama.lamapp.DAOs.Joueur;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 class Game implements Serializable{
 
@@ -132,7 +134,10 @@ class Game implements Serializable{
     }
     public void setWords_List(ArrayList<String> pWordList){ this.Words_List = pWordList;}
     public void setWords_Current_List() {
+
         this.Words_Current_List.addAll(this.Words_List);
+        Random random = new Random();
+        Collections.shuffle(this.Words_Current_List,random);
     }
     public void addWord(String pWord){
         this.Words_List.add(pWord);
