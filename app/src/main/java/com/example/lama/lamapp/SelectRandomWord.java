@@ -1,6 +1,7 @@
 package com.example.lama.lamapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,22 +20,19 @@ public class SelectRandomWord extends AppCompatActivity {
     Random alea = new Random();
 
     private int pos;
-    private ArrayList<String> wordListA;
-    private ArrayList<String> wordListB;
+    private int position;
+    private ArrayList<String> wordList;
     private Game game;
-    private int ab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_random_word);
-
         //get data (int position, ArrayList<String> list) from enterWord adapter
         final Intent intent = getIntent();
-        pos = (int) intent.getSerializableExtra("position");
-        ab = (int) intent.getSerializableExtra("ab");
-        wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
-        wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
+        pos = (int) intent.getIntExtra("pos",0);
+        position = (int) intent.getIntExtra("position",0);
+        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
         game = (Game) intent.getSerializableExtra("game");
 
 
@@ -50,7 +48,6 @@ public class SelectRandomWord extends AppCompatActivity {
             if (mot.getCategory().equalsIgnoreCase("Faune"))
             {
                 liste.add(mot.getWord());
-                Log.i("Faune",mot.getWord());
             }
         }
         int index = alea.nextInt(liste.size());
@@ -64,7 +61,6 @@ public class SelectRandomWord extends AppCompatActivity {
             if (mot.getCategory().equalsIgnoreCase("Fictif"))
             {
                 liste.add(mot.getWord());
-                Log.i("Fictif",mot.getWord());
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
@@ -77,7 +73,6 @@ public class SelectRandomWord extends AppCompatActivity {
             if (mot.getCategory().equalsIgnoreCase("Flore"))
             {
                 liste.add(mot.getWord());
-                Log.i("Flore",mot.getWord());
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
@@ -91,7 +86,6 @@ public class SelectRandomWord extends AppCompatActivity {
             if (mot.getCategory().equalsIgnoreCase("Objet"))
             {
                 liste.add(mot.getWord());
-                Log.i("Objet",mot.getWord());
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
@@ -105,7 +99,6 @@ public class SelectRandomWord extends AppCompatActivity {
             if (mot.getCategory().equalsIgnoreCase("People"))
             {
                 liste.add(mot.getWord());
-                Log.i("People",mot.getWord());
             }
         }
         String ranMot = liste.get(alea.nextInt(liste.size()));
@@ -114,20 +107,15 @@ public class SelectRandomWord extends AppCompatActivity {
     }
 
     public void returnEnterWord(String mot){
-        Intent intent_next = new Intent(SelectRandomWord.this, EnterWord.class);
-        Log.i("SELECTED", "onItemClick: "+ pos);
-        Log.i("AB","AABB"+ab);
-        Log.i("WordlistA " , wordListA.toString());
-        if(ab == 1){
-        wordListA.set(pos,mot);}
-        else if(ab == 2){
-        wordListB.set(pos,mot);}
+        Intent intent_next = new Intent(SelectRandomWord.this, PickupWord.class);
 
 
-        intent_next.putExtra("wordlistA", wordListA);
-        intent_next.putExtra("wordlistB", wordListB);
+        wordList.set(position,mot);
+
+
+        intent_next.putExtra("list", wordList);
+        intent_next.putExtra("pos", pos);
         intent_next.putExtra("game", game);
-        intent_next.putExtra("ab",ab);
         startActivity(intent_next);
     }
 }

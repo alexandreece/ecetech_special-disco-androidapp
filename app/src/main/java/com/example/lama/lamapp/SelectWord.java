@@ -25,10 +25,9 @@ public class SelectWord extends AppCompatActivity {
     ListView vue;
 
     private int pos;
-    private ArrayList<String> wordListA;
-    private ArrayList<String> wordListB;
+    private int position;
+    private ArrayList<String> wordList;
     private Game game;
-    private int ab;
     private Vibrator vibe;
 
 
@@ -37,12 +36,11 @@ public class SelectWord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word);
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        //get data (int position, ArrayList<String> list) from enterWord adapter
         final Intent intent = getIntent();
-        pos = (int) intent.getSerializableExtra("position");
-        ab = (int) intent.getSerializableExtra("ab");
-        wordListA = (ArrayList<String>) intent.getSerializableExtra("listA");
-        wordListB = (ArrayList<String>) intent.getSerializableExtra("listB");
+        position = (int) intent.getSerializableExtra("position");
+        pos = (int) intent.getIntExtra("pos",0);
+
+        wordList = (ArrayList<String>) intent.getSerializableExtra("list");
         game = (Game) intent.getSerializableExtra("game");
 
         //get word from DB
@@ -53,11 +51,11 @@ public class SelectWord extends AppCompatActivity {
         vue = (ListView) findViewById(R.id.list);
 
         List<String> liste = new ArrayList<String>();
-        for (Word mot : words){
+        for (Word mot : words) {
             liste.add(mot.getWord());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, liste);
         vue.setAdapter(adapter);
 
 
@@ -68,24 +66,20 @@ public class SelectWord extends AppCompatActivity {
 
 
                 String selected = (String) vue.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),selected,Toast.LENGTH_SHORT).show();
 
-                Intent intent_next = new Intent(SelectWord.this, EnterWord.class);
-                Log.i("SELECTED", "onItemClick: "+ selected);
+                Intent intent_next = new Intent(SelectWord.this, PickupWord.class);
 
-                if(ab == 1){
-                    wordListA.set(pos,selected);}
-                else if(ab == 2){
-                    wordListB.set(pos,selected);}
 
-           //     wordList.add(pos,selected);
-                intent_next.putExtra("wordlistA", wordListA);
-                intent_next.putExtra("wordlistB", wordListB);
+                wordList.set(position, selected);
+
+                //     wordList.add(pos,selected);
+                intent_next.putExtra("list", wordList);
                 intent_next.putExtra("game", game);
-                intent_next.putExtra("ab",ab);
+                intent_next.putExtra("pos", pos);
+
 
                 vibe.vibrate(400); // 50 is time in ms
-               startActivity(intent_next);
+                startActivity(intent_next);
             }
         });
     }
