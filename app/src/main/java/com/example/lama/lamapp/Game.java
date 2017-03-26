@@ -28,12 +28,14 @@ class Game implements Serializable{
     int CurrentRound;
     int[] PlayerToPlay = new int[2];
     int NbPointsTurn;
-    int NbPointsTurnTeamA;
-    int NbPointsTurnTeamB;
     int NbPointsRoundTeamA;
     int NbPointsRoundTeamB;
+    int WinRoundTeamA;
+    int WinRoundTeamB;
 
     int Count;
+
+    int Quit;
 
     // ----- CONSTRUCTOR ----- //
     public Game() {
@@ -44,13 +46,14 @@ class Game implements Serializable{
         NbWords = 0;
         Word = "";
         Count = 0;
+        Quit = 0 ;
         CurrentWord = 0;
         CurrentRound = 0;
         PlayerToPlay[0] = 0;
         PlayerToPlay[1] = 0;
         NbPointsTurn = 0;
-        NbPointsTurnTeamA = 0;
-        NbPointsTurnTeamB = 0;
+        WinRoundTeamA = 0;
+        WinRoundTeamB = 0;
         NbPointsRoundTeamA = 0;
         NbPointsRoundTeamB = 0;
     }
@@ -103,14 +106,17 @@ class Game implements Serializable{
 
     public int getCurrentRound(){ return CurrentRound; }
     public int getNbPointsTurn()  { return NbPointsTurn; }
-    public int getNbPointsTurnTeamA() { return NbPointsTurnTeamA; }
-    public int getNbPointsTurnTeamB() { return NbPointsTurnTeamB; }
     public int getNbPointsRoundTeamA() {
         return NbPointsRoundTeamA;
     }
     public int getNbPointsRoundTeamB() { return NbPointsRoundTeamB; }
+    public int getWinRoundTeamA() {
+        return WinRoundTeamA;
+    }
+    public int getWinRoundTeamB() { return WinRoundTeamB; }
 
     public int getCount() { return Count; }
+    public int getQuit() { return Quit; }
 
     // ----- SETTERS ----- //
     public void setLevel(int pLevel){
@@ -149,20 +155,21 @@ class Game implements Serializable{
     public void setNbPointsTurn(int pNbPointsTurn){
         NbPointsTurn = pNbPointsTurn;
     }
-    public void setNbPointsTurnTeamA(int pNbPointsTurn){
-        NbPointsTurnTeamA = pNbPointsTurn;
-    }
-    public void setNbPointsTurnTeamB(int pNbPointsTurn){
-        NbPointsTurnTeamB = pNbPointsTurn;
-    }
     public void setNbPointRoundTeamA(int pNbPointsRound){
         NbPointsRoundTeamA = pNbPointsRound;
     }
     public void setNbPointRoundTeamB(int pNbPointsRound){
         NbPointsRoundTeamB = pNbPointsRound;
     }
+    public void setWinRoundTeamA(){
+        WinRoundTeamA++;
+    }
+    public void setWinRoundTeamB(){
+        WinRoundTeamB++;
+    }
 
     public void setCount(int pCount) { Count = pCount; }
+    public void setQuit(int pQuit) { Quit = pQuit; }
 
     @Override
     public String toString() {
@@ -176,8 +183,6 @@ class Game implements Serializable{
                 ", NbWords=" + NbWords +
                 ", Words_List=" + Words_List +
                 ", Word='" + Word + '\'' +
-                ", NbPointsTurnTeamA=" + NbPointsTurnTeamA +
-                ", NbPointsTurnTeamB=" + NbPointsTurnTeamB +
                 ", NbPointsRoundTeamA=" + NbPointsRoundTeamA +
                 ", NbPointsRoundTeamB=" + NbPointsRoundTeamB +
                 '}';
