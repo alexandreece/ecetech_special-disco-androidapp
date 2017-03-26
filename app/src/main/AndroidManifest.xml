@@ -65,12 +65,10 @@
         <activity android:name=".Fin_de_manche_recap" />
         <activity
             android:name=".TestFragmentActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".EndTurn"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:screenOrientation="landscape" />
         <activity android:name=".Activity_points" />
         <activity android:name=".ScoreActivity" />
         <activity android:name=".Main2Activity" />
