@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.example.lama.lamapp.DAOs.Joueur;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -116,8 +118,8 @@ public class EnterWordAdapter2 extends BaseAdapter implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.Layout_enterword_content_button_joueur) {
-
             Intent next = new Intent(v.getContext(), PickupWord.class);
+
             next.putExtra("pos", (int) v.getTag());
             next.putExtra("game", game);
 
