@@ -31,6 +31,8 @@ class Game implements Serializable{
     int NbPointsRoundTeamA;
     int NbPointsRoundTeamB;
 
+    int Count;
+
     // ----- CONSTRUCTOR ----- //
     public Game() {
         Level = 0;
@@ -39,6 +41,7 @@ class Game implements Serializable{
         TeamB = "";
         NbWords = 0;
         Word = "";
+        Count = 0;
         CurrentWord = 0;
         CurrentRound = 0;
         PlayerToPlay[0] = 0;
@@ -103,9 +106,9 @@ class Game implements Serializable{
     public int getNbPointsRoundTeamA() {
         return NbPointsRoundTeamA;
     }
-    public int getNbPointsRoundTeamB() {
-        return NbPointsRoundTeamB;
-    }
+    public int getNbPointsRoundTeamB() { return NbPointsRoundTeamB; }
+
+    public int getCount() { return Count; }
 
     // ----- SETTERS ----- //
     public void setLevel(int pLevel){
@@ -153,6 +156,8 @@ class Game implements Serializable{
     public void setNbPointRoundTeamB(int pNbPointsRound){
         NbPointsRoundTeamB = pNbPointsRound;
     }
+
+    public void setCount(int pCount) { Count = pCount; }
 
     @Override
     public String toString() {
