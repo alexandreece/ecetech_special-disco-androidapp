@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Joueur;
 
@@ -85,12 +86,18 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.ActivityEnterword2_button){
-            Intent next = new Intent(EnterWord2.this, StartRound.class);
-            game.setWords_Current_List();
-            game.setCurrentRound(1);
-            next.putExtra("game", game);
-            Log.i("Game launching ", "onClick: "+game.getWords_List().toString());
-            startActivity(next);
+            if(game.getWords_List().size() < (game.getNbWords()* (game.getNbPlayers()*2))){
+                Toast.makeText(this, "Tous les mots ne sont pas remplis", Toast.LENGTH_SHORT).show();
+
+            }
+            else {
+                Intent next = new Intent(EnterWord2.this, StartRound.class);
+                game.setWords_Current_List();
+                game.setCurrentRound(1);
+                next.putExtra("game", game);
+                Log.i("Game launching ", "onClick: " + game.getWords_List().toString());
+                startActivity(next);
+            }
         }
     }
 }

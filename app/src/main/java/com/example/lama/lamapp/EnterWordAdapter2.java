@@ -96,9 +96,8 @@ public class EnterWordAdapter2 extends BaseAdapter implements View.OnClickListen
                 Joueur player = (Joueur) getItemList(position);
                 Button joueur = (Button) convertView.findViewById(R.id.Layout_enterword_content_button_joueur);
 
-                joueur.setText(player.getNomJoueur()+ " : " + (game.getNbWords() - sharedPreferences.getInt("J" + position, 0)) + "/" + game.getNbWords());
+                joueur.setText(player.getNomJoueur()+ " : " + (game.getNbWords() - sharedPreferences.getInt("J" + position, 0)) + "/" + game.getNbWords() + " mots");
                 joueur.setOnClickListener(this);
-               // joueur.setText(Integer.toString(position) + " : " + (game.getNbWords() - sharedPreferences.getInt("J" + position, 0)) + "/" + game.getNbWords());
                 joueur.setTag(position);
                 if (sharedPreferences.getInt("J" + position, 0) == 0) {
                     joueur.setEnabled(false);
@@ -118,6 +117,7 @@ public class EnterWordAdapter2 extends BaseAdapter implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.Layout_enterword_content_button_joueur) {
+
             Intent next = new Intent(v.getContext(), PickupWord.class);
 
             next.putExtra("pos", (int) v.getTag());
