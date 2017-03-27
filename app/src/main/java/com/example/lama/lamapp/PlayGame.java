@@ -1,9 +1,11 @@
 package com.example.lama.lamapp;
 
 import android.content.Intent;
+import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -92,9 +94,10 @@ public class PlayGame extends AppCompatActivity {
                 break;
         }
 
-
         if(game.getLevel() == 2){
-//            rowTextView.setBackgroundColor(0); Change Button Color Disable
+            final Button button_quit = (Button) findViewById(R.id.button_quit_word);
+            button_quit.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFF016566));
+            button_quit.setTextColor(0xFFFF0000);
         }
 
         mWord = (TextView) findViewById(R.id.ShowWord);
@@ -133,9 +136,12 @@ public class PlayGame extends AppCompatActivity {
                         }
                     });
                 }
-                Intent intent_next = new Intent(PlayGame.this, EndTurn.class);
-                intent_next.putExtra("game", game);
-                startActivity(intent_next);
+                Log.i("-", "Count = " + game.getCount());
+                if(game.getCount() < game.Words_List.size()) {
+                    Intent intent_next = new Intent(PlayGame.this, EndTurn.class);
+                    intent_next.putExtra("game", game);
+                    startActivity(intent_next);
+                }
             }
         };
         new Thread(runnable).start();
@@ -194,7 +200,8 @@ public class PlayGame extends AppCompatActivity {
                                 if(game.getLevel() == 1) game.setQuit(quit++);
 
                                 if(game.getQuit() == 3){
-                                    //               rowTextView.setBackgroundColor(0); Change Button Color Disable
+                                    button_quit.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFF016566));
+                                    button_quit.setTextColor(0xFF017E80);
                                 }
 
                                 int CurrentWord = game.getCurrentWord();
