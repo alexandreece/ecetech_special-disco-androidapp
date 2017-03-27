@@ -11,67 +11,87 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MenuJeu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SelectLevel">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.SelectLevel" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".GameConfiguration">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.GameConfiguration" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".PlayersName"
             android:windowSoftInputMode="adjustPan">
-
             <!-- android:windowSoftInputMode="stateHidden"> -->
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.PlayersName" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Test">
             <intent-filter>
                 <action android:name="com.example.lama.lamapp.Test" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SelectRandomWord" />
+
         <activity android:name=".SelectWord" />
-        <activity
-            android:name=".InGame"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity android:name=".Didacticiel" />
-        <activity android:name=".Premiere_manche" />
-        <activity android:name=".Deuxieme_manche" />
-        <activity android:name=".Troisieme_manche" />
-        <activity android:name=".Fin_de_manche" />
-        <activity android:name=".Fin_de_manche_recap" />
+
+        <activity android:name=".Activity_points" />
+
+        <activity android:name=".ScoreActivity" />
+
+        <activity android:name=".EnterWord2" />
+
+        <activity android:name=".PickupWord" />
+
         <activity
-            android:name=".TestFragmentActivity"
+            android:name=".EndTurnRecap"
             android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".StartRound"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".StartTurn"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".PlayGame"
+            android:screenOrientation="landscape" />
+
         <activity
             android:name=".EndTurn"
             android:screenOrientation="landscape" />
-        <activity android:name=".Activity_points" />
-        <activity android:name=".ScoreActivity" />
-        <activity android:name=".EnterWord2" />
-        <activity android:name=".PickupWord"></activity>
+
+        <activity
+            android:name=".EndRound"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".EndGame"
+            android:screenOrientation="landscape" />
+
     </application>
 
 </manifest>

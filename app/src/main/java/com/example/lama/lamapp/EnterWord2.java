@@ -85,7 +85,7 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.ActivityEnterword2_button){
-            Intent next = new Intent(EnterWord2.this, TestFragmentActivity.class);
+            Intent next = new Intent(EnterWord2.this, StartRound.class);
             game.setWords_Current_List();
             game.setCurrentRound(1);
             next.putExtra("game", game);
