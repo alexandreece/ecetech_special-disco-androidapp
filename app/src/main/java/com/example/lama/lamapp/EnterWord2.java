@@ -53,10 +53,10 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
             params.height = 1800;
         }
         else if(game.getNbPlayers() == 4){
-            params.height = 2000;
+            params.height = 2200;
         }
         else if(game.getNbPlayers() == 5){
-            params.height = 2200;
+            params.height = 2600;
         }
         layout.setLayoutParams(params);
 
