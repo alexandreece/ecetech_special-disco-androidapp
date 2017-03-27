@@ -3,6 +3,7 @@ package com.example.lama.lamapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ public class EndGame extends AppCompatActivity {
 
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
+
+        Log.i("End","Game");
 
         String text;
 
@@ -41,6 +44,14 @@ public class EndGame extends AppCompatActivity {
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
 
+        game.setCurrentRound(0);
+        game.setNbPointRoundTeamA(0);
+        game.setNbPointRoundTeamB(0);
+        game.setNbPointsTurn(0);
+        game.setCurrentWord(0);
+        game.setCount(0);
+        game.setQuit(0);
+
         Intent intent_next = new Intent(EndGame.this, EnterWord2.class);
         intent_next.putExtra("game", game);
         startActivity(intent_next);
@@ -49,6 +60,14 @@ public class EndGame extends AppCompatActivity {
     public void goto_Main(View view) {
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
+
+        game.setCurrentRound(0);
+        game.setNbPointRoundTeamA(0);
+        game.setNbPointRoundTeamB(0);
+        game.setNbPointsTurn(0);
+        game.setCurrentWord(0);
+        game.setCount(0);
+        game.setQuit(0);
 
         Intent intent_next = new Intent(EndGame.this, MenuJeu.class);
         intent_next.putExtra("game", game);
