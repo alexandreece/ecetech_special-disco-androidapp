@@ -81,7 +81,7 @@ A chaque tour, un nouveau joueur fait deviner les mots, en alternant a chaque fo
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="140dp"
+                android:layout_width="110dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="30dp"
@@ -89,7 +89,7 @@ A chaque tour, un nouveau joueur fait deviner les mots, en alternant a chaque fo
                 android:background="@drawable/gradient_box"
                 android:backgroundTint="?attr/colorButtonNormal"
                 android:onClick="goto_MenuJeu"
-                android:text="Retour"
+                android:text="Ok"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
