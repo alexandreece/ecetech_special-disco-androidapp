@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.lama.lamapp.DAOs.Joueur;
 
@@ -73,21 +75,27 @@ public class PlayersName extends Activity implements OnClickListener {
     // action button "valider"
     @Override
     public void onClick(View v) {
-        //team name
-        game.setNameTeamA(teamA.getText().toString());
-        game.setNameTeamB(teamB.getText().toString());
+        if(teamA.getText().toString().isEmpty() ||teamB.getText().toString().isEmpty() ){
+            Toast.makeText(this, "Tous les champs ne sont pas remplis", Toast.LENGTH_SHORT).show();
 
-        //team players
-        game.addTeamA(adapterA.getList());
-        game.addTeamB(adapterB.getList());
+        }
+        else {
+            //team name
+            game.setNameTeamA(teamA.getText().toString());
+            game.setNameTeamB(teamB.getText().toString());
 
-        //sendind game object to next class
+            //team players
+            game.addTeamA(adapterA.getList());
+            game.addTeamB(adapterB.getList());
 
-        Intent intent_next = new Intent(PlayersName.this, EnterWord2.class);
-        intent_next.putExtra("game", game);
-        startActivity(intent_next);
+            //sendind game object to next class
 
+            Intent intent_next = new Intent(PlayersName.this, EnterWord2.class);
+            intent_next.putExtra("game", game);
+            startActivity(intent_next);
+        }
 
 
     }
+
 }
