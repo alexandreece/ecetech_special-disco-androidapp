@@ -5,8 +5,11 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,8 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
     public Game game;
     public ArrayList<Object> list;
     public Button valider;
+    // Gets linearlayout
+    public LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +36,30 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
         Intent intent = getIntent();
         game = (Game) intent.getSerializableExtra("game");
 
+
         //creation de l'activité
         setContentView(R.layout.activity_enter_word2);
+        layout = (LinearLayout)findViewById(R.id.ActivityEnterword2_LinearLayout_Listviewconstraint);
         ListView listView = (ListView) findViewById(R.id.ActivityEnterword2_listView);
         valider = (Button) findViewById(R.id.ActivityEnterword2_button);
         valider.setOnClickListener(this);
+        // Gets the layout params that will allow you to resize the layout
+        ViewGroup.LayoutParams params = layout.getLayoutParams();
+// Changes the height and width to the specified *pixels*
+        if(game.getNbPlayers() == 2){
+            params.height = 1400;
+        }
+        else if(game.getNbPlayers() == 3){
+            params.height = 1600;
+        }
+        else if(game.getNbPlayers() == 4){
+            params.height = 1800;
+        }
+        else if(game.getNbPlayers() == 5){
+            params.height = 2000;
+        }
+        layout.setLayoutParams(params);
+
 
         // fusion des deux listes de joueurs
         list = mergeList(game.getTeamA_List_Joueurs(), game.getTeamB_List_Joueurs(), game.TeamA, game.TeamB);
@@ -83,6 +107,9 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
         return list;
     }
 
+    public void setLayoutSize(){
+
+    }
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.ActivityEnterword2_button){
