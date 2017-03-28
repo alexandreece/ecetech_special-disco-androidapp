@@ -47,16 +47,16 @@ public class EnterWord2 extends AppCompatActivity implements View.OnClickListene
         ViewGroup.LayoutParams params = layout.getLayoutParams();
         // Changes the height and width to the specified *pixels*
         if(game.getNbPlayers() == 2){
-            params.height = 1500;
+            params.height = 900;
         }
         else if(game.getNbPlayers() == 3){
-            params.height = 1900;
+            params.height = 1200;
         }
         else if(game.getNbPlayers() == 4){
-            params.height = 2300;
+            params.height = 1500;
         }
         else if(game.getNbPlayers() == 5){
-            params.height = 2700;
+            params.height = 1750;
         }
         layout.setLayoutParams(params);
 
