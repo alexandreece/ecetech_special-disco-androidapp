@@ -36,8 +36,6 @@
         android:id="@+id/button_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
         android:onClick="goto_StartTurn"
         android:paddingLeft="70dp"
@@ -45,6 +43,10 @@
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         android:text="PASSER"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp" />
 
 </RelativeLayout>
