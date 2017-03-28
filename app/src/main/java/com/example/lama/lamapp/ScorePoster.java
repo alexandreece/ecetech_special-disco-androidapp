@@ -1,16 +1,12 @@
 package com.example.lama.lamapp;
 
-import android.util.Log;
-
-import java.io.BufferedInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-
-import static android.content.ContentValues.TAG;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by alexandre on 28/03/2017.
@@ -26,36 +22,70 @@ public class ScorePoster {
         String dataTeamB = game.getNameTeamB() + "&" +game.getWinRoundTeamB() + "&" + game.getNbPlayers() + "&" +game.getLevel();
 
 
+        byte[] postData       = dataTeamA.getBytes( StandardCharsets.UTF_8 );
+        int    postDataLength = postData.length;
+        String request        = urlServ;
+        URL    url            = null;
         try {
-            URL url = new URL(urlServ+dataTeamA);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            // read the response
-            InputStream in = new BufferedInputStream(conn.getInputStream());
+            url = new URL( request );
         } catch (MalformedURLException e) {
-            Log.e(TAG, "MalformedURLException: " + e.getMessage());
-        } catch (ProtocolException e) {
-            Log.e(TAG, "ProtocolException: " + e.getMessage());
+            e.printStackTrace();
+        }
+        HttpURLConnection conn= null;
+        try {
+            conn = (HttpURLConnection) url.openConnection();
         } catch (IOException e) {
-            Log.e(TAG, "IOException: " + e.getMessage());
-        } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+        conn.setDoOutput( true );
+        conn.setInstanceFollowRedirects( false );
+        try {
+            conn.setRequestMethod( "POST" );
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        conn.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded");
+        conn.setRequestProperty( "charset", "utf-8");
+        conn.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
+        conn.setUseCaches( false );
+        try {
+            try( DataOutputStream wr = new DataOutputStream( conn.getOutputStream())) {
+                wr.write( postData );
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+        postData       = dataTeamB.getBytes( StandardCharsets.UTF_8 );
+        postDataLength = postData.length;
+        URL    urlB            = null;
         try {
-            URL url = new URL(urlServ+dataTeamB);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            // read the response
-            InputStream in = new BufferedInputStream(conn.getInputStream());
+            urlB = new URL( request );
         } catch (MalformedURLException e) {
-            Log.e(TAG, "MalformedURLException: " + e.getMessage());
-        } catch (ProtocolException e) {
-            Log.e(TAG, "ProtocolException: " + e.getMessage());
+            e.printStackTrace();
+        }
+        try {
+            conn= (HttpURLConnection) urlB.openConnection();
         } catch (IOException e) {
-            Log.e(TAG, "IOException: " + e.getMessage());
-        } catch (Exception e) {
-            Log.e(TAG, "Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+        conn.setDoOutput( true );
+        conn.setInstanceFollowRedirects( false );
+        try {
+            conn.setRequestMethod( "POST" );
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        conn.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded");
+        conn.setRequestProperty( "charset", "utf-8");
+        conn.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
+        conn.setUseCaches( false );
+        try {
+            try( DataOutputStream wr = new DataOutputStream( conn.getOutputStream())) {
+                wr.write( postData );
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
