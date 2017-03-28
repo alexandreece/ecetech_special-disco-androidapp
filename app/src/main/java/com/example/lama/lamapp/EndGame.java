@@ -24,6 +24,9 @@ public class EndGame extends AppCompatActivity {
         Game game = (Game) intent.getSerializableExtra("game");
 
         //POST Scores
+        Log.i("POST","avant");
+        ScorePoster.post(game);
+        Log.i("POST","apres");
 
         String text;
 
