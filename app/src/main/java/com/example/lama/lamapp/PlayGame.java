@@ -1,9 +1,11 @@
 package com.example.lama.lamapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -128,6 +130,7 @@ public class PlayGame extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
                     final String finalTimer = Integer.toString(timer);
                     handler.post(new Runnable() {
                         public void run() {
@@ -135,9 +138,15 @@ public class PlayGame extends AppCompatActivity {
                             mTimer.setText(finalTimer);
                         }
                     });
+
+                    if (timer <= 5 && game.getCount() < game.Words_List.size()) {
+                        Vibrator vibreur = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        Log.i("Vibreur", "" + vibreur.hasVibrator());
+                        long[] pattern = {0, 800, 200};
+                        vibreur.vibrate(pattern, -1);
+                    }
                 }
-                Log.i("-", "Count = " + game.getCount());
-                if(game.getCount() < game.Words_List.size()) {
+                if (game.getCount() < game.Words_List.size() && timer == 0) {
                     Intent intent_next = new Intent(PlayGame.this, EndTurn.class);
                     intent_next.putExtra("game", game);
                     startActivity(intent_next);
