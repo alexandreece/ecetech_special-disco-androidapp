@@ -77,9 +77,8 @@ public class PlayersName extends Activity implements OnClickListener {
     // action button "valider"
     @Override
     public void onClick(View v) {
-        if(teamA.getText().toString().isEmpty() ||teamB.getText().toString().isEmpty() ){
+        if(teamA.getText().toString().isEmpty() ||teamB.getText().toString().isEmpty() || useLoop(adapterA.getList()) !=false || useLoop(adapterB.getList()) !=false ){
             Toast.makeText(this, "Tous les champs ne sont pas remplis", Toast.LENGTH_SHORT).show();
-
         }
         else {
             //team name
@@ -98,6 +97,14 @@ public class PlayersName extends Activity implements OnClickListener {
         }
 
 
+    }
+
+    public static boolean useLoop(ArrayList<Joueur> arr) {
+        for(Joueur J: arr){
+            if(J.getNomJoueur().compareTo("") ==0)
+                return true;
+        }
+        return false;
     }
 
 }

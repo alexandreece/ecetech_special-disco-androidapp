@@ -21,6 +21,8 @@ public class Joueur implements Serializable {
     }
 
     public Joueur() {
+        idJoueur = 0;
+        nomJoueur ="";
     }
 
     public int getIdJoueur() {

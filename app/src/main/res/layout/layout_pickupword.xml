@@ -30,7 +30,7 @@
         android:layout_below="@+id/Layout_PickupWord_Button_ok"
         android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/Layout_PickupWord_Button_Randomword"
-        android:text="Dictionnaire" />
+        android:text="Dico" />
 
 
     <EditText
@@ -51,9 +51,8 @@
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:text="Ok"
-        android:layout_alignBaseline="@+id/Layout_PickupWord_EditText_Word"
         android:layout_alignBottom="@+id/Layout_PickupWord_EditText_Word"
-        android:layout_alignEnd="@+id/Layout_PickupWord_Button_Dicoword" />
+        android:layout_alignParentEnd="true" />
 
 
 
