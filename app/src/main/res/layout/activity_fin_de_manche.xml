@@ -29,7 +29,8 @@
         android:textStyle="normal|bold"
         android:layout_marginTop="27dp"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center"/>
 
     <TextView
         android:text="Manche terminée !"
@@ -42,7 +43,8 @@
         android:textColor="?android:attr/colorActivatedHighlight"
         android:layout_below="@+id/title_scores"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:gravity="center"/>
 
     <TextView
         android:text="10"
@@ -54,7 +56,8 @@
         android:textStyle="normal|bold"
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7" />
+        android:layout_toEndOf="@+id/textView7"
+        android:gravity="center"/>
 
     <Button
         android:text="Toucher pour passer"
@@ -79,6 +82,7 @@
         android:textStyle="normal|bold"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/textView3"
-        android:layout_toEndOf="@+id/title_scores" />
+        android:layout_toEndOf="@+id/title_scores"
+        android:gravity="center"/>
 
 </RelativeLayout>
