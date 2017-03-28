@@ -1,20 +1,13 @@
 package com.example.lama.lamapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.lama.lamapp.DAOs.Joueur;
 import com.example.lama.lamapp.DAOs.Word;
 
 import java.util.ArrayList;
@@ -28,14 +21,12 @@ public class SelectWord extends AppCompatActivity {
     private int position;
     private ArrayList<String> wordList;
     private Game game;
-    private Vibrator vibe;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word);
-        vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         final Intent intent = getIntent();
         position = (int) intent.getIntExtra("position",0);
         pos = (int) intent.getIntExtra("pos",0);
@@ -78,7 +69,6 @@ public class SelectWord extends AppCompatActivity {
                 intent_next.putExtra("pos", pos);
 
 
-                vibe.vibrate(400); // 50 is time in ms
                 startActivity(intent_next);
             }
         });
