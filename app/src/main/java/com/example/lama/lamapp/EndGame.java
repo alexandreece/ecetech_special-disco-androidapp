@@ -23,11 +23,7 @@ public class EndGame extends AppCompatActivity {
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
 
-        try {
-            ScorePoster.Post(game);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        //POST Scores
 
         String text;
 
