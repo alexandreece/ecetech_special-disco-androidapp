@@ -16,7 +16,8 @@
         android:textStyle="normal|bold"
         android:layout_marginTop="72dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center"/>
 
     <TextView
         android:text="Un seul mot est permis"
@@ -29,7 +30,8 @@
         android:textColor="?android:attr/colorActivatedHighlight"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/title_scores"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center"/>
 
     <Button
         android:text="Toucher pour passer"
@@ -42,7 +44,8 @@
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="normal|bold"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        />
 
 
 </RelativeLayout>
