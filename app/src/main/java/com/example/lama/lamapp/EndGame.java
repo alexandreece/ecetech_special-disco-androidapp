@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.UnsupportedEncodingException;
+
 public class EndGame extends AppCompatActivity {
 
     TextView mText;
@@ -20,6 +22,12 @@ public class EndGame extends AppCompatActivity {
 
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
+
+        try {
+            ScorePoster.Post(game);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         String text;
 
