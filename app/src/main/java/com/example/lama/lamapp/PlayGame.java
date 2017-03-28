@@ -231,7 +231,6 @@ public class PlayGame extends AppCompatActivity {
                                 }
                             }
                         }
-
                     }
                 });
             }
