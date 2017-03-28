@@ -47,7 +47,8 @@
                         android:layout_height="match_parent"
                         android:layout_alignParentStart="true"
                         android:layout_below="@+id/ActivityEnterword2_button"
-                        android:layout_weight="16.66" />
+                        android:layout_weight="16.66"
+                        android:divider="@null"/>
                 </LinearLayout>
 
                 <Button
