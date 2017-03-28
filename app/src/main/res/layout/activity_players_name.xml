@@ -14,103 +14,122 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/playerName_Textview_textEqA"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Nommez l'équipe A"
-                android:textAlignment="center"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textSize="28sp"
-                android:textStyle="normal|bold" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/playerName_Editext_nameEqA"
-                android:layout_width="250dp"
-                android:layout_height="30dp"
-                android:layout_alignStart="@+id/playerName_Editext_nameEqB"
-                android:layout_below="@+id/playerName_Textview_textEqA"
-                android:layout_marginBottom="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="9dp"
-                android:background="@color/colorText"
-                android:ems="10"
-                android:hint="Exemple : LAMAtiere"
-                android:inputType="textPersonName"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/playerName_Textview_textEqA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Nommez l'équipe A"
+                    android:textAlignment="center"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                    android:textSize="28sp"
+                    android:textStyle="normal|bold" />
+
+                <EditText
+                    android:id="@+id/playerName_Editext_nameEqA"
+                    android:layout_width="273dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@color/colorText"
+                    android:ems="10"
+                    android:hint="Exemple : LAMAtiere"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/PlayersName_LinearLayout_ListviewconstraintA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/playerName_ListView_listA"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_below="@id/playerName_Editext_nameEqA"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1">
+
+                    </ListView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/playerName_TextView_textEqB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/playerName_ListView_listA"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Nommez l'équipe B"
+                    android:textAlignment="center"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                    android:textSize="28sp"
+                    android:textStyle="normal|bold" />
+
+                <EditText
+                    android:id="@+id/playerName_Editext_nameEqB"
+                    android:layout_width="273dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@color/colorText"
+                    android:ems="10"
+                    android:hint="Exemple : LAMAtrice"
+                    android:inputType="textPersonName"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/PlayersName_LinearLayout_ListviewconstraintB"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/playerName_Listview_listB"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/playerName_Editext_nameEqB"
+                        android:layout_weight="1">
+
+                    </ListView>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/playerName_Button_okPlayerName"
+                    android:layout_width="181dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@+id/playerName_Listview_listB"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/gradient_box"
+                    android:backgroundTint="?attr/colorButtonNormal"
+                    android:text="Valider"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
 
-            <ListView
-                android:id="@+id/playerName_ListView_listA"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_below="@id/playerName_Editext_nameEqA"
-                android:layout_marginBottom="20dp">
-
-            </ListView>
-
-
-            <ListView
-                android:id="@+id/playerName_Listview_listB"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/playerName_Editext_nameEqB">
-
-            </ListView>
-
-
-            <TextView
-                android:id="@+id/playerName_TextView_textEqB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/playerName_ListView_listA"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Nommez l'équipe B"
-                android:textAlignment="center"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textSize="28sp"
-                android:textStyle="normal|bold" />
-
-            <EditText
-                android:id="@+id/playerName_Editext_nameEqB"
-                android:layout_width="250dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/playerName_TextView_textEqB"
-                android:layout_marginBottom="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="9dp"
-                android:background="@color/colorText"
-                android:ems="10"
-                android:hint="Exemple : LAMAtrice"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/playerName_Button_okPlayerName"
-                android:layout_width="200dp"
-                android:layout_height="38dp"
-                android:layout_below="@+id/playerName_Listview_listB"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/gradient_box"
-                android:backgroundTint="?attr/colorButtonNormal"
-                android:text="Valider"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp" />
         </RelativeLayout>
 
     </ScrollView>
