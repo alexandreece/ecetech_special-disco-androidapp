@@ -21,16 +21,14 @@ public class EndGame extends AppCompatActivity {
         Intent intent = getIntent();
         Game game = (Game) intent.getSerializableExtra("game");
 
-        Log.i("End","Game");
-
         String text;
 
         if(game.getWinRoundTeamA() > game.getWinRoundTeamB()) {
-            text = game.getNameTeamA() + " remporte la partie !";
+            text = game.getNameTeamA() + "\n remporte la partie !";
             mText = (TextView) findViewById(R.id.text_winner);
             mText.setText(text);
         } else if(game.getWinRoundTeamA() < game.getWinRoundTeamB()) {
-            text = game.getNameTeamB() + " remporte la partie !";
+            text = game.getNameTeamB() + "\n remporte la partie !";
             mText = (TextView) findViewById(R.id.text_winner);
             mText.setText(text);
         } else if(game.getWinRoundTeamA() == game.getWinRoundTeamB()) {
